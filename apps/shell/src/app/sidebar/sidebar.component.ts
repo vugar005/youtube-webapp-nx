@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
+import { SIDEBAR_NAV_ENDPOINTS } from './sidebar.constants';
 
 @Component({
   selector: 'yt-sidebar',
@@ -6,4 +7,12 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./sidebar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SidebarComponent {}
+export class SidebarComponent {
+  @Output() readonly toggleMenu = new EventEmitter<void>();
+
+  public readonly endpointLinks = SIDEBAR_NAV_ENDPOINTS;
+
+  public onToggleMenu(): void {
+    this.toggleMenu.next();
+  }
+}

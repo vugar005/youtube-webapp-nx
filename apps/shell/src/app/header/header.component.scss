@@ -12,6 +12,7 @@
   &__start {
     display: flex;
     align-items: center;
+    height: var(--yt-header-height);
   }
 }
 
@@ -20,11 +21,14 @@
     background: transparent;
     padding: 0;
     box-shadow: none;
+    width: 40px;
+    height: 40px;
   }
 }
 
 .header-brand-icon {
   yt-brand-icon {
     width: 97px;
+    margin-left: 16px;
   }
 }

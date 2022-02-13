@@ -7,9 +7,9 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angul
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
-  @Output() readonly openMenu = new EventEmitter<void>();
+  @Output() readonly toggleMenu = new EventEmitter<void>();
 
-  public onOpenMenu(): void {
-    this.openMenu.next();
+  public onToggleMenu(): void {
+    this.toggleMenu.next();
   }
 }
