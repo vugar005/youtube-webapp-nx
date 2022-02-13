@@ -9,16 +9,18 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { HomeComponent } from './home/home.component';
+import { AppRoutingModule } from './app.routing';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, SidebarComponent],
+  declarations: [AppComponent, HeaderComponent, SidebarComponent, HomeComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MatSidenavModule,
     MatIconModule,
     MatButtonModule,
-    RouterModule.forRoot([], { initialNavigation: 'enabledBlocking' }),
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

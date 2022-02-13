@@ -7,6 +7,17 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: 10px;
+    font-family: Roboto, Arial, sans-serif;
+}
+
+body {
+    background: var(--yt-background-primary);
+}
 :root {
     --yt-header-height: 56px;
+    --yt-background-primary: rgba(33, 33, 33, 0.98);
+    --yt-background-solid: #212121;
+    --yt-sidebar-width: 240px;
 }
