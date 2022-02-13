@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDivider, MatDividerModule } from '@angular/material/divider';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app.routing';
@@ -19,6 +20,7 @@ import { YTIconModule } from '@youtube/common-ui';
     MatSidenavModule,
     MatIconModule,
     MatButtonModule,
+    MatDividerModule,
     YTIconModule,
     AppRoutingModule,
   ],
