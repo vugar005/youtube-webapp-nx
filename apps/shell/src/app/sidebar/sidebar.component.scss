@@ -1,23 +1,23 @@
 :host {
-    display: block;
-    padding: 12px 24px;
-    width: var(--yt-sidebar-width);
+  display: block;
+  padding: 12px 24px;
+  width: var(--yt-sidebar-width);
 }
 
 .sidebar {
-    width: 100%;
+  width: 100%;
 }
 
 .sidebar-item {
-    display: flex;
-    align-items: center;
-    &__icon {
-        margin-right: 24px;
-    }
+  display: flex;
+  align-items: center;
+  &__icon {
+    margin-right: 24px;
+  }
 
-    &__text {
-        font-size: 1.4rem;
-        line-height: 2rem;
-        font-weight: 500;
-    }
+  &__text {
+    font-size: 1.4rem;
+    line-height: 2rem;
+    font-weight: 500;
+  }
 }
