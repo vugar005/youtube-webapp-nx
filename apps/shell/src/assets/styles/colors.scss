@@ -1,0 +1,59 @@
+@import '~@angular/material/theming';
+
+$youtube-primary: (
+  100: #00a9e0,
+  90: #1ab2e3,
+  80: #33bae6,
+  70: #4dc3e9,
+  60: #66cbec,
+  50: #80d4ef,
+  40: #99ddf3,
+  30: #b3e5f6,
+  20: #cceef9,
+  10: #e5f6fc,
+  contrast: (
+    100: #000,
+    90: #000,
+    80: #fff,
+    70: #fff,
+    60: #fff,
+    50: #fff,
+    40: #fff,
+    30: #fff,
+    20: #fff,
+    10: #fff,
+  ),
+);
+
+$youtube-accent: (
+  70: #91a4a0,
+  50: #b0bebb,
+  10: #eff2f1,
+  contrast: (
+    10: #000,
+    50: #fff,
+    70: #fff,
+  ),
+);
+
+$youtube-warning: (
+  dark: #ffa02f,
+  base: #ffcf97,
+  contrast: (
+    90: #fff,
+    50: #fff,
+  ),
+);
+
+
+$youtube-error: (
+  dark: #e00034,
+  light: #ef8099,
+  lightest: #f7bfcc,
+  contrast: (
+    dark: #fff,
+    light: #fff,
+    lightest: #fff,
+  ),
+);
+
