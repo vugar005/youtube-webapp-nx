@@ -6,6 +6,8 @@ import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
@@ -14,6 +16,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     BrowserModule,
     BrowserAnimationsModule,
     MatSidenavModule,
+    MatIconModule,
+    MatButtonModule,
     RouterModule.forRoot([], { initialNavigation: 'enabledBlocking' }),
   ],
   providers: [],

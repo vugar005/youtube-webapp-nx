@@ -1,8 +1,5 @@
-@use '~@angular/material' as mat;
-@import '~@angular/material/theming';
+@use '@angular/material' as mat;
 @import '../styles/colors';
-
-// Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
@@ -15,14 +12,10 @@
 $youtube-theme-primary: mat.define-palette($youtube-primary, 50, 10, 70);
 $youtube-theme-accent: mat.define-palette($youtube-accent, 50, 10, 70);
 
-// The warn palette is optional (defaults to red).
-$youtube-theme-warn: mat.define-palette($youtube-error, light, $darker: 90);
+$youtube-theme: mat.define-light-theme((
+ color: (
+   primary: $youtube-theme-primary,
+   accent: $youtube-theme-accent
+ )));
 
-// Create the theme object (a Sass map containing all of the palettes).
-$youtube-theme: mat.define-light-theme($youtube-theme-primary, $youtube-theme-accent, $youtube-theme-warn);
-
-
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-@include mat.all-component-themes($youtube-theme);
+ @include mat.all-component-themes($youtube-theme);

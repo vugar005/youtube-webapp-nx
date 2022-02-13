@@ -1,11 +1,10 @@
-<yt-header> </yt-header>
 
-<mat-sidenav-container class="example-container">
-  <mat-sidenav #sidenav>
+<mat-drawer-container class="example-container" [hasBackdrop]="true">
+  <mat-drawer #drawer [mode]="'over'">
     <yt-sidebar> </yt-sidebar>
-  </mat-sidenav>
-
-  <mat-sidenav-content>
+  </mat-drawer>
+  <mat-drawer-content>
+    <yt-header (openMenu)="drawer.toggle()"> </yt-header>
     <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+  </mat-drawer-content>
+</mat-drawer-container>

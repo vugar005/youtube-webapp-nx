@@ -1,0 +1,17 @@
+:host {
+    display: block;
+    height: var(--yt-header-height);
+    padding: 0 16px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-nav-icon {
+    button {
+        background: transparent;
+        padding: 0;
+    }
+}

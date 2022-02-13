@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'yt-header',
@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+  @Output() readonly openMenu = new EventEmitter<void>();
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public onOpenMenu(): void {
+    console.log('openm')
+    this.openMenu.next();
   }
 
 }
