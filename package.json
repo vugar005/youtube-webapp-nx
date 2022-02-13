@@ -10,6 +10,7 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
+    "@nrwl/angular": "^13.8.1",
     "@nrwl/cli": "13.8.1",
     "@nrwl/nx-cloud": "latest",
     "@nrwl/tao": "13.8.1",
