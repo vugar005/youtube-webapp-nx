@@ -13,11 +13,14 @@
 $youtube-theme-primary: mat.define-palette($youtube-primary, 50, 10, 70);
 $youtube-theme-accent: mat.define-palette($youtube-accent, 50, 10, 70);
 
-$youtube-dark-theme: mat.define-dark-theme((
- color: (
-   primary: $youtube-theme-primary,
-   accent: $youtube-theme-accent
- )));
+$youtube-dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $youtube-theme-primary,
+      accent: $youtube-theme-accent,
+    ),
+  )
+);
 
- @include mat.all-component-themes($youtube-dark-theme);
- @include mat.core($youtube-typography);
+@include mat.all-component-themes($youtube-dark-theme);
+@include mat.core($youtube-typography);
