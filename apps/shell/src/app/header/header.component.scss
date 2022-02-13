@@ -9,6 +9,10 @@
     justify-content: space-between;
     align-items: center;
     height: 100%;
+    &__start {
+        display: flex;
+        align-items: center;
+    }
 }
 
 .header-nav-icon {
@@ -16,5 +20,11 @@
         background: transparent;
         padding: 0;
         box-shadow: none;
+    }
+}
+
+.header-brand-icon {
+    yt-brand-icon {
+        width: 97px;
     }
 }
