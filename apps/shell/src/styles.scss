@@ -1,5 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/scss/bootstrap-grid';
+@import 'apps/shell/src/assets/themes/youtube-theme';
+
 * {
     margin: 0;
     box-sizing: border-box;
+}
+
+:root {
+    --yt-header-height: 56px;
 }
