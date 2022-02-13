@@ -1,2 +1,11 @@
 <yt-header> </yt-header>
-<router-outlet></router-outlet>
+
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav>
+    <yt-sidebar> </yt-sidebar>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
