@@ -1,5 +1,6 @@
 @use '@angular/material' as mat;
 @import '../styles/colors';
+@import '../styles/typography';
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
@@ -12,10 +13,11 @@
 $youtube-theme-primary: mat.define-palette($youtube-primary, 50, 10, 70);
 $youtube-theme-accent: mat.define-palette($youtube-accent, 50, 10, 70);
 
-$youtube-theme: mat.define-light-theme((
+$youtube-dark-theme: mat.define-dark-theme((
  color: (
    primary: $youtube-theme-primary,
    accent: $youtube-theme-accent
  )));
 
- @include mat.all-component-themes($youtube-theme);
+ @include mat.all-component-themes($youtube-dark-theme);
+ @include mat.core($youtube-typography);
