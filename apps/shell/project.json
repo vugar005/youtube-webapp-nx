@@ -82,10 +82,7 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": [
-          "apps/shell/src/**/*.ts",
-          "apps/shell/src/**/*.html"
-        ]
+        "lintFilePatterns": ["apps/shell/src/**/*.ts", "apps/shell/src/**/*.html"]
       }
     },
     "test": {
