@@ -30,6 +30,8 @@ body {
   --ytd-searchbox-legacy-border-color: hsla(0, 0%, 53.3%, 0.4);
   --yt-searchbox-text-color: hsla(0, 100%, 100%, 0.88);
   --yt-searchbox-legacy-button-hover-color: hsla(0, 0%, 100%, 0.08);
+  --ytd-rich-grid-items-per-row: 3;
+  --ytd-rich-grid-item-margin: 16px;
 }
 
 a {
@@ -43,4 +45,17 @@ a {
 
 .mat-drawer-backdrop.mat-drawer-shown {
   background-color: var(--yt-drawer-backdrop-background);
+}
+
+.p-0 {
+  padding: 0;
+}
+.w-100 {
+  width: 100%;
+}
+
+@media (min-width: 1130px) {
+  :root {
+    --ytd-rich-grid-items-per-row: 4;
+  }
 }

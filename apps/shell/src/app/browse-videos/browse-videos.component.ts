@@ -1,4 +1,8 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, OnDestroy, ChangeDetectorRef, AfterViewInit } from '@angular/core';
+import { YoutubeService } from '@youtube/common-ui';
+import { YoutubeSearchResultItem } from 'libs/ui/src/lib/models/youtube-search-list.model';
+import { map, Subject, switchMap, takeUntil } from 'rxjs';
+import { VideoStoreService } from '../core/services/video-store/video-store.service';
 
 @Component({
   selector: 'yt-browse-videos',
@@ -6,11 +10,51 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./browse-videos.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BrowseVideosComponent implements OnInit {
+export class BrowseVideosComponent implements OnInit, AfterViewInit, OnDestroy {
+  public videoLinks: YoutubeSearchResultItem[] = [];
+  public videoWidth?: number;
+  private readonly onDestroy$ = new Subject<void>();
 
-  constructor() { }
+  constructor(
+    private videoStore: VideoStoreService,
+    private youtubeService: YoutubeService,
+    private cdr: ChangeDetectorRef
+  ) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
+    this.listenToEvents();
+    this.setVideoDimensions();
+  }
+
+  public ngAfterViewInit(): void {
+  }
+
+  public ngOnDestroy(): void {
+      this.onDestroy$.next();
+      this.onDestroy$.complete();
+  }
+
+  private listenToEvents(): void {
+   this.listenToSearchQuery();
+  }
+
+  private listenToSearchQuery(): void {
+    this.videoStore.selectSearchQuery()
+    .pipe(
+      switchMap((query: string) => this.youtubeService.searchVideoResults(query)),
+      map((results) => results.items),
+      takeUntil(
+        this.onDestroy$
+      )
+    ).subscribe((items: YoutubeSearchResultItem[]) => {
+        this.videoLinks = items;
+        this.cdr.detectChanges();
+    });
+  }
+
+  private setVideoDimensions(): void {
+    const itemsPerRow = getComputedStyle(document.body).getPropertyValue('--ytd-rich-grid-items-per-row');
+    const itemMargin = getComputedStyle(document.body).getPropertyValue('--ytd-rich-grid-items-per-row');
   }
 
 }
