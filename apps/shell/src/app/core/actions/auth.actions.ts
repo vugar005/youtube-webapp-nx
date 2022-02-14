@@ -1,4 +1,4 @@
-import { createAction, props } from '@ngrx/store';
+import { createAction } from '@ngrx/store';
 
-export const login = createAction('[AUTH] Login', props<{ payload: any }>());
+export const login = createAction('[AUTH] Login');
 export const logout = createAction('[AUTH] Logout');
