@@ -1,4 +1,12 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input, OnDestroy, forwardRef, ChangeDetectorRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  Input,
+  OnDestroy,
+  forwardRef,
+  ChangeDetectorRef,
+} from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { debounceTime, map, Subject, switchMap, takeUntil } from 'rxjs';
 import { YoutubeSearchList, YoutubeSearchResultItem } from '../models/youtube-search-list.model';
@@ -23,10 +31,7 @@ export class SearchBoxComponent implements OnInit, OnDestroy, ControlValueAccess
   public searchControl = new FormControl();
   public searchOptions: YoutubeSearchResultItem[] = [];
 
-  constructor(
-    private youtubeService: YoutubeService,
-    private cdr: ChangeDetectorRef
-  ) { }
+  constructor(private youtubeService: YoutubeService, private cdr: ChangeDetectorRef) {}
 
   private readonly onDestroy$ = new Subject<void>();
 
@@ -82,7 +87,7 @@ export class SearchBoxComponent implements OnInit, OnDestroy, ControlValueAccess
         switchMap((text: string) => this.youtubeService.searchVideoResults(text)),
         map((res: YoutubeSearchList) => res.items),
         takeUntil(this.onDestroy$)
-        )
+      )
       .subscribe((results: YoutubeSearchResultItem[]) => {
         this.searchOptions = results;
         this.cdr.detectChanges();

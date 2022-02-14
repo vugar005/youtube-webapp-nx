@@ -8,9 +8,8 @@ describe('MiniSidebarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MiniSidebarComponent ]
-    })
-    .compileComponents();
+      declarations: [MiniSidebarComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

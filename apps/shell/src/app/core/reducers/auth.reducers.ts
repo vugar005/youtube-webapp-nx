@@ -13,11 +13,11 @@ const initialState: AuthState = {
 
 export const reducer = createReducer(
   initialState,
-  on(AuthActions.login, (state, action) => ({
+  on(AuthActions.login, (state) => ({
     ...state,
     isAuthenticated: true,
   })),
-  on(AuthActions.logout, (state, action) => ({
+  on(AuthActions.logout, (state) => ({
     ...state,
     isAuthenticated: false,
   }))

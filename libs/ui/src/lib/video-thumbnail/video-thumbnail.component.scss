@@ -1,28 +1,27 @@
 :host {
-    display: block;
-    width: 100%;
+  display: block;
+  width: 100%;
 }
 
 .thumbnail {
+  width: 100%;
+  cursor: pointer;
+  &__image {
     width: 100%;
-    cursor: pointer;
-    &__image {
-        width: 100%;
-        &::before {
-            display: block;
-            content: "";
-            width: 100%;
-        }
-        img {
-            width: 100%;
-        }
+    &::before {
+      display: block;
+      content: '';
+      width: 100%;
     }
-
+    img {
+      width: 100%;
+    }
+  }
 }
 
 .thumbnail-details {
-    display: flex;
-    margin-top: 12px;
+  display: flex;
+  margin-top: 12px;
 }
 
 .thumbnail-details-content {
@@ -42,6 +41,6 @@
   }
 
   &__publishDate {
-    color: var(--yt-endpoint-color)
+    color: var(--yt-endpoint-color);
   }
 }
