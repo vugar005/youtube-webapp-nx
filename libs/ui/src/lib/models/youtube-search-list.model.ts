@@ -41,7 +41,7 @@ interface Thumbnails {
   high: High;
 }
 
-interface Snippet {
+export interface VideoSnippet {
   publishedAt: Date;
   channelId: string;
   title: string;
@@ -56,5 +56,5 @@ export interface YoutubeSearchResultItem {
   kind: string;
   etag: string;
   id: Id;
-  snippet: Snippet;
+  snippet: VideoSnippet;
 }

@@ -11,7 +11,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app.routing';
-import { SearchBoxModule, VideoPlayerModule, YOUTUBE_API_KEY, YTIconModule } from '@youtube/common-ui';
+import { SearchBoxModule, VideoPlayerModule, VideoThumbnailModule, YOUTUBE_API_KEY, YTIconModule } from '@youtube/common-ui';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ROOT_REDUCERS } from './reducers';
@@ -31,6 +31,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatDividerModule,
     YTIconModule,
     VideoPlayerModule,
+    VideoThumbnailModule,
     SearchBoxModule,
     AppRoutingModule,
     ReactiveFormsModule,

@@ -1,6 +1,6 @@
 <div class="video-list">
         <div class="video-player" *ngFor="let video of videoLinks">
-            <yt-video-player [videoId]="video.id.videoId" ></yt-video-player>
+            <yt-video-thumbnail [snippet]="video.snippet" ></yt-video-thumbnail>
         </div>
 </div>
 
