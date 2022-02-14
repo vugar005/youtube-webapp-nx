@@ -1,0 +1,8 @@
+<div class="mini-sidebar">
+  <a class="mini-sidebar-endpoint" *ngFor="let endpoint of endpoints">
+    <div class="mini-sidebar-endpoint__icon">
+      <mat-icon>{{ endpoint.icon }}</mat-icon>
+    </div>
+    <div class="mini-sidebar-endpoint__text">{{ endpoint.text }}</div>
+  </a>
+</div>

@@ -23,13 +23,18 @@ body {
   --yt-sidebar-width: 240px;
   --yt-sidebar-nav-min-height: 40px;
   --yt-spec-10-percent-layer: rgba(255, 255, 255, 0.1);
-  --yt-text-primary: #fff;
+  --yt-spec-text-primary: #fff;
   --yt-drawer-backdrop-background: rgba(0, 0, 0, 0.5);
   --yt-spec-background-solid: #212121;
   --yt-searchbox-background: hsl(0, 0%, 7%);
   --ytd-searchbox-legacy-border-color: hsla(0, 0%, 53.3%, 0.4);
   --yt-searchbox-text-color: hsla(0, 100%, 100%, 0.88);
   --yt-searchbox-legacy-button-hover-color: hsla(0, 0%, 100%, 0.08);
+  --ytd-rich-grid-items-per-row: 3;
+  --ytd-rich-grid-item-margin: 16px;
+  --yt-endpoint-color: var(--yt-spec-text-secondary);
+  --yt-spec-text-secondary: #aaa;
+  --yt-spec-badge-chip-background: rgba(255, 255, 255, 0.1);
 }
 
 a {
@@ -43,4 +48,23 @@ a {
 
 .mat-drawer-backdrop.mat-drawer-shown {
   background-color: var(--yt-drawer-backdrop-background);
+}
+
+.p-0 {
+  padding: 0;
+}
+.w-100 {
+  width: 100%;
+}
+
+@media (min-width: 1130px) {
+  :root {
+    --ytd-rich-grid-items-per-row: 4;
+  }
+}
+
+.text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

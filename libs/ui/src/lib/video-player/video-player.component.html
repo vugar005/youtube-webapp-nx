@@ -1,0 +1,8 @@
+<youtube-player
+  *ngIf="width"
+  [videoId]="videoId"
+  [width]="width"
+  [playerVars]="playerVars"
+  [height]="height"
+  (ready)="onReady($event)"
+></youtube-player>

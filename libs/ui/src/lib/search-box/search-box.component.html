@@ -3,7 +3,14 @@
     <input type="text" [placeholder]="placeholder" [formControl]="searchControl" [matAutocomplete]="auto" />
 
     <mat-autocomplete #auto="matAutocomplete">
-      <mat-option class="searchbox-field__option"> 1 </mat-option>
+      <mat-option
+        class="searchbox-field__option"
+        *ngFor="let option of searchOptions"
+        [value]="option.id"
+        (click)="onOptionSelect(option.snippet.title)"
+      >
+        {{ option.snippet?.title }}
+      </mat-option>
     </mat-autocomplete>
   </div>
 
