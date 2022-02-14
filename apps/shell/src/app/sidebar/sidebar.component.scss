@@ -25,7 +25,8 @@
   cursor: pointer;
   outline: none;
 
-  &:hover, &--active {
+  &:hover,
+  &--active {
     background: var(--yt-spec-10-percent-layer);
   }
 
@@ -39,7 +40,6 @@
     font-weight: 500;
   }
 }
-
 
 .header-nav-icon {
   button {
