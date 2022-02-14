@@ -1,4 +1,7 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Subject, takeUntil } from 'rxjs';
+import { VideoStoreService } from '../core/services/video-store/video-store.service';
 
 @Component({
   selector: 'yt-header',
@@ -6,10 +9,40 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angul
   styleUrls: ['./header.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit, OnDestroy {
   @Output() readonly toggleMenu = new EventEmitter<void>();
+  public searchControl = new FormControl();
+
+  private readonly onDestroy$ = new Subject<void>();
+
+  constructor(private videoStore: VideoStoreService) {}
+
+  public ngOnInit(): void {
+      this.listenToEvents();
+  }
+
+  public ngOnDestroy(): void {
+      this.onDestroy$.next();
+      this.onDestroy$.complete();
+  }
 
   public onToggleMenu(): void {
     this.toggleMenu.next();
   }
+
+  private listenToEvents(): void {
+    this.listenToSearchInput();
+  }
+
+  private listenToSearchInput(): void {
+    this.searchControl.valueChanges
+    .pipe(
+      takeUntil(this.onDestroy$)
+    )
+    .subscribe(value => {
+      console.log(value);
+      this.videoStore.setSearchQuery(value);
+    });
+  }
+
 }

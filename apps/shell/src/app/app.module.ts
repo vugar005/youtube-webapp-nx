@@ -11,16 +11,20 @@ import { MatDividerModule } from '@angular/material/divider';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app.routing';
-import { SearchBoxModule, YTIconModule } from '@youtube/common-ui';
+import { SearchBoxModule, YOUTUBE_API_KEY, YTIconModule } from '@youtube/common-ui';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ROOT_REDUCERS } from './reducers';
 import { BrowseVideosComponent } from './browse-videos/browse-videos.component';
+import { HttpClientModule } from '@angular/common/http';
+import { environment } from '../environments/environment';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [AppComponent, HeaderComponent, SidebarComponent, HomeComponent, BrowseVideosComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatSidenavModule,
     MatIconModule,
     MatButtonModule,
@@ -28,6 +32,7 @@ import { BrowseVideosComponent } from './browse-videos/browse-videos.component';
     YTIconModule,
     SearchBoxModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     StoreModule.forRoot(ROOT_REDUCERS, {
       runtimeChecks: {
         // strictStateImmutability and strictActionImmutability are enabled by default
@@ -41,7 +46,12 @@ import { BrowseVideosComponent } from './browse-videos/browse-videos.component';
       name: 'Youtube Shell Store',
     }),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: YOUTUBE_API_KEY,
+      useValue: environment.youtubeApiKey
+    }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
