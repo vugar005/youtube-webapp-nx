@@ -4,6 +4,6 @@ This project is for education purpose only. It helps developers better understan
 This project was generated using [Nx](https://nx.dev).
 
 ## Start and Run
-``npm install `` -- Install dependencies
-``nx serve shell`` -- Starts the shell
-Navigate to http://localhost:4200 to load the shell
+1. ``npm install `` -- Install dependencies  
+2. ``nx serve shell`` -- Starts the shell  
+3. Navigate to http://localhost:4200 to load the shell  
