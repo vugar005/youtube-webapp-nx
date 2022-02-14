@@ -15,8 +15,9 @@ import { SearchBoxModule, YTIconModule } from '@youtube/common-ui';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ROOT_REDUCERS } from './reducers';
+import { BrowseVideosComponent } from './browse-videos/browse-videos.component';
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, SidebarComponent, HomeComponent],
+  declarations: [AppComponent, HeaderComponent, SidebarComponent, HomeComponent, BrowseVideosComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
