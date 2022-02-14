@@ -26,13 +26,18 @@ body {
   --yt-text-primary: #fff;
   --yt-drawer-backdrop-background: rgba(0, 0, 0, 0.5);
   --yt-spec-background-solid: #212121;
+  --yt-searchbox-background: hsl(0, 0%, 7%);
+  --ytd-searchbox-legacy-border-color: hsla(0, 0%, 53.3%, 0.4);
+  --yt-searchbox-text-color: hsla(0, 100%, 100%, 0.88);
+  --yt-searchbox-legacy-button-hover-color: hsla(0, 0%, 100%, 0.08);
 }
 
 a {
   text-decoration: none;
 }
 
-.mat-drawer {
+.mat-drawer,
+.mat-drawer-container {
   background: var(--yt-spec-background-solid);
 }
 
