@@ -5,13 +5,11 @@ import { VideoSnippet } from '../models/youtube-search-list.model';
   selector: 'yt-video-thumbnail',
   templateUrl: './video-thumbnail.component.html',
   styleUrls: ['./video-thumbnail.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class VideoThumbnailComponent implements OnInit {
   @Input() snippet?: VideoSnippet;
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

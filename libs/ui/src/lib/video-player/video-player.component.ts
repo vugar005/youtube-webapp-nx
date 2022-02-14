@@ -4,7 +4,7 @@ import { Component, OnInit, ChangeDetectionStrategy, Input, ChangeDetectorRef, A
   selector: 'yt-video-player',
   templateUrl: './video-player.component.html',
   styleUrls: ['./video-player.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class VideoPlayerComponent implements OnInit, AfterViewInit {
   @Input() videoId?: string;
@@ -13,13 +13,11 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit {
   @Input() height = 170;
   @Input() playerVars?: YT.PlayerVars = {
     showinfo: 0,
-    modestbranding: 0
+    modestbranding: 0,
   };
   public isIframLoaded!: boolean;
 
-  constructor(
-    private cdr: ChangeDetectorRef
-  ) { }
+  constructor(private cdr: ChangeDetectorRef) {}
 
   public ngOnInit(): void {
     this.loadIframScript();
@@ -32,8 +30,8 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit {
   public onReady(event: YT.PlayerEvent): void {
     console.log(event);
     setTimeout(() => {
-    //  event.target.playVideo();
-    }, 0)
+      //  event.target.playVideo();
+    }, 0);
   }
 
   private loadIframScript(): void {
@@ -47,8 +45,7 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit {
     const el = document.getElementsByClassName('video-player')[0];
     console.log(el);
     this.width = el.clientWidth;
-    console.log(this.width)
+    console.log(this.width);
     this.cdr.detectChanges();
   }
-
 }

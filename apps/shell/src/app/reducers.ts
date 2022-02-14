@@ -10,7 +10,7 @@ export interface AppState {
 export const ROOT_REDUCERS = new InjectionToken<ActionReducerMap<AppState, Action>>('Root reducers token', {
   factory: () => ({
     [fromAuth.featureKey]: fromAuth.reducer,
-    [fromVideo.featureKey]: fromVideo.reducer
+    [fromVideo.featureKey]: fromVideo.reducer,
   }),
 });
 

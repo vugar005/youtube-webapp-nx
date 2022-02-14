@@ -18,12 +18,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
   constructor(private videoStore: VideoStoreService) {}
 
   public ngOnInit(): void {
-      this.listenToEvents();
+    this.listenToEvents();
   }
 
   public ngOnDestroy(): void {
-      this.onDestroy$.next();
-      this.onDestroy$.complete();
+    this.onDestroy$.next();
+    this.onDestroy$.complete();
   }
 
   public onToggleMenu(): void {
@@ -35,14 +35,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   private listenToSearchInput(): void {
-    this.searchControl.valueChanges
-    .pipe(
-      takeUntil(this.onDestroy$)
-    )
-    .subscribe(value => {
+    this.searchControl.valueChanges.pipe(takeUntil(this.onDestroy$)).subscribe((value) => {
       console.log(value);
       this.videoStore.setSearchQuery(value);
     });
   }
-
 }
