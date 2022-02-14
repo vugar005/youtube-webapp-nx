@@ -16,4 +16,8 @@ export class YoutubeService {
       const url = `${YT_BASE_URL}/search?part=snippet&maxResults=${maxResults}&q=${query}&safeSearch=moderate&key=${this.apiKey}`;
       return this.http.get<YoutubeSearchList>(url);
   }
+
+  public getVideoThumbnails() {
+
+  }
 }

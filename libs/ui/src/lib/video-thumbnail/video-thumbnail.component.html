@@ -1,0 +1,15 @@
+<a class="thumbnail">
+    <div class="thumbnail__image">
+        <img [src]="snippet?.thumbnails?.high?.url">
+    </div>
+    <div class="thumbnail-details">
+        <div class="thumbnail-details__icon"></div>
+        <div class="thumbnail-details-content">
+            <div class="thumbnail-details-content">
+                <h3 class="thumbnail-details-content__title" [innerHtml]="snippet?.title"></h3>
+                <div class="thumbnail-details-content__channelTitle"  [innerHtml]="snippet?.channelTitle"></div>
+                <div class="thumbnail-details-content__publishDate">8 days ago</div>
+            </div>
+        </div>
+    </div>
+</a>

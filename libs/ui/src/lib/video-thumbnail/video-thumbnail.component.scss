@@ -1,0 +1,47 @@
+:host {
+    display: block;
+    width: 100%;
+}
+
+.thumbnail {
+    width: 100%;
+    cursor: pointer;
+    &__image {
+        width: 100%;
+        &::before {
+            display: block;
+            content: "";
+            width: 100%;
+        }
+        img {
+            width: 100%;
+        }
+    }
+
+}
+
+.thumbnail-details {
+    display: flex;
+    margin-top: 12px;
+}
+
+.thumbnail-details-content {
+  &__title {
+    display: block;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    font-weight: 500;
+    max-height: 4rem;
+    overflow: hidden;
+    color: var(--yt-spec-text-primary);
+    margin: 0 6px 4px 0;
+  }
+
+  &__channelTitle {
+    color: var(--yt-endpoint-color);
+  }
+
+  &__publishDate {
+    color: var(--yt-endpoint-color)
+  }
+}
