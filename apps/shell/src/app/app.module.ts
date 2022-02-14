@@ -19,8 +19,9 @@ import { BrowseVideosComponent } from './browse-videos/browse-videos.component';
 import { HttpClientModule } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MiniSidebarComponent } from './mini-sidebar/mini-sidebar.component';
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, SidebarComponent, HomeComponent, BrowseVideosComponent],
+  declarations: [AppComponent, HeaderComponent, SidebarComponent, HomeComponent, BrowseVideosComponent, MiniSidebarComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

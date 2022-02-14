@@ -1,8 +1,11 @@
 :host {
     display: block;
 }
+.browse-videos {
+    display: flex;
+}
 
-.video-list {
+.browse-videos-list{
     display: flex;
     flex-wrap: wrap;
     width: 100%;
