@@ -70,7 +70,8 @@
       "defaultConfiguration": "development",
       "options": {
         "port": 4200,
-        "publicHost": "http://localhost:4200"
+        "publicHost": "http://localhost:4200",
+        "proxyConfig": "apps/shell/proxy.conf.json"
       }
     },
     "extract-i18n": {
