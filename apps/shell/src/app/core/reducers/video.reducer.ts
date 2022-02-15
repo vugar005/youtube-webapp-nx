@@ -8,7 +8,7 @@ export interface VideoState {
 }
 
 const initialState: VideoState = {
-  searchQuery: '',
+  searchQuery: 'roudeep',
 };
 
 export const reducer = createReducer(

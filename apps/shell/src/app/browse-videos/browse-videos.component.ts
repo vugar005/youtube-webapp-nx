@@ -1,7 +1,6 @@
-import { Component, OnInit, ChangeDetectionStrategy, OnDestroy, ChangeDetectorRef } from '@angular/core';
-import { YoutubeService } from '@youtube/common-ui';
-import { YoutubeSearchResultItem } from 'libs/ui/src/lib/models/youtube-search-list.model';
-import { map, Subject, switchMap, takeUntil } from 'rxjs';
+import { Component, OnInit, ChangeDetectionStrategy, OnDestroy, ChangeDetectorRef, Inject } from '@angular/core';
+import { IYoutubeService, IYoutubeSearchResult, YOUTUBE_SERVICE } from '@youtube/common-ui';
+import { Subject, switchMap, takeUntil } from 'rxjs';
 import { VideoStoreService } from '../core/services/video-store/video-store.service';
 
 @Component({
@@ -11,13 +10,13 @@ import { VideoStoreService } from '../core/services/video-store/video-store.serv
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BrowseVideosComponent implements OnInit, OnDestroy {
-  public videoLinks: YoutubeSearchResultItem[] = [];
+  public videoLinks: IYoutubeSearchResult[] = [];
   public videoWidth?: number;
   private readonly onDestroy$ = new Subject<void>();
 
   constructor(
     private videoStore: VideoStoreService,
-    private youtubeService: YoutubeService,
+    @Inject(YOUTUBE_SERVICE) private youtubeService: IYoutubeService,
     private cdr: ChangeDetectorRef
   ) {}
 
@@ -38,11 +37,10 @@ export class BrowseVideosComponent implements OnInit, OnDestroy {
     this.videoStore
       .selectSearchQuery()
       .pipe(
-        switchMap((query: string) => this.youtubeService.searchVideoResults(query)),
-        map((results) => results.items),
+        switchMap((query: string) => this.youtubeService.searchVideoResults({ query })),
         takeUntil(this.onDestroy$)
       )
-      .subscribe((items: YoutubeSearchResultItem[]) => {
+      .subscribe((items: IYoutubeSearchResult[]) => {
         this.videoLinks = items;
         this.cdr.detectChanges();
       });
