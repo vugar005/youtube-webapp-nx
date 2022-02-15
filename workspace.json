@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "backend": "apps/backend",
     "shell": "apps/shell",
     "ui": "libs/ui",
     "watch-app": "apps/watch-app"
