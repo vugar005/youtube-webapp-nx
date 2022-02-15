@@ -12,9 +12,7 @@ const share = mf.share;
  * This NX_TSCONFIG_PATH environment variable is set by the @nrwl/angular:webpack-browser and it contains
  * the location of the generated temporary tsconfig file.
  */
-const tsConfigPath =
-  process.env.NX_TSCONFIG_PATH ??
-  path.join(__dirname, '../../tsconfig.base.json');
+const tsConfigPath = process.env.NX_TSCONFIG_PATH ?? path.join(__dirname, '../../tsconfig.base.json');
 
 const workspaceRootPath = path.join(__dirname, '../../');
 const sharedMappings = new mf.SharedMappings();
@@ -48,25 +46,25 @@ module.exports = {
         type: 'module',
       },
       remotes: {
-        "watchApp": "http://localhost:4201/remoteEntry.js",
-    },
+        watchApp: 'http://localhost:4201/remoteEntry.js',
+      },
       shared: {
-      // Angular
-      "@angular/core": { requiredVersion: deps['@angular/core']},
-      "@angular/common": { requiredVersion: deps['@angular/common'] },
-      "@angular/common/http": { requiredVersion:  deps['@angular/common'] },
-      "@angular/router": { requiredVersion:  deps['@angular/router'] },
-      "@angular/platform-browser": {requiredVersion:  deps['@angular/platform-browser'] },
-      "@angular/platform-browser/animations": {requiredVersion:  deps['@angular/platform-browser'] },
-      // RxJs
-      "rxjs": { requiredVersion: deps['rxjs'] },
-      "rxjs/operators": { requiredVersion: deps['rxjs'] },
-      // Material
-      "@angular/cdk": {requiredVersion:  deps['@angular/cdk'] },
-      "@angular/material/sidenav": {requiredVersion:  deps['@angular/material']},
-      "@angular/material/icon": {requiredVersion:  deps['@angular/material']},
-      "@angular/material/button": {requiredVersion:  deps['@angular/material']},
-      "@angular/material/divider": {requiredVersion:  deps['@angular/material']},
+        // Angular
+        '@angular/core': { requiredVersion: deps['@angular/core'] },
+        '@angular/common': { requiredVersion: deps['@angular/common'] },
+        '@angular/common/http': { requiredVersion: deps['@angular/common'] },
+        '@angular/router': { requiredVersion: deps['@angular/router'] },
+        '@angular/platform-browser': { requiredVersion: deps['@angular/platform-browser'] },
+        '@angular/platform-browser/animations': { requiredVersion: deps['@angular/platform-browser'] },
+        // RxJs
+        rxjs: { requiredVersion: deps['rxjs'] },
+        'rxjs/operators': { requiredVersion: deps['rxjs'] },
+        // Material
+        '@angular/cdk': { requiredVersion: deps['@angular/cdk'] },
+        '@angular/material/sidenav': { requiredVersion: deps['@angular/material'] },
+        '@angular/material/icon': { requiredVersion: deps['@angular/material'] },
+        '@angular/material/button': { requiredVersion: deps['@angular/material'] },
+        '@angular/material/divider': { requiredVersion: deps['@angular/material'] },
       },
     }),
     sharedMappings.getPlugin(),

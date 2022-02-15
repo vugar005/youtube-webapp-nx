@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { WatchVideoComponent } from './watch-video/watch-video.component';
 
 const routes: Routes = [
   {
     path: 'watch',
-    component: HomeComponent
-  }
+    component: WatchVideoComponent,
+  },
 ];
 
 @NgModule({

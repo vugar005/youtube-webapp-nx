@@ -9,6 +9,8 @@ import { VideoSnippet } from '../models/youtube-search-list.model';
 })
 export class VideoThumbnailComponent implements OnInit {
   @Input() snippet?: VideoSnippet;
+  @Input() direction?: 'vertical' | 'horizontal' = 'horizontal';
+
   constructor() {}
 
   ngOnInit(): void {}

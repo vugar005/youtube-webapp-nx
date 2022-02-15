@@ -1,8 +1,10 @@
-<youtube-player
-  *ngIf="width"
-  [videoId]="videoId"
-  [width]="width"
-  [playerVars]="playerVars"
-  [height]="height"
-  (ready)="onReady($event)"
-></youtube-player>
+<ng-container *ngIf="isIframLoaded">
+  <youtube-player
+    *ngIf="width"
+    [videoId]="videoId"
+    [width]="width"
+    [playerVars]="playerVars"
+    [height]="height"
+    (ready)="onReady($event)"
+  ></youtube-player>
+</ng-container>

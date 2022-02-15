@@ -31,7 +31,7 @@ export class BrowseVideosComponent implements OnInit, OnDestroy {
   }
 
   private listenToEvents(): void {
-    // this.listenToSearchQuery();
+    this.listenToSearchQuery();
   }
 
   private listenToSearchQuery(): void {

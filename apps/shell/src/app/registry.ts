@@ -1,5 +1,6 @@
 import { loadRemoteModule } from '@angular-architects/module-federation';
 
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 export const registry: any = {
   watchApp: (): Promise<any> =>
     loadRemoteModule({
