@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { IYoutubeSearchResult } from '@youtube/common-ui';
 
 @Component({
   selector: 'watch-app-video-card',
@@ -7,7 +8,8 @@ import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class VideoCardComponent implements OnInit {
-  @Input() videoId?: string;
+  @Input() videoId!: string;
+  @Input() videoResult?: IYoutubeSearchResult;
   constructor() {}
 
   ngOnInit(): void {}

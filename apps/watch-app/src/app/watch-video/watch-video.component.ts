@@ -1,6 +1,8 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Subject, takeUntil } from 'rxjs';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy, Inject } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { IYoutubeSearchResult, IYoutubeService, YOUTUBE_SERVICE } from '@youtube/common-ui';
+import { Observable, Subject } from 'rxjs';
+import { switchMap, takeUntil, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'watch-app-webapp-watch-video',
@@ -9,30 +11,42 @@ import { Subject, takeUntil } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WatchVideoComponent implements OnInit, OnDestroy {
-  public videoId?: string;
-
+  public videoId!: string;
+  public videoInfo?: IYoutubeSearchResult;
   private readonly onDestroy$ = new Subject<void>();
 
-  constructor(private route: ActivatedRoute, private cdr: ChangeDetectorRef) {}
+  constructor(
+    @Inject(YOUTUBE_SERVICE) private youtubeService: IYoutubeService,
+    private route: ActivatedRoute, private cdr: ChangeDetectorRef
+    ) {}
 
   public ngOnInit(): void {
-    this.setVideoId();
     this.listenToEvents();
   }
 
   public ngOnDestroy(): void {
+    console.log('onDes')
     this.onDestroy$.next();
     this.onDestroy$.complete();
   }
 
-  private setVideoId(): void {
-    this.videoId = this.route.snapshot.queryParams['v'];
-    this.cdr.detectChanges();
+  private listenToEvents(): void {
+    this.route.queryParams.pipe(
+      takeUntil(this.onDestroy$),
+      tap((params: Params) => {
+        this.videoId = params['v'];
+        console.log(params);
+        this.cdr.detectChanges();
+      }),
+      switchMap(() => this.getVideoInfo()))
+      .subscribe((results: IYoutubeSearchResult[]) => {
+        this.videoInfo = results && results?.find(result => result.id?.videoId === this.videoId);
+        this.cdr.detectChanges();
+      });
   }
 
-  private listenToEvents(): void {
-    this.route.queryParams.pipe(takeUntil(this.onDestroy$)).subscribe(() => {
-      this.setVideoId();
-    });
+  private getVideoInfo(): Observable<IYoutubeSearchResult[]> {
+    return this.youtubeService.searchVideoResults({query: this.videoId});
+
   }
 }

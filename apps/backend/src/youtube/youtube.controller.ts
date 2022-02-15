@@ -9,7 +9,7 @@ export class YoutubeController {
   async searchVideos(@Query() query) {
     const { q } = query;
     console.log(q);
-    const results = await this.youtubeApiService.searchVideoResults(q);
+    const results = await this.youtubeApiService.searchVideoResults(q.trim());
     return results;
   }
 }

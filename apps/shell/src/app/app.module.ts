@@ -15,6 +15,7 @@ import {
   SearchBoxModule,
   VideoPlayerModule,
   VideoThumbnailModule,
+  YoutubeServiceV2,
   YOUTUBE_API_KEY,
   YOUTUBE_SERVICE,
   YTIconModule,
@@ -28,7 +29,8 @@ import { environment } from '../environments/environment';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MiniSidebarComponent } from './mini-sidebar/mini-sidebar.component';
 import { WatchAppWrapperComponent } from './watch-app-wrapper/watch-app-wrapper.component';
-import { YoutubeServiceV2 } from './core/services/youtube-service-v2/youtube-service-v2.service';
+import { LazyElementsModule } from '@angular-extensions/elements';
+
 @NgModule({
   declarations: [
     AppComponent,
