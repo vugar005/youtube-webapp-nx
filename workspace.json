@@ -3,6 +3,8 @@
   "projects": {
     "shell": "apps/shell",
     "shell-e2e": "apps/shell-e2e",
-    "ui": "libs/ui"
+    "ui": "libs/ui",
+    "watch-app": "apps/watch-app",
+    "watch-app-e2e": "apps/watch-app-e2e"
   }
 }
