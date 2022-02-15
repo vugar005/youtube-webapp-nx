@@ -1,60 +1,45 @@
-export interface YoutubeSearchList {
-  kind: string;
-  etag: string;
-  nextPageToken: string;
-  regionCode: string;
-  pageInfo: PageInfo;
-  items: YoutubeSearchResultItem[];
-}
+    interface VideoId {
+      videoId: string;
+  }
 
-interface PageInfo {
-  totalResults: number;
-  resultsPerPage: number;
-}
+    interface Default {
+      url: string;
+      width: number;
+      height: number;
+  }
 
-interface Id {
-  kind: string;
-  videoId: string;
-}
+    interface High {
+      url: string;
+      width: number;
+      height: number;
+  }
 
-interface Default {
-  url: string;
-  width: number;
-  height: number;
-}
+    interface Thumbnails {
+      id: string;
+      url: string;
+      default: Default;
+      high: High;
+      height: number;
+      width: number;
+  }
 
-interface Medium {
-  url: string;
-  width: number;
-  height: number;
-}
+    export interface VideoSnippet {
+      url: string;
+      duration: string;
+      publishedAt: string;
+      thumbnails: Thumbnails;
+      title: string;
+      views: string;
+  }
 
-interface High {
-  url: string;
-  width: number;
-  height: number;
-}
+    export interface IYoutubeSearchResult {
+      id: VideoId;
+      url: string;
+      title: string;
+      description: string;
+      duration_raw: string;
+      snippet: VideoSnippet;
+      views: string;
+  }
 
-interface Thumbnails {
-  default: Default;
-  medium: Medium;
-  high: High;
-}
 
-export interface VideoSnippet {
-  publishedAt: string;
-  channelId: string;
-  title: string;
-  description: string;
-  thumbnails: Thumbnails;
-  channelTitle: string;
-  liveBroadcastContent: string;
-  publishTime: string;
-}
-
-export interface YoutubeSearchResultItem {
-  kind: string;
-  etag: string;
-  id: Id;
-  snippet: VideoSnippet;
-}
