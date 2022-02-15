@@ -1,5 +1,6 @@
-<a class="thumbnail"
- [ngClass]="{'thumbnail--vertical': direction === 'vertical', 'thumbnail--horizontal': direction === 'horizontal'}"
+<a
+  class="thumbnail"
+  [ngClass]="{ 'thumbnail--vertical': direction === 'vertical', 'thumbnail--horizontal': direction === 'horizontal' }"
 >
   <div class="thumbnail__image">
     <img [src]="snippet?.thumbnails?.high?.url" />
@@ -10,7 +11,7 @@
       <div class="thumbnail-details-content">
         <h3 class="thumbnail-details-content__title" [innerHtml]="snippet?.title"></h3>
         <div class="thumbnail-details-content__channelTitle" [innerHtml]="snippet?.channelTitle"></div>
-        <div class="thumbnail-details-content__publishDate">{{snippet?.publishedAt | timeAgo}}</div>
+        <div class="thumbnail-details-content__publishDate">{{ snippet?.publishedAt | timeAgo }}</div>
       </div>
     </div>
   </div>

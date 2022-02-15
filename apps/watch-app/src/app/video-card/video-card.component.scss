@@ -1,53 +1,52 @@
 :host {
-    display: block;
-    width: 100%;
-    height: 100%;
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .video-card {
-    width: 100%;
-    height: 100%;
-    &__player {
-        // width: 100%;
-        // height: 100%;
-    }
-
+  width: 100%;
+  height: 100%;
+  &__player {
+    // width: 100%;
+    // height: 100%;
+  }
 }
 
 .video-details {
-    display: flex;
-    flex-direction: column;
-    padding: 20px 0 8px 0;
-    &__title {
-        display: block;
-        font-size: 1.5rem;
-        line-height: 2.6rem;
-        font-weight: 400;
-        max-height: 5.2rem;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: normal;
-        color: var(--yt-spec-text-primary);
-    }
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0 8px 0;
+  &__title {
+    display: block;
+    font-size: 1.5rem;
+    line-height: 2.6rem;
+    font-weight: 400;
+    max-height: 5.2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    color: var(--yt-spec-text-primary);
+  }
 }
 
 .video-details-actions {
+  display: flex;
+  align-items: center;
+  align-self: flex-end;
+  &__item {
     display: flex;
     align-items: center;
-    align-self: flex-end;
-    &__item {
-        display: flex;
-        align-items: center;
-        color: var(--yt-spec-text-primary);
-        margin-right: 2.5rem;
-        cursor: pointer;
-        &__icon {
-            font-size: 2rem;
-            height: 2rem;
-            margin-right: 0.5rem;
-        }
-        &__text {
-            font-size: 1rem;
-        }
+    color: var(--yt-spec-text-primary);
+    margin-right: 2.5rem;
+    cursor: pointer;
+    &__icon {
+      font-size: 2rem;
+      height: 2rem;
+      margin-right: 0.5rem;
     }
+    &__text {
+      font-size: 1rem;
+    }
+  }
 }

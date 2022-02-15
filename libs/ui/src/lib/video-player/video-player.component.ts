@@ -1,4 +1,13 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input, ChangeDetectorRef, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  Input,
+  ChangeDetectorRef,
+  AfterViewInit,
+  ElementRef,
+  OnDestroy,
+} from '@angular/core';
 import { debounceTime, fromEvent, Subject, takeUntil } from 'rxjs';
 
 @Component({
@@ -28,8 +37,8 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
-      this.onDestroy$.next();
-      this.onDestroy$.complete();
+    this.onDestroy$.next();
+    this.onDestroy$.complete();
   }
 
   public ngAfterViewInit(): void {
@@ -42,20 +51,18 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private loadIframScript(): void {
     const script = document.createElement('script');
-      script.src = 'https://www.youtube.com/iframe_api';
-      document.body.appendChild(script);
-      script.addEventListener('load', () => {
-        this.isIframLoaded = true;
-        this.cdr.detectChanges();
-      });
+    script.src = 'https://www.youtube.com/iframe_api';
+    document.body.appendChild(script);
+    script.addEventListener('load', () => {
+      this.isIframLoaded = true;
+      this.cdr.detectChanges();
+    });
   }
 
   private listenToWindowResize(): void {
     fromEvent(window, 'resize')
-    .pipe(
-      debounceTime(200),
-      takeUntil(this.onDestroy$)
-    ).subscribe(() => this.setVideoDimensions())
+      .pipe(debounceTime(200), takeUntil(this.onDestroy$))
+      .subscribe(() => this.setVideoDimensions());
   }
 
   private setVideoDimensions(): void {

@@ -6,14 +6,14 @@ import { Subject, takeUntil } from 'rxjs';
   selector: 'watch-app-webapp-watch-video',
   templateUrl: './watch-video.component.html',
   styleUrls: ['./watch-video.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WatchVideoComponent implements OnInit, OnDestroy {
   public videoId?: string;
 
   private readonly onDestroy$ = new Subject<void>();
 
-  constructor(private route: ActivatedRoute, private cdr: ChangeDetectorRef) { }
+  constructor(private route: ActivatedRoute, private cdr: ChangeDetectorRef) {}
 
   public ngOnInit(): void {
     this.setVideoId();
@@ -21,8 +21,8 @@ export class WatchVideoComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
-      this.onDestroy$.next();
-      this.onDestroy$.complete();
+    this.onDestroy$.next();
+    this.onDestroy$.complete();
   }
 
   private setVideoId(): void {
@@ -31,13 +31,8 @@ export class WatchVideoComponent implements OnInit, OnDestroy {
   }
 
   private listenToEvents(): void {
-    this.route.queryParams
-    .pipe(
-      takeUntil(this.onDestroy$)
-    )
-    .subscribe(() => {
+    this.route.queryParams.pipe(takeUntil(this.onDestroy$)).subscribe(() => {
       this.setVideoId();
     });
   }
-
 }

@@ -1,4 +1,3 @@
-
 import { DoBootstrap, Injector, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { createCustomElement } from '@angular/elements';
@@ -13,13 +12,7 @@ import { RelatedVideosComponent } from './related-videos/related-videos.componen
 
 @NgModule({
   declarations: [AppComponent, WatchVideoComponent, VideoCardComponent, RelatedVideosComponent],
-  imports: [
-    BrowserModule,
-    VideoPlayerModule,
-    VideoThumbnailModule,
-    MatIconModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, VideoPlayerModule, VideoThumbnailModule, MatIconModule, AppRoutingModule],
   providers: [],
   bootstrap: [],
 })
