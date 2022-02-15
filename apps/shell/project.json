@@ -96,7 +96,7 @@
     "serve-mfe": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
-        "commands": ["nx serve shell"]
+        "commands": ["nx serve shell", "nx serve watch-app"]
       }
     }
   },

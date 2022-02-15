@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -26,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MiniSidebarComponent } from './mini-sidebar/mini-sidebar.component';
+import { WatchAppWrapperComponent } from './watch-app-wrapper/watch-app-wrapper.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +35,7 @@ import { MiniSidebarComponent } from './mini-sidebar/mini-sidebar.component';
     HomeComponent,
     BrowseVideosComponent,
     MiniSidebarComponent,
+    WatchAppWrapperComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,5 +71,6 @@ import { MiniSidebarComponent } from './mini-sidebar/mini-sidebar.component';
     },
   ],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA] // because we use dynamic angular elements
 })
 export class AppModule {}
