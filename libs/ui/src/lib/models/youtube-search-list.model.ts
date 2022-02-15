@@ -42,14 +42,14 @@ interface Thumbnails {
 }
 
 export interface VideoSnippet {
-  publishedAt: Date;
+  publishedAt: string;
   channelId: string;
   title: string;
   description: string;
   thumbnails: Thumbnails;
   channelTitle: string;
   liveBroadcastContent: string;
-  publishTime: Date;
+  publishTime: string;
 }
 
 export interface YoutubeSearchResultItem {
