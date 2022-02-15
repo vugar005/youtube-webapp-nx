@@ -2,15 +2,20 @@
 import { DoBootstrap, Injector, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { createCustomElement } from '@angular/elements';
-import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
-import { HomeComponent } from './home/home.component';
+import { WatchVideoComponent } from './watch-video/watch-video.component';
+import { VideoCardComponent } from './video-card/video-card.component';
+import { VideoPlayerModule } from '@youtube/common-ui';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  declarations: [AppComponent, WatchVideoComponent, VideoCardComponent],
+  imports: [
+    BrowserModule,
+    VideoPlayerModule,
+    AppRoutingModule
+  ],
   providers: [],
   bootstrap: [],
 })

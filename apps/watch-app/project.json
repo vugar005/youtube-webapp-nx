@@ -2,7 +2,7 @@
   "projectType": "application",
   "root": "apps/watch-app",
   "sourceRoot": "apps/watch-app/src",
-  "prefix": "watch-app-webapp",
+  "prefix": "watch-app",
   "targets": {
     "build": {
       "executor": "@nrwl/angular:webpack-browser",
