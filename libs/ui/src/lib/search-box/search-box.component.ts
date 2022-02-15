@@ -33,9 +33,7 @@ export class SearchBoxComponent implements OnInit, OnDestroy, ControlValueAccess
   public searchControl = new FormControl();
   public searchOptions: IYoutubeSearchResult[] = [];
 
-  constructor(
-    @Inject(YOUTUBE_SERVICE) private youtubeService: IYoutubeService,
-    private cdr: ChangeDetectorRef) {}
+  constructor(@Inject(YOUTUBE_SERVICE) private youtubeService: IYoutubeService, private cdr: ChangeDetectorRef) {}
 
   private readonly onDestroy$ = new Subject<void>();
 
@@ -88,7 +86,7 @@ export class SearchBoxComponent implements OnInit, OnDestroy, ControlValueAccess
     this.searchControl.valueChanges
       .pipe(
         debounceTime(this.debounceTime),
-        switchMap((text: string) => this.youtubeService.searchVideoResults({query: text})),
+        switchMap((text: string) => this.youtubeService.searchVideoResults({ query: text })),
         takeUntil(this.onDestroy$)
       )
       .subscribe((results: IYoutubeSearchResult[]) => {

@@ -13,6 +13,5 @@ export class VideoThumbnailComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }

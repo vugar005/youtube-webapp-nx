@@ -16,8 +16,8 @@ export class BrowseVideosComponent implements OnInit, OnDestroy {
 
   constructor(
     private videoStore: VideoStoreService,
-     @Inject(YOUTUBE_SERVICE) private youtubeService: IYoutubeService,
-     private cdr: ChangeDetectorRef
+    @Inject(YOUTUBE_SERVICE) private youtubeService: IYoutubeService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   public ngOnInit(): void {
@@ -37,7 +37,7 @@ export class BrowseVideosComponent implements OnInit, OnDestroy {
     this.videoStore
       .selectSearchQuery()
       .pipe(
-        switchMap((query: string) => this.youtubeService.searchVideoResults({query})),
+        switchMap((query: string) => this.youtubeService.searchVideoResults({ query })),
         takeUntil(this.onDestroy$)
       )
       .subscribe((items: IYoutubeSearchResult[]) => {
