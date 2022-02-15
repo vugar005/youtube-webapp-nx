@@ -35,11 +35,10 @@ body {
   --yt-endpoint-color: var(--yt-spec-text-secondary);
   --yt-spec-text-secondary: #aaa;
   --yt-spec-badge-chip-background: rgba(255, 255, 255, 0.1);
-  --ytd-watch-flexy-min-player-height: 360px;
-  --ytd-watch-flexy-panel-max-height: 360px;
-  --ytd-watch-flexy-min-player-width: calc( var(--ytd-watch-flexy-min-player-height) * (var(--ytd-watch-flexy-width-ratio) / var(--ytd-watch-flexy-height-ratio)));
-  --ytd-watch-flexy-max-player-height: calc( 100vh - ( var(--ytd-watch-flexy-masthead-height) + var(--ytd-margin-6x) + var(--ytd-watch-flexy-space-below-player) ) );
-  --ytd-watch-flexy-max-player-width: calc( ( 100vh - ( var(--ytd-watch-flexy-masthead-height) + var(--ytd-margin-6x) + var(--ytd-watch-flexy-space-below-player) ) ) * (var(--ytd-watch-flexy-width-ratio) / var(--ytd-watch-flexy-height-ratio)) );
+  // --ytd-watch-flexy-min-player-height: 360px;
+  // --ytd-watch-flexy-panel-max-height: 360px;
+  --ytd-watch-flexy-player-width: calc( ( 100vh - ( var(--ytd-watch-flexy-masthead-height) + var(--ytd-margin-6x) + var(--ytd-watch-flexy-space-below-player) ) ) * (var(--ytd-watch-flexy-width-ratio) / var(--ytd-watch-flexy-height-ratio)) );
+  --ytd-watch-flexy-player-height: calc( 100vh - ( var(--ytd-watch-flexy-masthead-height) + var(--ytd-margin-6x) + var(--ytd-watch-flexy-space-below-player) ) );
   --ytd-watch-flexy-space-below-player: 156px;
   --ytd-watch-flexy-width-ratio: 16;
   --ytd-watch-flexy-height-ratio: 9;
