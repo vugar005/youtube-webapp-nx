@@ -8,12 +8,14 @@ import { AppRoutingModule } from './app.routing';
 import { WatchVideoComponent } from './watch-video/watch-video.component';
 import { VideoCardComponent } from './video-card/video-card.component';
 import { VideoPlayerModule } from '@youtube/common-ui';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [AppComponent, WatchVideoComponent, VideoCardComponent],
   imports: [
     BrowserModule,
     VideoPlayerModule,
+    MatIconModule,
     AppRoutingModule
   ],
   providers: [],

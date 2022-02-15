@@ -2,10 +2,15 @@
     display: block;
 }
 
+.watch-video {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
 .video-card-wrapper {
     padding-top: var(--ytd-margin-6x);
     padding-right: var(--ytd-margin-6x);
     margin-left: var(--ytd-margin-6x);
-    max-width: var(--ytd-watch-flexy-max-player-width);
-    min-width: var(--ytd-watch-flexy-min-player-width);
+    width: var(--ytd-watch-flexy-player-width);
+    height: var(--ytd-watch-flexy-player-height);
 }
