@@ -1,0 +1,12 @@
+:host {
+    display: block;
+    max-width: 100%;
+    min-width: 100%;
+}
+
+.video-card {
+    max-width: 100%;
+    min-width: 100%;
+    max-height: var(--ytd-watch-flexy-panel-max-height);
+    min-height: var(--ytd-watch-flexy-min-player-height);
+}

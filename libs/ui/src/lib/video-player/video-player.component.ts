@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input, ChangeDetectorRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input, ChangeDetectorRef, AfterViewInit, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'yt-video-player',
@@ -17,7 +17,7 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit {
   };
   public isIframLoaded!: boolean;
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(private cdr: ChangeDetectorRef, private element: ElementRef) {}
 
   public ngOnInit(): void {
     this.loadIframScript();
@@ -42,9 +42,11 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit {
   }
 
   private setVideoDimensions(): void {
-    const el = document.getElementsByClassName('video-player')[0];
+   // const el = document.getElementsByClassName('video-player')[0];
+    const el = this.element.nativeElement.parentElement;
     console.log(el);
     this.width = el.clientWidth;
+    this.height = el.clientHeight;
     console.log(this.width);
     this.cdr.detectChanges();
   }

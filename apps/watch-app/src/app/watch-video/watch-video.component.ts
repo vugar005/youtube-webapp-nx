@@ -1,12 +1,12 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'watch-app-webapp-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  selector: 'watch-app-webapp-watch-video',
+  templateUrl: './watch-video.component.html',
+  styleUrls: ['./watch-video.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeComponent implements OnInit {
+export class WatchVideoComponent implements OnInit {
 
   constructor() { }
 
