@@ -11,7 +11,7 @@ import { filter } from 'rxjs/operators';
 export class RelatedVideosComponent implements OnInit, OnChanges {
   @Input() query!: string;
   @Input() relatedVideos?: IYoutubeSearchResult[];
-
+  public items = new Array(5);
   constructor(
     @Inject(YOUTUBE_SERVICE) private youtubeService: IYoutubeService,
     private cdr: ChangeDetectorRef

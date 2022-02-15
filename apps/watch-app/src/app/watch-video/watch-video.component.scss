@@ -4,17 +4,33 @@
 
 .watch-video {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
   width: 100%;
   padding-top: var(--ytd-margin-6x);
 }
+
 .video-card-wrapper {
   padding-right: var(--ytd-margin-6x);
   margin-left: var(--ytd-margin-6x);
   width: var(--ytd-watch-flexy-player-width);
-  height: var(--ytd-watch-flexy-player-height);
+  min-height: var(--ytd-watch-flexy-player-height);
 }
 
 .related-videos-wrapper {
   min-width: 300px;
+  margin-left: var(--ytd-margin-6x);
+  margin-top: var(--ytd-margin-6x);
+}
+
+@media (min-width: 992px) {
+  .watch-video {
+    flex-direction: row;
+  }
+
+  .related-videos-wrapper {
+    margin-left: 0;
+    margin-top: 0;
+  }
 }

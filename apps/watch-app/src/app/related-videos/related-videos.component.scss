@@ -11,26 +11,13 @@
 .video-item {
   display: flex;
   &__thumbnail {
-    width: 300px;
+    width: var(--yt-related-thumbnail-width);
     margin-bottom: 8px;
   }
 }
 
-// .video-item-details {
-//     .title {
-//         display: block;
-//         color: var(--yt-spec-text-primary);
-//         font-size: 1.4rem;
-//         line-height: 2rem;
-//         font-weight: 500;
-//         max-height: 4rem;
-//         overflow: hidden;
-//         text-overflow: ellipsis;
-//         white-space: normal;
-//         margin-bottom: 4px;
-//     }
 
-//     .channel-title {
-//         color: var(--yt-spec-text-secondary);
-//     }
-// }
+.thumbnail-loader-template {
+  width: var(--yt-related-thumbnail-width);
+  height: 79px;
+}
