@@ -1,8 +1,8 @@
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
+const deps = require('../../package.json').dependencies;
 const mf = require('@angular-architects/module-federation/webpack');
 const path = require('path');
 const share = mf.share;
-
 /**
  * We use the NX_TSCONFIG_PATH environment variable when using the @nrwl/angular:webpack-browser
  * builder as it will generate a temporary tsconfig file which contains any required remappings of
@@ -12,7 +12,9 @@ const share = mf.share;
  * This NX_TSCONFIG_PATH environment variable is set by the @nrwl/angular:webpack-browser and it contains
  * the location of the generated temporary tsconfig file.
  */
-const tsConfigPath = process.env.NX_TSCONFIG_PATH ?? path.join(__dirname, '../../tsconfig.base.json');
+const tsConfigPath =
+  process.env.NX_TSCONFIG_PATH ??
+  path.join(__dirname, '../../tsconfig.base.json');
 
 const workspaceRootPath = path.join(__dirname, '../../');
 const sharedMappings = new mf.SharedMappings();
@@ -42,42 +44,29 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      remotes: {},
-      shared: share({
-        '@angular/core': {
-          singleton: true,
-          strictVersion: true,
-          requiredVersion: 'auto',
-          includeSecondaries: true,
-        },
-        '@angular/common': {
-          singleton: true,
-          strictVersion: true,
-          requiredVersion: 'auto',
-          includeSecondaries: true,
-        },
-        '@angular/common/http': {
-          singleton: true,
-          strictVersion: true,
-          requiredVersion: 'auto',
-          includeSecondaries: true,
-        },
-        '@angular/router': {
-          singleton: true,
-          strictVersion: true,
-          requiredVersion: 'auto',
-          includeSecondaries: true,
-        },
-        rxjs: {
-          singleton: true,
-          strictVersion: true,
-          requiredVersion: 'auto',
-          includeSecondaries: true,
-        },
-        ...sharedMappings.getDescriptors(),
-      }),
       library: {
         type: 'module',
+      },
+      remotes: {
+        "watchApp": "http://localhost:4201/remoteEntry.js",
+    },
+      shared: {
+      // Angular
+      "@angular/core": { requiredVersion: deps['@angular/core']},
+      "@angular/common": { requiredVersion: deps['@angular/common'] },
+      "@angular/common/http": { requiredVersion:  deps['@angular/common'] },
+      "@angular/router": { requiredVersion:  deps['@angular/router'] },
+      "@angular/platform-browser": {requiredVersion:  deps['@angular/platform-browser'] },
+      "@angular/platform-browser/animations": {requiredVersion:  deps['@angular/platform-browser'] },
+      // RxJs
+      "rxjs": { requiredVersion: deps['rxjs'] },
+      "rxjs/operators": { requiredVersion: deps['rxjs'] },
+      // Material
+      "@angular/cdk": {requiredVersion:  deps['@angular/cdk'] },
+      "@angular/material/sidenav": {requiredVersion:  deps['@angular/material']},
+      "@angular/material/icon": {requiredVersion:  deps['@angular/material']},
+      "@angular/material/button": {requiredVersion:  deps['@angular/material']},
+      "@angular/material/divider": {requiredVersion:  deps['@angular/material']},
       },
     }),
     sharedMappings.getPlugin(),

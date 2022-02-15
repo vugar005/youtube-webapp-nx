@@ -1,4 +1,6 @@
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
+const deps = require('../../package.json').dependencies;
+
 const mf = require('@angular-architects/module-federation/webpack');
 const path = require('path');
 const share = mf.share;
@@ -26,7 +28,7 @@ sharedMappings.register(
 
 module.exports = {
   output: {
-    uniqueName: 'watch-app',
+    uniqueName: 'mfe1',
     publicPath: 'auto',
   },
   optimization: {
@@ -42,25 +44,29 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
+      library: { type: 'module' },
       name: 'watch-app',
       filename: 'remoteEntry.js',
       exposes: {
+        './web-components': 'apps/watch-app/src/bootstrap.ts', // bootstrap --> main --> AppModule --> WebComp
       },
-      shared: share({
-        '@angular/core': { singleton: true, strictVersion: true, requiredVersion: 'auto', includeSecondaries: true },
-        '@angular/common': { singleton: true, strictVersion: true, requiredVersion: 'auto', includeSecondaries: true },
-        '@angular/common/http': {
-          singleton: true,
-          strictVersion: true,
-          requiredVersion: 'auto',
-          includeSecondaries: true,
-        },
-        '@angular/router': { singleton: true, strictVersion: true, requiredVersion: 'auto', includeSecondaries: true },
-        rxjs: { singleton: true, strictVersion: true, requiredVersion: 'auto', includeSecondaries: true },
-        ...sharedMappings.getDescriptors(),
-      }),
-      library: {
-        type: 'module',
+      shared: {
+        // Angular
+        '@angular/core': { requiredVersion: deps['@angular/core'] },
+        '@angular/common': { requiredVersion: deps['@angular/common'] },
+        '@angular/common/http': { requiredVersion: deps['@angular/common'] },
+        '@angular/router': { requiredVersion: deps['@angular/router'] },
+        '@angular/platform-browser': { requiredVersion: deps['@angular/platform-browser'] },
+        '@angular/platform-browser/animations': { requiredVersion: deps['@angular/platform-browser'] },
+        // RxJs
+        rxjs: { requiredVersion: deps['rxjs'] },
+        'rxjs/operators': { requiredVersion: deps['rxjs'] },
+        // Material
+        '@angular/cdk': { requiredVersion: deps['@angular/cdk'] },
+        '@angular/material/sidenav': { requiredVersion: deps['@angular/material'] },
+        '@angular/material/icon': { requiredVersion: deps['@angular/material'] },
+        '@angular/material/button': { requiredVersion: deps['@angular/material'] },
+        '@angular/material/divider': { requiredVersion: deps['@angular/material'] },
       },
     }),
     sharedMappings.getPlugin(),
