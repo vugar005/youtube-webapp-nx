@@ -28,6 +28,12 @@
     white-space: normal;
     color: var(--yt-spec-text-primary);
   }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
 .video-details-actions {
