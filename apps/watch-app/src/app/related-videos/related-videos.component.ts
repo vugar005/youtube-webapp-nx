@@ -5,13 +5,11 @@ import { SEARCH_RESULT_MOCK } from '@youtube/common-ui';
   selector: 'watch-app-related-videos',
   templateUrl: './related-videos.component.html',
   styleUrls: ['./related-videos.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RelatedVideosComponent implements OnInit {
   public resultMock = SEARCH_RESULT_MOCK;
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

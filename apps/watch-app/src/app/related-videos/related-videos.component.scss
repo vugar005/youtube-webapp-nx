@@ -1,19 +1,19 @@
 :host {
-    display: block;
-    width: 100%;
+  display: block;
+  width: 100%;
 }
 
 .video-list {
-    display: flex;
-    flex-direction:column;
+  display: flex;
+  flex-direction: column;
 }
 
 .video-item {
-    display: flex;
-    &__thumbnail {
-     width: 300px;
-     margin-bottom: 8px;
-    }
+  display: flex;
+  &__thumbnail {
+    width: 300px;
+    margin-bottom: 8px;
+  }
 }
 
 // .video-item-details {

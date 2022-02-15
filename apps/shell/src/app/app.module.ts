@@ -71,6 +71,6 @@ import { WatchAppWrapperComponent } from './watch-app-wrapper/watch-app-wrapper.
     },
   ],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA] // because we use dynamic angular elements
+  schemas: [CUSTOM_ELEMENTS_SCHEMA], // because we use dynamic angular elements
 })
 export class AppModule {}

@@ -1,16 +1,16 @@
 :host {
-    display: block;
+  display: block;
 }
 
 .watch-video {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    padding-top: var(--ytd-margin-6x);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-top: var(--ytd-margin-6x);
 }
 .video-card-wrapper {
-    padding-right: var(--ytd-margin-6x);
-    margin-left: var(--ytd-margin-6x);
-    width: var(--ytd-watch-flexy-player-width);
-    height: var(--ytd-watch-flexy-player-height);
+  padding-right: var(--ytd-margin-6x);
+  margin-left: var(--ytd-margin-6x);
+  width: var(--ytd-watch-flexy-player-width);
+  height: var(--ytd-watch-flexy-player-height);
 }

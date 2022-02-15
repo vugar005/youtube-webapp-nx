@@ -7,10 +7,9 @@ import { registry } from '../registry';
   selector: 'yt-watch-app-wrapper',
   templateUrl: './watch-app-wrapper.component.html',
   styleUrls: ['./watch-app-wrapper.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WatchAppWrapperComponent implements OnInit, OnDestroy {
-
   public isElementLoaded?: boolean;
   private readonly onDestroy$ = new Subject<void>();
 
@@ -38,5 +37,4 @@ export class WatchAppWrapperComponent implements OnInit, OnDestroy {
       })
       .catch((err: Error) => console.error(`error loading ${elementName}:`, err));
   }
-
 }

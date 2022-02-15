@@ -5,8 +5,8 @@ import { WatchVideoComponent } from './watch-video/watch-video.component';
 const routes: Routes = [
   {
     path: 'watch',
-    component: WatchVideoComponent
-  }
+    component: WatchVideoComponent,
+  },
 ];
 
 @NgModule({

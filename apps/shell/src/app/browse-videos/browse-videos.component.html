@@ -3,7 +3,12 @@
     <yt-mini-sidebar></yt-mini-sidebar>
   </div>
   <div class="browse-videos-list">
-    <a class="video-player" *ngFor="let video of videoLinks" [routerLink]="['/watch']" [queryParams]="{v: video.id.videoId}">
+    <a
+      class="video-player"
+      *ngFor="let video of videoLinks"
+      [routerLink]="['/watch']"
+      [queryParams]="{ v: video.id.videoId }"
+    >
       <yt-video-thumbnail [snippet]="video.snippet"></yt-video-thumbnail>
     </a>
   </div>

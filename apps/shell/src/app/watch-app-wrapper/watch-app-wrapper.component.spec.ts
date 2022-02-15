@@ -8,9 +8,8 @@ describe('WatchAppWrapperComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WatchAppWrapperComponent ]
-    })
-    .compileComponents();
+      declarations: [WatchAppWrapperComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
