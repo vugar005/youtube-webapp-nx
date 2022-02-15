@@ -22,9 +22,8 @@ export class RelatedVideosComponent implements OnInit, OnChanges {
 
   public ngOnChanges(changes: SimpleChanges): void {
       const queryChange = changes && changes['query'];
-     // console.log(queryChange?.currentValue)
       if (queryChange)  {
-        this.getRelatedVideos();
+       this.getRelatedVideos();
       }
   }
 
@@ -35,7 +34,6 @@ export class RelatedVideosComponent implements OnInit, OnChanges {
     )
       .subscribe((results: IYoutubeSearchResult[]) => {
         this.relatedVideos = results;
-     //   console.log(results);
         this.cdr.detectChanges();
       });
   }

@@ -1,8 +1,8 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy, Inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { IYoutubeSearchResult, IYoutubeService, YOUTUBE_SERVICE } from '@youtube/common-ui';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { Observable, Subject } from 'rxjs';
+import { switchMap, takeUntil, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'watch-app-webapp-watch-video',
@@ -21,8 +21,6 @@ export class WatchVideoComponent implements OnInit, OnDestroy {
     ) {}
 
   public ngOnInit(): void {
-    this.setVideoId();
-    this.getVideoInfo();
     this.listenToEvents();
   }
 
@@ -32,27 +30,23 @@ export class WatchVideoComponent implements OnInit, OnDestroy {
     this.onDestroy$.complete();
   }
 
-  private setVideoId(): void {
-    this.videoId = this.route.snapshot.queryParams['v'];
-    this.cdr.detectChanges();
-  }
-
   private listenToEvents(): void {
-    this.route.queryParams.pipe(takeUntil(this.onDestroy$)).subscribe((event) => {
-      console.log('queryCHange', event);
-      this.setVideoId();
-      this.getVideoInfo();
-    });
+    this.route.queryParams.pipe(
+      takeUntil(this.onDestroy$),
+      tap((params: Params) => {
+        this.videoId = params['v'];
+        console.log(params);
+        this.cdr.detectChanges();
+      }),
+      switchMap(() => this.getVideoInfo()))
+      .subscribe((results: IYoutubeSearchResult[]) => {
+        this.videoInfo = results && results?.find(result => result.id?.videoId === this.videoId);
+        this.cdr.detectChanges();
+      });
   }
 
-  private getVideoInfo(): void {
-  //  console.log(this.videoId)
-    this.youtubeService.searchVideoResults({query: this.videoId})
-    .subscribe((results: IYoutubeSearchResult[]) => {
-      this.videoInfo = results && results?.find(result => result.id?.videoId === this.videoId);
-   //   console.log(results?.map(result => result.id.videoId));
-     // console.log(this.videoInfo)
-      this.cdr.detectChanges();
-    });
+  private getVideoInfo(): Observable<IYoutubeSearchResult[]> {
+    return this.youtubeService.searchVideoResults({query: this.videoId});
+
   }
 }
