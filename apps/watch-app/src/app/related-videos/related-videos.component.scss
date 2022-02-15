@@ -1,0 +1,36 @@
+:host {
+    display: block;
+    width: 100%;
+}
+
+.video-list {
+    display: flex;
+    flex-direction:column;
+}
+
+.video-item {
+    display: flex;
+    &__thumbnail {
+     width: 300px;
+     margin-bottom: 8px;
+    }
+}
+
+// .video-item-details {
+//     .title {
+//         display: block;
+//         color: var(--yt-spec-text-primary);
+//         font-size: 1.4rem;
+//         line-height: 2rem;
+//         font-weight: 500;
+//         max-height: 4rem;
+//         overflow: hidden;
+//         text-overflow: ellipsis;
+//         white-space: normal;
+//         margin-bottom: 4px;
+//     }
+
+//     .channel-title {
+//         color: var(--yt-spec-text-secondary);
+//     }
+// }

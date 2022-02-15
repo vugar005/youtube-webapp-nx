@@ -1,4 +1,6 @@
-<a class="thumbnail">
+<a class="thumbnail"
+ [ngClass]="{'thumbnail--vertical': direction === 'vertical', 'thumbnail--horizontal': direction === 'horizontal'}"
+>
   <div class="thumbnail__image">
     <img [src]="snippet?.thumbnails?.high?.url" />
   </div>

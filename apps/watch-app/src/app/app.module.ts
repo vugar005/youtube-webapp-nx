@@ -7,14 +7,16 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
 import { WatchVideoComponent } from './watch-video/watch-video.component';
 import { VideoCardComponent } from './video-card/video-card.component';
-import { VideoPlayerModule } from '@youtube/common-ui';
+import { VideoPlayerModule, VideoThumbnailModule } from '@youtube/common-ui';
 import { MatIconModule } from '@angular/material/icon';
+import { RelatedVideosComponent } from './related-videos/related-videos.component';
 
 @NgModule({
-  declarations: [AppComponent, WatchVideoComponent, VideoCardComponent],
+  declarations: [AppComponent, WatchVideoComponent, VideoCardComponent, RelatedVideosComponent],
   imports: [
     BrowserModule,
     VideoPlayerModule,
+    VideoThumbnailModule,
     MatIconModule,
     AppRoutingModule
   ],
