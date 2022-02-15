@@ -1,11 +1,10 @@
 <div class="video-list">
-    <div class="video-item" *ngFor="let result of resultMock.items">
+    <div class="video-item" *ngFor="let result of resultMock.items"
+      [routerLink]="['/watch']" [queryParams]="{v: result.id?.videoId}"
+    >
         <div class="video-item__thumbnail" >
-            <yt-video-thumbnail [snippet]="result.snippet" [direction]="'vertical'"></yt-video-thumbnail>
+            <yt-video-thumbnail
+            [snippet]="result.snippet" [direction]="'vertical'"></yt-video-thumbnail>
         </div>
-        <!-- <div class="video-item-details">
-            <h3 class="video-item-details__title">Ash live for Beirut</h3>
-            <p class="video-item-details__channel-title text-ellipsis">Ash</p>
-        </div> -->
     </div>
 </div>
