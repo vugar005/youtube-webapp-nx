@@ -1,12 +1,12 @@
-import { Observable } from "rxjs";
-import { IYoutubeSearchResult } from ".";
+import { Observable } from 'rxjs';
+import { IYoutubeSearchResult } from '.';
 
 export interface IYoutubeService {
-    searchVideoResults: (params: IYoutubeSearchParams) => Observable<IYoutubeSearchResult[]>
+  searchVideoResults: (params: IYoutubeSearchParams) => Observable<IYoutubeSearchResult[]>;
 }
 
 export interface IYoutubeSearchParams {
-    query: string;
-    maxResults?: number;
-    safeSearch?: 'none' | 'moderate' | 'strict'
+  query: string;
+  maxResults?: number;
+  safeSearch?: 'none' | 'moderate' | 'strict';
 }

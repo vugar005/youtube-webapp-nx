@@ -15,7 +15,6 @@ import {
   SearchBoxModule,
   VideoPlayerModule,
   VideoThumbnailModule,
-  YoutubeService,
   YOUTUBE_API_KEY,
   YOUTUBE_SERVICE,
   YTIconModule,
@@ -74,8 +73,8 @@ import { YoutubeServiceV2 } from './core/services/youtube-service-v2/youtube-ser
     },
     {
       provide: YOUTUBE_SERVICE,
-      useClass: YoutubeServiceV2
-    }
+      useClass: YoutubeServiceV2,
+    },
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA], // because we use dynamic angular elements
