@@ -6,11 +6,13 @@ import {
   OnDestroy,
   forwardRef,
   ChangeDetectorRef,
+  Inject,
 } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { debounceTime, map, Subject, switchMap, takeUntil } from 'rxjs';
-import { YoutubeSearchList, YoutubeSearchResultItem } from '../models/youtube-search-list.model';
-import { YoutubeService } from '../services';
+import { IYoutubeService } from '../models';
+import { IYoutubeSearchResult } from '../models/youtube-search-list.model';
+import { YOUTUBE_SERVICE } from '../tokens';
 
 @Component({
   selector: 'yt-search-box',
@@ -29,9 +31,9 @@ export class SearchBoxComponent implements OnInit, OnDestroy, ControlValueAccess
   @Input() placeholder = 'Search';
   @Input() debounceTime = 300;
   public searchControl = new FormControl();
-  public searchOptions: YoutubeSearchResultItem[] = [];
+  public searchOptions: IYoutubeSearchResult[] = [];
 
-  constructor(private youtubeService: YoutubeService, private cdr: ChangeDetectorRef) {}
+  constructor(@Inject(YOUTUBE_SERVICE) private youtubeService: IYoutubeService, private cdr: ChangeDetectorRef) {}
 
   private readonly onDestroy$ = new Subject<void>();
 
@@ -84,11 +86,10 @@ export class SearchBoxComponent implements OnInit, OnDestroy, ControlValueAccess
     this.searchControl.valueChanges
       .pipe(
         debounceTime(this.debounceTime),
-        switchMap((text: string) => this.youtubeService.searchVideoResults(text)),
-        map((res: YoutubeSearchList) => res.items),
+        switchMap((text: string) => this.youtubeService.searchVideoResults({ query: text })),
         takeUntil(this.onDestroy$)
       )
-      .subscribe((results: YoutubeSearchResultItem[]) => {
+      .subscribe((results: IYoutubeSearchResult[]) => {
         this.searchOptions = results;
         this.cdr.detectChanges();
       });

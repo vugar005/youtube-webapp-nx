@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { YoutubeService } from '@youtube/common-ui';
+import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
+import { IYoutubeService, YOUTUBE_SERVICE } from '@youtube/common-ui';
 
 @Component({
   selector: 'yt-root',
@@ -9,7 +9,7 @@ import { YoutubeService } from '@youtube/common-ui';
 })
 export class AppComponent {
   title = 'shell';
-  constructor(private youtubeService: YoutubeService) {
+  constructor(@Inject(YOUTUBE_SERVICE) private youtubeService: IYoutubeService) {
     // this.youtubeService.searchVideoResults('roudeep').subscribe(res => console.log(res))
   }
 }
