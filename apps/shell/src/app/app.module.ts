@@ -15,7 +15,9 @@ import {
   SearchBoxModule,
   VideoPlayerModule,
   VideoThumbnailModule,
+  YoutubeService,
   YOUTUBE_API_KEY,
+  YOUTUBE_SERVICE,
   YTIconModule,
 } from '@youtube/common-ui';
 import { StoreModule } from '@ngrx/store';
@@ -27,6 +29,7 @@ import { environment } from '../environments/environment';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MiniSidebarComponent } from './mini-sidebar/mini-sidebar.component';
 import { WatchAppWrapperComponent } from './watch-app-wrapper/watch-app-wrapper.component';
+import { YoutubeServiceV2 } from './core/services/youtube-service-v2/youtube-service-v2.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,6 +72,10 @@ import { WatchAppWrapperComponent } from './watch-app-wrapper/watch-app-wrapper.
       provide: YOUTUBE_API_KEY,
       useValue: environment.youtubeApiKey,
     },
+    {
+      provide: YOUTUBE_SERVICE,
+      useClass: YoutubeServiceV2
+    }
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA], // because we use dynamic angular elements
