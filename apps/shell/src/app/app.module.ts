@@ -28,7 +28,7 @@ import { environment } from '../environments/environment';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MiniSidebarComponent } from './mini-sidebar/mini-sidebar.component';
 import { WatchAppWrapperComponent } from './watch-app-wrapper/watch-app-wrapper.component';
-import { YoutubeServiceV2 } from './core/services/youtube-service-v2/youtube-service-v2.service';
+import { YoutubeServiceV2 } from '../../../../libs/ui/src/lib/services/youtube-v2-service/youtube-v2.service';
 @NgModule({
   declarations: [
     AppComponent,
