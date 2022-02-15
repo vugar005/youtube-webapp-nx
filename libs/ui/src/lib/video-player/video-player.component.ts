@@ -37,17 +37,17 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   public onReady(event: YT.PlayerEvent): void {
-    console.log(event);
-    setTimeout(() => {
-      //  event.target.playVideo();
-    }, 0);
+    event.target.playVideo();
   }
 
   private loadIframScript(): void {
     const script = document.createElement('script');
-    script.src = 'https://www.youtube.com/iframe_api';
-    script.setAttribute('allow', 'autoplay');
-    document.body.appendChild(script);
+      script.src = 'https://www.youtube.com/iframe_api';
+      document.body.appendChild(script);
+      script.addEventListener('load', () => {
+        this.isIframLoaded = true;
+        this.cdr.detectChanges();
+      });
   }
 
   private listenToWindowResize(): void {
@@ -55,16 +55,13 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit, OnDestroy {
     .pipe(
       debounceTime(200),
       takeUntil(this.onDestroy$)
-    ).subscribe(event => this.setVideoDimensions())
+    ).subscribe(() => this.setVideoDimensions())
   }
 
   private setVideoDimensions(): void {
-   // const el = document.getElementsByClassName('video-player')[0];
     const el = this.element.nativeElement.parentElement;
-    console.log(el);
     this.width = el.clientWidth;
     this.height = el.clientHeight;
-    console.log(this.width);
     this.cdr.detectChanges();
   }
 }
