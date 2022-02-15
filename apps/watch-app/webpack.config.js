@@ -45,7 +45,6 @@ module.exports = {
       name: 'watch-app',
       filename: 'remoteEntry.js',
       exposes: {
-        './Module': 'apps/watch-app/src/app/remote-entry/entry.module.ts',
       },
       shared: share({
         '@angular/core': { singleton: true, strictVersion: true, requiredVersion: 'auto', includeSecondaries: true },
