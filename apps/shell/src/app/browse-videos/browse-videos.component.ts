@@ -12,6 +12,8 @@ import { VideoStoreService } from '../core/services/video-store/video-store.serv
 export class BrowseVideosComponent implements OnInit, OnDestroy {
   public videoLinks: IYoutubeSearchResult[] = [];
   public videoWidth?: number;
+  public items = new Array(20);
+
   private readonly onDestroy$ = new Subject<void>();
 
   constructor(

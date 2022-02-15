@@ -68,7 +68,7 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit, OnDestroy {
   private setVideoDimensions(): void {
     const el = this.element.nativeElement.parentElement;
     this.width = el.clientWidth;
-    this.height = el.clientHeight;
+    this.height = el.clientMinHeight;
     this.cdr.detectChanges();
   }
 }
