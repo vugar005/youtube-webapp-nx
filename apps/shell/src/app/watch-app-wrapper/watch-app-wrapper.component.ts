@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { registry } from '../registry';
@@ -7,10 +7,9 @@ import { registry } from '../registry';
   selector: 'yt-watch-app-wrapper',
   templateUrl: './watch-app-wrapper.component.html',
   styleUrls: ['./watch-app-wrapper.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class WatchAppWrapperComponent implements OnInit {
-
+export class WatchAppWrapperComponent implements OnInit, OnDestroy {
   public isElementLoaded?: boolean;
   private readonly onDestroy$ = new Subject<void>();
 
@@ -32,11 +31,10 @@ export class WatchAppWrapperComponent implements OnInit {
     const importFn = registry[importName];
     importFn()
       .then(() => {
-        console.debug(`element ${elementName} loaded!`);
+        console.log(`element ${elementName} loaded!`);
         this.isElementLoaded = true;
         this.cdr.detectChanges();
       })
-      .catch((err: any) => console.error(`error loading ${elementName}:`, err));
+      .catch((err: Error) => console.error(`error loading ${elementName}:`, err));
   }
-
 }

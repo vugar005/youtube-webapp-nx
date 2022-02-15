@@ -4,10 +4,14 @@ import { HomeComponent } from './home/home.component';
 import { WatchAppWrapperComponent } from './watch-app-wrapper/watch-app-wrapper.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'watch', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'watch', component: WatchAppWrapperComponent, data: { importName: 'watchApp', elementName: 'watch-app-element' } },
- // { path: 'watch', component: HomeComponent},
+  {
+    path: 'watch',
+    component: WatchAppWrapperComponent,
+    data: { importName: 'watchApp', elementName: 'watch-app-element' },
+  },
+  // { path: 'watch', component: HomeComponent},
 ];
 
 @NgModule({

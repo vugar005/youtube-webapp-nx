@@ -6,8 +6,24 @@
 .thumbnail {
   width: 100%;
   cursor: pointer;
+  &--vertical {
+    display: flex;
+    flex-direction: row;
+    .thumbnail-details {
+      margin-left: 12px;
+    }
+  }
+
+  &--horizontal {
+    display: flex;
+    flex-direction: column;
+    .thumbnail-details {
+      margin-top: 12px;
+    }
+  }
+
   &__image {
-    width: 100%;
+    flex: 0 0 45%;
     &::before {
       display: block;
       content: '';
@@ -21,7 +37,6 @@
 
 .thumbnail-details {
   display: flex;
-  margin-top: 12px;
 }
 
 .thumbnail-details-content {

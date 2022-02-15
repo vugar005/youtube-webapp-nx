@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WatchAppWrapperComponent } from './watch-app-wrapper.component';
+import { RelatedVideosComponent } from './related-videos.component';
 
-describe('WatchAppWrapperComponent', () => {
-  let component: WatchAppWrapperComponent;
-  let fixture: ComponentFixture<WatchAppWrapperComponent>;
+describe('RelatedVideosComponent', () => {
+  let component: RelatedVideosComponent;
+  let fixture: ComponentFixture<RelatedVideosComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [WatchAppWrapperComponent],
+      declarations: [RelatedVideosComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WatchAppWrapperComponent);
+    fixture = TestBed.createComponent(RelatedVideosComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,4 +1,14 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input, ChangeDetectorRef, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  Input,
+  ChangeDetectorRef,
+  AfterViewInit,
+  ElementRef,
+  OnDestroy,
+} from '@angular/core';
+import { debounceTime, fromEvent, Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'yt-video-player',
@@ -6,7 +16,7 @@ import { Component, OnInit, ChangeDetectionStrategy, Input, ChangeDetectorRef, A
   styleUrls: ['./video-player.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class VideoPlayerComponent implements OnInit, AfterViewInit {
+export class VideoPlayerComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() videoId?: string;
   @Input() startSeconds? = 1;
   @Input() width?: number;
@@ -17,10 +27,18 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit {
   };
   public isIframLoaded!: boolean;
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  private readonly onDestroy$ = new Subject<void>();
+
+  constructor(private cdr: ChangeDetectorRef, private element: ElementRef) {}
 
   public ngOnInit(): void {
     this.loadIframScript();
+    this.listenToWindowResize();
+  }
+
+  public ngOnDestroy(): void {
+    this.onDestroy$.next();
+    this.onDestroy$.complete();
   }
 
   public ngAfterViewInit(): void {
@@ -28,24 +46,29 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit {
   }
 
   public onReady(event: YT.PlayerEvent): void {
-    console.log(event);
-    setTimeout(() => {
-      //  event.target.playVideo();
-    }, 0);
+    event.target.playVideo();
   }
 
   private loadIframScript(): void {
     const script = document.createElement('script');
     script.src = 'https://www.youtube.com/iframe_api';
-    script.setAttribute('allow', 'autoplay');
     document.body.appendChild(script);
+    script.addEventListener('load', () => {
+      this.isIframLoaded = true;
+      this.cdr.detectChanges();
+    });
+  }
+
+  private listenToWindowResize(): void {
+    fromEvent(window, 'resize')
+      .pipe(debounceTime(200), takeUntil(this.onDestroy$))
+      .subscribe(() => this.setVideoDimensions());
   }
 
   private setVideoDimensions(): void {
-    const el = document.getElementsByClassName('video-player')[0];
-    console.log(el);
+    const el = this.element.nativeElement.parentElement;
     this.width = el.clientWidth;
-    console.log(this.width);
+    this.height = el.clientHeight;
     this.cdr.detectChanges();
   }
 }
