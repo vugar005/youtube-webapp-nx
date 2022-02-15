@@ -4,7 +4,7 @@ import { VideoThumbnailComponent } from './video-thumbnail.component';
 import { TimeAgoPipeModule } from '../pipes';
 
 @NgModule({
-  declarations: [VideoThumbnailComponent],
+  declarations: [VideoThumbnailComponent, ],
   imports: [CommonModule, TimeAgoPipeModule],
   exports: [VideoThumbnailComponent],
 })

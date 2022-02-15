@@ -1,4 +1,4 @@
-<div class="video-card">
+<div class="video-card" *ngIf="videoResult?.title else loadingTemplate">
   <yt-video-player class="video-card__player" [videoId]="videoId"></yt-video-player>
   <div class="video-details">
     <div class="video-details__title">{{videoResult?.title}}</div>
@@ -34,3 +34,10 @@
 
   </div>
 </div>
+
+
+<ng-template #loadingTemplate>
+  <div class="video-card-loader">
+    <yt-video-thumbnail-loader></yt-video-thumbnail-loader>
+  </div>
+</ng-template>

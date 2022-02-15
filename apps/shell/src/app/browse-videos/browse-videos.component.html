@@ -3,7 +3,8 @@
     <yt-mini-sidebar></yt-mini-sidebar>
   </div>
   <div class="browse-videos-list">
-    <a
+    <ng-container *ngIf="videoLinks?.length else loadingTemplate">
+      <a
       class="video-player"
       *ngFor="let video of videoLinks"
       [routerLink]="['/watch']"
@@ -11,5 +12,15 @@
     >
       <yt-video-thumbnail [snippet]="video.snippet"></yt-video-thumbnail>
     </a>
+    </ng-container>
   </div>
 </div>
+
+
+<ng-template #loadingTemplate>
+  <div class="loader-template">
+    <ng-container *ngFor="let item of items">
+      <yt-video-thumbnail-loader class="loader-template__item" ></yt-video-thumbnail-loader>
+    </ng-container>
+  </div>
+</ng-template>

@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app.routing';
 import {
   SearchBoxModule,
   VideoPlayerModule,
+  VideoThumbnailLoaderModule,
   VideoThumbnailModule,
   YoutubeServiceV2,
   YOUTUBE_API_KEY,
@@ -29,7 +30,6 @@ import { environment } from '../environments/environment';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MiniSidebarComponent } from './mini-sidebar/mini-sidebar.component';
 import { WatchAppWrapperComponent } from './watch-app-wrapper/watch-app-wrapper.component';
-import { LazyElementsModule } from '@angular-extensions/elements';
 
 @NgModule({
   declarations: [
@@ -55,6 +55,7 @@ import { LazyElementsModule } from '@angular-extensions/elements';
     SearchBoxModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    VideoThumbnailLoaderModule,
     StoreModule.forRoot(ROOT_REDUCERS, {
       runtimeChecks: {
         // strictStateImmutability and strictActionImmutability are enabled by default
