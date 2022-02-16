@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
-import { IYoutubeSearchResult } from '@youtube/common-ui';
+import { CustomEventConfig, EventDispatcherService, IYoutubeSearchResult, WatchAPPEvents } from '@youtube/common-ui';
 
 @Component({
   selector: 'watch-app-video-card',
@@ -10,7 +10,28 @@ import { IYoutubeSearchResult } from '@youtube/common-ui';
 export class VideoCardComponent implements OnInit {
   @Input() videoId!: string;
   @Input() videoResult?: IYoutubeSearchResult;
-  constructor() {}
+
+  constructor(private eventDispatcher: EventDispatcherService) {}
 
   ngOnInit(): void {}
+
+  public onLikeVideo(): void {
+    const config: CustomEventConfig = {
+      detail: {
+        videoId: this.videoId,
+      },
+    };
+
+    this.eventDispatcher.dispatchEvent(WatchAPPEvents.ADD_VIDEO_TO_LIKE_LIST, config);
+  }
+
+  public onUnLikeVideo(): void {
+    const config: CustomEventConfig = {
+      detail: {
+        videoId: this.videoId,
+      },
+    };
+
+    this.eventDispatcher.dispatchEvent(WatchAPPEvents.ADD_VIDEO_TO_UNLIKE_LIST, config);
+  }
 }
