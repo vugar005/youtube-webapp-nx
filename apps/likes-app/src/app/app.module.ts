@@ -11,7 +11,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatDividerModule } from '@angular/material/divider';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { VideoThumbnailLoaderModule, VideoThumbnailModule, YoutubeServiceV2, YOUTUBE_SERVICE } from '@youtube/common-ui';
+import {
+  VideoThumbnailLoaderModule,
+  VideoThumbnailModule,
+  YoutubeServiceV2,
+  YOUTUBE_SERVICE,
+} from '@youtube/common-ui';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';

@@ -23,7 +23,6 @@
   }
 }
 
-
 .video-list {
   align-self: stretch;
   flex: 1;
@@ -38,13 +37,13 @@
   align-items: center;
   transition: background 100ms ease-in-out;
   &:hover {
-    background: var(--yt-spec-badge-chip-background)
+    background: var(--yt-spec-badge-chip-background);
   }
 
   &__index {
     width: 36px;
     color: var(--yt-spec-text-secondary);
-    font-family: "Roboto","Arial",sans-serif;
+    font-family: 'Roboto', 'Arial', sans-serif;
     font-size: 1.4rem;
     line-height: 2rem;
     font-weight: 500;
