@@ -10,7 +10,7 @@ export interface AccountState {
 }
 
 const initialState: AccountState = {
-  likedVideoList: [],
+  likedVideoList: ['EbEswsDYFyM', 'hArGbyby5'],
   dislikedVideoList: [],
   isAuthenticated: false,
 };
