@@ -17,36 +17,38 @@ export class WatchVideoComponent implements OnInit, OnDestroy {
 
   constructor(
     @Inject(YOUTUBE_SERVICE) private youtubeService: IYoutubeService,
-    private route: ActivatedRoute, private cdr: ChangeDetectorRef
-    ) {}
+    private route: ActivatedRoute,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   public ngOnInit(): void {
     this.listenToEvents();
   }
 
   public ngOnDestroy(): void {
-    console.log('onDes')
+    console.log('onDes');
     this.onDestroy$.next();
     this.onDestroy$.complete();
   }
 
   private listenToEvents(): void {
-    this.route.queryParams.pipe(
-      takeUntil(this.onDestroy$),
-      tap((params: Params) => {
-        this.videoId = params['v'];
-        console.log(params);
-        this.cdr.detectChanges();
-      }),
-      switchMap(() => this.getVideoInfo()))
+    this.route.queryParams
+      .pipe(
+        takeUntil(this.onDestroy$),
+        tap((params: Params) => {
+          this.videoId = params['v'];
+          console.log(params);
+          this.cdr.detectChanges();
+        }),
+        switchMap(() => this.getVideoInfo())
+      )
       .subscribe((results: IYoutubeSearchResult[]) => {
-        this.videoInfo = results && results?.find(result => result.id?.videoId === this.videoId);
+        this.videoInfo = results && results?.find((result) => result.id?.videoId === this.videoId);
         this.cdr.detectChanges();
       });
   }
 
   private getVideoInfo(): Observable<IYoutubeSearchResult[]> {
-    return this.youtubeService.searchVideoResults({query: this.videoId});
-
+    return this.youtubeService.searchVideoResults({ query: this.videoId });
   }
 }
