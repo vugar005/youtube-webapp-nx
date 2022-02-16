@@ -15,6 +15,8 @@
       *ngFor="let endpoint of endpointLinks"
       [routerLink]="endpoint.url"
       [routerLinkActive]="'sidebar-endpoint--active'"
+      [routerLinkActiveOptions]="{ exact: true }"
+      (click)="onToggleMenu()"
     >
       <div class="sidebar-endpoint__icon">
         <mat-icon>{{ endpoint?.icon }}</mat-icon>
