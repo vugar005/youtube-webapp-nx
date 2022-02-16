@@ -1,6 +1,5 @@
 <div class="home">
   <div class="home-sidebar">
-
     <div class="home-sidebar__video">
       <ng-container *ngIf="likedVideos?.[0] as primaryVideo else primaryLoadingTemplate">
         <yt-video-thumbnail [snippet]="primaryVideo.snippet" [direction]="'horizontal'"></yt-video-thumbnail>
@@ -14,20 +13,17 @@
       <div
         class="video-item"
         *ngFor="let video of likedVideos; index as videoIndex"
-        [routerLink]="['/watch']"
-        [queryParams]="{ v: video.id?.videoId }"
+        (click)="onWatchVideo(video.id?.videoId)"
       >
-        <div class="video-item__index">{{ videoIndex + 1}}</div>
+        <div class="video-item__index">{{ videoIndex + 1 }}</div>
 
         <div class="video-item__thumbnail">
           <yt-video-thumbnail [snippet]="video.snippet" [direction]="'vertical'"></yt-video-thumbnail>
         </div>
-
       </div>
     </ng-container>
   </div>
 </div>
-
 
 <ng-template #loadingTemplate>
   <div class="thumbnail-loader-template">
