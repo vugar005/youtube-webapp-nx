@@ -1,24 +1,24 @@
 {
   "projectType": "application",
-  "root": "apps/shell",
-  "sourceRoot": "apps/shell/src",
-  "prefix": "yt",
+  "root": "apps/likes-app",
+  "sourceRoot": "apps/likes-app/src",
+  "prefix": "yt-likes-app",
   "targets": {
     "build": {
       "executor": "@nrwl/angular:webpack-browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/shell",
-        "index": "apps/shell/src/index.html",
-        "main": "apps/shell/src/main.ts",
-        "polyfills": "apps/shell/src/polyfills.ts",
-        "tsConfig": "apps/shell/tsconfig.app.json",
+        "outputPath": "dist/apps/likes-app",
+        "index": "apps/likes-app/src/index.html",
+        "main": "apps/likes-app/src/main.ts",
+        "polyfills": "apps/likes-app/src/polyfills.ts",
+        "tsConfig": "apps/likes-app/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/shell/src/favicon.ico", "apps/shell/src/assets"],
-        "styles": ["apps/shell/src/styles.scss"],
+        "assets": ["apps/likes-app/src/favicon.ico", "apps/likes-app/src/assets"],
+        "styles": ["apps/likes-app/src/styles.scss"],
         "scripts": [],
         "customWebpackConfig": {
-          "path": "apps/shell/webpack.config.js"
+          "path": "apps/likes-app/webpack.config.js"
         }
       },
       "configurations": {
@@ -37,13 +37,13 @@
           ],
           "fileReplacements": [
             {
-              "replace": "apps/shell/src/environments/environment.ts",
-              "with": "apps/shell/src/environments/environment.prod.ts"
+              "replace": "apps/likes-app/src/environments/environment.ts",
+              "with": "apps/likes-app/src/environments/environment.prod.ts"
             }
           ],
           "outputHashing": "all",
           "customWebpackConfig": {
-            "path": "apps/shell/webpack.prod.config.js"
+            "path": "apps/likes-app/webpack.prod.config.js"
           }
         },
         "development": {
@@ -61,51 +61,38 @@
       "executor": "@nrwl/angular:webpack-server",
       "configurations": {
         "production": {
-          "browserTarget": "shell:build:production"
+          "browserTarget": "likes-app:build:production"
         },
         "development": {
-          "browserTarget": "shell:build:development"
+          "browserTarget": "likes-app:build:development"
         }
       },
       "defaultConfiguration": "development",
       "options": {
-        "port": 4200,
-        "publicHost": "http://localhost:4200",
-        "proxyConfig": "apps/shell/proxy.conf.json"
+        "port": 4202,
+        "publicHost": "http://localhost:4202"
       }
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "shell:build"
+        "browserTarget": "likes-app:build"
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["apps/shell/src/**/*.ts", "apps/shell/src/**/*.html"]
+        "lintFilePatterns": ["apps/likes-app/src/**/*.ts", "apps/likes-app/src/**/*.html"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/shell"],
+      "outputs": ["coverage/apps/likes-app"],
       "options": {
-        "jestConfig": "apps/shell/jest.config.js",
+        "jestConfig": "apps/likes-app/jest.config.js",
         "passWithNoTests": true
-      }
-    },
-    "serve-mfe": {
-      "executor": "@nrwl/workspace:run-commands",
-      "options": {
-        "commands": ["nx serve shell", "nx serve watch-app", "nx serve likes-app"]
       }
     }
   },
-  "tags": [],
-  "generators": {
-    "@schematics/angular:component": {
-      "style": "scss",
-      "changeDetection": "OnPush"
-    }
-  }
+  "tags": []
 }

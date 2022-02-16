@@ -8,4 +8,10 @@ export const registry: any = {
       remoteEntry: 'http://localhost:4201/remoteEntry.js',
       exposedModule: './web-components',
     }),
+  likesApp: (): Promise<any> =>
+    loadRemoteModule({
+      type: 'module',
+      remoteEntry: 'http://localhost:4202/remoteEntry.js',
+      exposedModule: './web-components',
+    }),
 };
