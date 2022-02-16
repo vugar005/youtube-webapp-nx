@@ -7,6 +7,8 @@ import { AppRoutingModule } from './app.routing';
 import { WatchVideoComponent } from './watch-video/watch-video.component';
 import { VideoCardComponent } from './video-card/video-card.component';
 import {
+  APP_API_KEY,
+  EventDispatcherService,
   VideoPlayerModule,
   VideoThumbnailLoaderModule,
   VideoThumbnailModule,
@@ -17,6 +19,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { RelatedVideosComponent } from './related-videos/related-videos.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { APP_KEY } from './app.constants';
 
 @NgModule({
   declarations: [AppComponent, WatchVideoComponent, VideoCardComponent, RelatedVideosComponent],
@@ -35,6 +38,11 @@ import { CommonModule } from '@angular/common';
       provide: YOUTUBE_SERVICE,
       useClass: YoutubeServiceV2,
     },
+    {
+      provide: APP_API_KEY,
+      useValue: APP_KEY,
+    },
+    EventDispatcherService,
   ],
   bootstrap: [],
 })

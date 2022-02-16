@@ -26,16 +26,19 @@ export const reducer = createReducer(
     isAuthenticated: false,
   })),
   on(AccountActions.addVideoToLikeList, (state, payload) => {
-    const likedVideoId = payload.payload;
+    const likedVideoId = payload.videoId;
     const likedList = [...state.likedVideoList];
-    likedList.push(likedVideoId);
+    const isAlreadyLiked = !!likedList.find((videoId: string) => videoId === likedVideoId);
+    if (!isAlreadyLiked) {
+      likedList.push(likedVideoId);
+    }
     return {
       ...state,
       likedVideoList: likedList,
     };
   }),
   on(AccountActions.removeVideoFromLikeList, (state, payload) => {
-    const likedVideoId = payload.payload;
+    const likedVideoId = payload.videoId;
     const likedList = [...state.likedVideoList];
     likedList.filter((videoId) => videoId !== likedVideoId);
     return {
@@ -44,7 +47,7 @@ export const reducer = createReducer(
     };
   }),
   on(AccountActions.addVideoToUnLikeList, (state, payload) => {
-    const unLikedVideoId = payload.payload;
+    const unLikedVideoId = payload.videoId;
     const unLikedVideoList = [...state.unLikedVideoList];
     unLikedVideoList.push(unLikedVideoId);
     return {
@@ -53,7 +56,7 @@ export const reducer = createReducer(
     };
   }),
   on(AccountActions.removeVideoFromUnLikeList, (state, payload) => {
-    const unLikedVideoId = payload.payload;
+    const unLikedVideoId = payload.videoId;
     const unLikedVideoList = [...state.unLikedVideoList];
     unLikedVideoList.filter((videoId) => videoId !== unLikedVideoId);
     return {
