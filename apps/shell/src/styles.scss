@@ -35,6 +35,7 @@ body {
   --yt-endpoint-color: var(--yt-spec-text-secondary);
   --yt-spec-text-secondary: #aaa;
   --yt-spec-badge-chip-background: rgba(255, 255, 255, 0.1);
+  --yt-spec-general-background-a: #181818;
   // --ytd-watch-flexy-min-player-height: 360px;
   // --ytd-watch-flexy-panel-max-height: 360px;
   --ytd-watch-flexy-player-width: calc(
@@ -51,6 +52,7 @@ body {
   --ytd-watch-flexy-height-ratio: 9;
   --ytd-margin-6x: 24px;
   --yt-related-thumbnail-width: 300px;
+
 }
 
 a {
