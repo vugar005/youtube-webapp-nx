@@ -5,13 +5,13 @@ export const featureKey = 'account';
 
 export interface AccountState {
   likedVideoList: string[];
-  unLikedVideoList: string[];
+  dislikedVideoList: string[];
   isAuthenticated: boolean;
 }
 
 const initialState: AccountState = {
   likedVideoList: [],
-  unLikedVideoList: [],
+  dislikedVideoList: [],
   isAuthenticated: false,
 };
 
@@ -25,46 +25,35 @@ export const reducer = createReducer(
     ...state,
     isAuthenticated: false,
   })),
-  on(AccountActions.addVideoToLikeList, (state, payload) => {
+  on(AccountActions.toggleLikeVideo, (state, payload) => {
     const likedVideoId = payload.videoId;
-    const likedList = [...state.likedVideoList];
+    let likedList = [...state.likedVideoList];
     const isAlreadyLiked = !!likedList.find((videoId: string) => videoId === likedVideoId);
     if (!isAlreadyLiked) {
       likedList.push(likedVideoId);
+    } else {
+      likedList = likedList.filter((videoId) => videoId !== likedVideoId);
     }
     return {
       ...state,
       likedVideoList: likedList,
     };
   }),
-  on(AccountActions.removeVideoFromLikeList, (state, payload) => {
-    const likedVideoId = payload.videoId;
-    const likedList = [...state.likedVideoList];
-    likedList.filter((videoId) => videoId !== likedVideoId);
+  on(AccountActions.toggleDislikeVideo, (state, payload) => {
+    const dislikedVideoId = payload.videoId;
+    let disikedList = [...state.dislikedVideoList];
+    const isAlreadyDisLiked = !!disikedList.find((videoId: string) => videoId === dislikedVideoId);
+    if (!isAlreadyDisLiked) {
+      disikedList.push(dislikedVideoId);
+    } else {
+      disikedList = disikedList.filter((videoId) => videoId !== dislikedVideoId);
+    }
     return {
       ...state,
-      likedVideoList: likedList,
-    };
-  }),
-  on(AccountActions.addVideoToUnLikeList, (state, payload) => {
-    const unLikedVideoId = payload.videoId;
-    const unLikedVideoList = [...state.unLikedVideoList];
-    unLikedVideoList.push(unLikedVideoId);
-    return {
-      ...state,
-      unLikedVideoList: unLikedVideoList,
-    };
-  }),
-  on(AccountActions.removeVideoFromUnLikeList, (state, payload) => {
-    const unLikedVideoId = payload.videoId;
-    const unLikedVideoList = [...state.unLikedVideoList];
-    unLikedVideoList.filter((videoId) => videoId !== unLikedVideoId);
-    return {
-      ...state,
-      unLikedVideoList: unLikedVideoList,
+      dislikedVideoList: disikedList,
     };
   })
 );
 
 export const selectLikedVideos = (state: AccountState) => state.likedVideoList;
-export const selectUnLikedVideos = (state: AccountState) => state.unLikedVideoList;
+export const selectDislikedVideos = (state: AccountState) => state.dislikedVideoList;

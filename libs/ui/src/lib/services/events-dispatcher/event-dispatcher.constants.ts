@@ -6,8 +6,6 @@ export interface CustomEventConfig {
 }
 
 export enum WatchAPPEvents {
-  ADD_VIDEO_TO_LIKE_LIST = `WATCH_APP: Add Video to Liked List`,
-  REMOVE_VIDEO_FROM_LIKE_LIST = `WATCH_APP: Remove Video from Liked List`,
-  ADD_VIDEO_TO_UNLIKE_LIST = `WATCH_APP: Add Video to UnLiked List`,
-  REMOVE_VIDEO_FROM_UNLIKE_LIST = `WATCH_APP: Remove Video from UnLiked List`,
+  TOGGLE_LIKE_VIDEO = `WATCH_APP: Toggle Like Video`,
+  TOGGLE_DISLIKE_VIDEO = `WATCH_APP: Toggle Dislike Video`,
 }

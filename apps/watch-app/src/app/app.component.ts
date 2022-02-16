@@ -1,17 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
+import { UIStoreService } from './core/services/ui-store/ui-store.service';
 
 @Component({
   selector: 'watch-app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-  title = 'watch-app';
-  constructor(private router: Router) {}
+export class AppComponent implements OnInit, OnChanges {
+  @Input() likedVideoList?: string[];
+  @Input() dislikedVideosList?: string[];
+
+  constructor(private router: Router, private uiStore: UIStoreService) {}
 
   public ngOnInit(): void {
     this.connectRouter();
+  }
+
+  public ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
+    const likedVideoListChange = changes && changes['likedVideoList'];
+    const dislikedVideosListChange = changes && changes['dislikedVideosList'];
+    if (likedVideoListChange) {
+      const likedVideoListData = likedVideoListChange.currentValue;
+      const data = likedVideoListData ? likedVideoListData.split(',') : [];
+      this.uiStore.setLikedVideosList({ videoIds: data });
+    }
+
+    if (dislikedVideosListChange) {
+      const dislikedVideosListData = dislikedVideosListChange.currentValue;
+      const data = dislikedVideosListData ? dislikedVideosListData.split(',') : [];
+      this.uiStore.setDislikedVideosList({ videoIds: data });
+    }
   }
 
   private connectRouter(): void {
