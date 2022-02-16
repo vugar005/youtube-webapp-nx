@@ -3,13 +3,20 @@
  * compilation, allowing it to be included in the built bundle. This is required
  * for the Module Federation Plugin to expose the Module correctly.
  * */
+import { HttpClientModule } from '@angular/common/http';
 import { DoBootstrap, Injector, NgModule } from '@angular/core';
 import { createCustomElement } from '@angular/elements';
 
 import { BrowserModule } from '@angular/platform-browser';
-
+import { MatDividerModule } from '@angular/material/divider';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import {
+  VideoThumbnailLoaderModule,
+  VideoThumbnailModule,
+  YoutubeServiceV2,
+  YOUTUBE_SERVICE,
+} from '@youtube/common-ui';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
@@ -21,6 +28,10 @@ import { ROOT_REDUCERS } from './reducers';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    VideoThumbnailModule,
+    VideoThumbnailLoaderModule,
+    MatDividerModule,
     StoreModule.forRoot(ROOT_REDUCERS, {
       runtimeChecks: {
         // strictStateImmutability and strictActionImmutability are enabled by default
@@ -34,7 +45,12 @@ import { ROOT_REDUCERS } from './reducers';
       name: 'Youtube Shell Store',
     }),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: YOUTUBE_SERVICE,
+      useClass: YoutubeServiceV2,
+    },
+  ],
   bootstrap: [],
 })
 export class AppModule implements DoBootstrap {
