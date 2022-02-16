@@ -8,13 +8,32 @@ import { createCustomElement } from '@angular/elements';
 
 import { BrowserModule } from '@angular/platform-browser';
 
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
 import { HomeComponent } from './home/home.component';
+import { ROOT_REDUCERS } from './reducers';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    StoreModule.forRoot(ROOT_REDUCERS, {
+      runtimeChecks: {
+        // strictStateImmutability and strictActionImmutability are enabled by default
+        strictStateSerializability: true,
+        strictActionSerializability: true,
+        strictActionWithinNgZone: true,
+        strictActionTypeUniqueness: true,
+      },
+    }),
+    StoreDevtoolsModule.instrument({
+      name: 'Youtube Shell Store',
+    }),
+  ],
   providers: [],
   bootstrap: [],
 })
