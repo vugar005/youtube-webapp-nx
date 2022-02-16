@@ -5,6 +5,6 @@ import { VideoThumbnailLoaderComponent } from './video-thumbnail-loader.componen
 @NgModule({
   imports: [CommonModule],
   declarations: [VideoThumbnailLoaderComponent],
-  exports: [VideoThumbnailLoaderComponent]
+  exports: [VideoThumbnailLoaderComponent],
 })
 export class VideoThumbnailLoaderModule {}
