@@ -1,20 +1,19 @@
 <div class="searchbox-wrapper">
   <div class="searchbox-field">
-    <input type="text" [placeholder]="placeholder" [formControl]="searchControl" [matAutocomplete]="auto" />
+    <input type="text" (keyup.enter)="onInputEnter()" [placeholder]="placeholder" [formControl]="searchControl" [matAutocomplete]="auto" />
 
     <mat-autocomplete #auto="matAutocomplete">
       <mat-option
         class="searchbox-field__option"
         *ngFor="let option of searchOptions"
-        [value]="option.id"
-        (click)="onOptionSelect(option.snippet.title)"
+        [value]="option.snippet.title"
       >
         {{ option.snippet?.title }}
       </mat-option>
     </mat-autocomplete>
   </div>
 
-  <div class="searchbox-icon">
+  <div class="searchbox-icon" (click)="onSearchEnter()">
     <mat-icon>search</mat-icon>
   </div>
 </div>

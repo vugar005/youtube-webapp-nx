@@ -9,7 +9,7 @@ import {
   Inject,
 } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { debounceTime, map, Subject, switchMap, takeUntil } from 'rxjs';
+import { debounceTime, Subject, switchMap, takeUntil } from 'rxjs';
 import { IYoutubeService } from '../models';
 import { IYoutubeSearchResult } from '../models/youtube-search-list.model';
 import { YOUTUBE_SERVICE } from '../tokens';
@@ -29,7 +29,7 @@ import { YOUTUBE_SERVICE } from '../tokens';
 })
 export class SearchBoxComponent implements OnInit, OnDestroy, ControlValueAccessor {
   @Input() placeholder = 'Search';
-  @Input() debounceTime = 300;
+  @Input() debounceTime = 100;
   public searchControl = new FormControl();
   public searchOptions: IYoutubeSearchResult[] = [];
 
@@ -78,8 +78,12 @@ export class SearchBoxComponent implements OnInit, OnDestroy, ControlValueAccess
     }
   }
 
-  public onOptionSelect(id: string): void {
-    this.onChange(id);
+  public onInputEnter(): void {
+    this.onChange(this.searchControl.value);
+  }
+
+  public onSearchEnter(): void {
+    this.onChange(this.searchControl.value);
   }
 
   private initFormListeners(): void {
