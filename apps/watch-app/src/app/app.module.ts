@@ -6,7 +6,13 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
 import { WatchVideoComponent } from './watch-video/watch-video.component';
 import { VideoCardComponent } from './video-card/video-card.component';
-import { VideoPlayerModule, VideoThumbnailLoaderModule, VideoThumbnailModule, YoutubeServiceV2, YOUTUBE_SERVICE } from '@youtube/common-ui';
+import {
+  VideoPlayerModule,
+  VideoThumbnailLoaderModule,
+  VideoThumbnailModule,
+  YoutubeServiceV2,
+  YOUTUBE_SERVICE,
+} from '@youtube/common-ui';
 import { MatIconModule } from '@angular/material/icon';
 import { RelatedVideosComponent } from './related-videos/related-videos.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -14,12 +20,21 @@ import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent, WatchVideoComponent, VideoCardComponent, RelatedVideosComponent],
-  imports: [BrowserModule, CommonModule, HttpClientModule, VideoPlayerModule, VideoThumbnailModule,VideoThumbnailLoaderModule, MatIconModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    CommonModule,
+    HttpClientModule,
+    VideoPlayerModule,
+    VideoThumbnailModule,
+    VideoThumbnailLoaderModule,
+    MatIconModule,
+    AppRoutingModule,
+  ],
   providers: [
     {
       provide: YOUTUBE_SERVICE,
-      useClass: YoutubeServiceV2
-    }
+      useClass: YoutubeServiceV2,
+    },
   ],
   bootstrap: [],
 })

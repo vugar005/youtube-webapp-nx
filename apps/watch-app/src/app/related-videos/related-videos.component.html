@@ -1,21 +1,20 @@
 <div class="video-list">
-  <ng-container *ngIf="relatedVideos?.length else loadingTemplate">
+  <ng-container *ngIf="relatedVideos?.length; else loadingTemplate">
     <div
-    class="video-item"
-    *ngFor="let video of relatedVideos"
-    [routerLink]="['/watch']"
-    [queryParams]="{ v: video.id?.videoId }"
-  >
-    <div class="video-item__thumbnail">
-      <yt-video-thumbnail [snippet]="video.snippet" [direction]="'vertical'"></yt-video-thumbnail>
+      class="video-item"
+      *ngFor="let video of relatedVideos"
+      [routerLink]="['/watch']"
+      [queryParams]="{ v: video.id?.videoId }"
+    >
+      <div class="video-item__thumbnail">
+        <yt-video-thumbnail [snippet]="video.snippet" [direction]="'vertical'"></yt-video-thumbnail>
+      </div>
     </div>
-  </div>
   </ng-container>
-
 </div>
 
 <ng-template #loadingTemplate>
   <div class="thumbnail-loader-template">
-      <yt-video-thumbnail-loader *ngFor="let item of items" ></yt-video-thumbnail-loader>
+    <yt-video-thumbnail-loader *ngFor="let item of items"></yt-video-thumbnail-loader>
   </div>
 </ng-template>

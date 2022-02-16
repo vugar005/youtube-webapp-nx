@@ -1,9 +1,9 @@
-<div class="video-card" *ngIf="videoResult?.title else loadingTemplate">
+<div class="video-card" *ngIf="videoResult?.title; else loadingTemplate">
   <yt-video-player class="video-card__player" [videoId]="videoId"></yt-video-player>
   <div class="video-details">
-    <div class="video-details__title">{{videoResult?.title}}</div>
+    <div class="video-details__title">{{ videoResult?.title }}</div>
     <div class="video-details__footer">
-      <div class="video-details__footer__views">{{videoResult?.views |  number: '1.0-0'}} views</div>
+      <div class="video-details__footer__views">{{ videoResult?.views | number: '1.0-0' }} views</div>
       <div class="video-details-actions">
         <div class="video-details-actions__item">
           <mat-icon class="video-details-actions__item__icon">thumb_up</mat-icon>
@@ -31,10 +31,8 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>
-
 
 <ng-template #loadingTemplate>
   <div class="video-card-loader">

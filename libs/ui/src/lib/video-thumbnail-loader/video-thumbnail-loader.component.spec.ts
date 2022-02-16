@@ -8,9 +8,8 @@ describe('VideoThumbnailLoaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ VideoThumbnailLoaderComponent ]
-    })
-    .compileComponents();
+      declarations: [VideoThumbnailLoaderComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
