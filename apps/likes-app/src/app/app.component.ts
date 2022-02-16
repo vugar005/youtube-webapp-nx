@@ -1,5 +1,6 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
+import { UIStoreService } from './core/services/ui-store/ui-store.service';
 
 @Component({
   selector: 'youtube-webapp-root',
@@ -9,21 +10,20 @@ import { Router } from '@angular/router';
 export class AppComponent {
   @Input() likedVideoList?: string[];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private uiStore: UIStoreService) {}
 
   public ngOnInit(): void {
     this.connectRouter();
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
-    // console.log(changes);
-    // const likedVideoListChange = changes && changes['likedVideoList'];
-    // const dislikedVideosListChange = changes && changes['dislikedVideosList'];
-    // if (likedVideoListChange) {
-    //   const likedVideoListData = likedVideoListChange.currentValue;
-    //   const data = likedVideoListData ? likedVideoListData.split(',') : [];
-    //   this.uiStore.setLikedVideosList({ videoIds: data });
-    // }
+    console.log(changes);
+    const likedVideoListChange = changes && changes['likedVideoList'];
+    if (likedVideoListChange) {
+      const likedVideoListData = likedVideoListChange.currentValue;
+      const data = likedVideoListData ? likedVideoListData.split(',') : [];
+      this.uiStore.setLikedVideosList({ videoIds: data });
+    }
   }
 
   private connectRouter(): void {
