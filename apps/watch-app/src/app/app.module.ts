@@ -1,6 +1,8 @@
 import { DoBootstrap, Injector, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { createCustomElement } from '@angular/elements';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
@@ -21,6 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { APP_KEY } from './app.constants';
 
+import { ROOT_REDUCERS } from './reducers';
+
 @NgModule({
   declarations: [AppComponent, WatchVideoComponent, VideoCardComponent, RelatedVideosComponent],
   imports: [
@@ -32,6 +36,18 @@ import { APP_KEY } from './app.constants';
     VideoThumbnailLoaderModule,
     MatIconModule,
     AppRoutingModule,
+    StoreModule.forRoot(ROOT_REDUCERS, {
+      runtimeChecks: {
+        // strictStateImmutability and strictActionImmutability are enabled by default
+        strictStateSerializability: true,
+        strictActionSerializability: true,
+        strictActionWithinNgZone: true,
+        strictActionTypeUniqueness: true,
+      },
+    }),
+    StoreDevtoolsModule.instrument({
+      name: 'Watch App Store',
+    }),
   ],
   providers: [
     {

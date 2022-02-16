@@ -1,9 +1,8 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Store } from '@ngrx/store';
 import { EventDispatcherService, WatchAPPEvents } from '@youtube/common-ui';
-import { Subject, takeUntil } from 'rxjs';
-import { addVideoToLikeList, addVideoToUnLikeList, removeVideoFromLikeList } from '../core/actions/account.actions';
+import { Observable, Subject, takeUntil } from 'rxjs';
+import { AccountStoreService } from '../core/services/account-store/account-store.service';
 import { registry } from '../registry';
 
 @Component({
@@ -14,17 +13,21 @@ import { registry } from '../registry';
 })
 export class WatchAppWrapperComponent implements OnInit, OnDestroy {
   public isElementLoaded?: boolean;
+  public likedVideosList$!: Observable<string[]>;
+  public dislikedVideosList$!: Observable<string[]>;
+
   private readonly onDestroy$ = new Subject<void>();
 
   constructor(
     private route: ActivatedRoute,
     private eventDispatcher: EventDispatcherService,
-    private store: Store,
+    private accountStore: AccountStoreService,
     private cdr: ChangeDetectorRef
   ) {}
 
   public ngOnInit(): void {
     this.loadElement();
+    this.initStoreData();
     this.initWatchAppListeners();
   }
 
@@ -49,19 +52,24 @@ export class WatchAppWrapperComponent implements OnInit, OnDestroy {
 
   private initWatchAppListeners(): void {
     this.eventDispatcher
-      .on(WatchAPPEvents.ADD_VIDEO_TO_LIKE_LIST)
+      .on(WatchAPPEvents.TOGGLE_LIKE_VIDEO)
       .pipe(takeUntil(this.onDestroy$))
       .subscribe((event: Partial<CustomEvent>) => {
         const videoId = event.detail.videoId;
-        this.store.dispatch(addVideoToLikeList({ videoId }));
+        this.accountStore.toggleLikeVideo({ videoId });
       });
 
     this.eventDispatcher
-      .on(WatchAPPEvents.ADD_VIDEO_TO_UNLIKE_LIST)
+      .on(WatchAPPEvents.TOGGLE_DISLIKE_VIDEO)
       .pipe(takeUntil(this.onDestroy$))
       .subscribe((event: Partial<CustomEvent>) => {
         const videoId = event.detail.videoId;
-        this.store.dispatch(addVideoToUnLikeList({ videoId }));
+        this.accountStore.toggleDislikeVideo({ videoId });
       });
+  }
+
+  private initStoreData(): void {
+    this.likedVideosList$ = this.accountStore.selectLikedVideoList();
+    this.dislikedVideosList$ = this.accountStore.selectDislikedVideoList();
   }
 }

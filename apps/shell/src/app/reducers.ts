@@ -22,4 +22,4 @@ export const selectVideoSearchQuery = createSelector(selectVideoState, fromVideo
 // Account state selectors
 export const selectAccountState = createFeatureSelector<fromAccount.AccountState>(fromAccount.featureKey);
 export const selectLikedVideos = createSelector(selectAccountState, fromAccount.selectLikedVideos);
-export const selectUnLikedVideos = createSelector(selectAccountState, fromAccount.selectUnLikedVideos);
+export const selectDislikedVideos = createSelector(selectAccountState, fromAccount.selectDislikedVideos);
