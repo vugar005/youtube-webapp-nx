@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { VideoStoreService } from '../core/services/video-store/video-store.service';
 
@@ -15,7 +16,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   private readonly onDestroy$ = new Subject<void>();
 
-  constructor(private videoStore: VideoStoreService) {}
+  constructor(private videoStore: VideoStoreService, private router: Router) {}
 
   public ngOnInit(): void {
     this.listenToEvents();
@@ -38,6 +39,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.searchControl.valueChanges.pipe(takeUntil(this.onDestroy$)).subscribe((value) => {
       console.log(value);
       this.videoStore.setSearchQuery(value);
+      this.router.navigate(['']);
     });
   }
 }
