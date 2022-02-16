@@ -1,3 +1,3 @@
-import * as AuthActions from './auth.actions';
 import * as VideoActions from './video.actions';
-export { AuthActions, VideoActions };
+import * as AccountActions from './account.actions';
+export { VideoActions, AccountActions };
