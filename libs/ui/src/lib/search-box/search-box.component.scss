@@ -27,12 +27,15 @@
   }
 
   &__option {
-    background: #fff;
-    color: var(--yt-spec-background-solid) !important;
+    background: #fff!important;
+    color: var(--yt-spec-background-solid)!important;
     font-size: 1.6rem;
     height: 30px;
     &:hover {
-      background: #eee;
+      background: #eee!important;
+    }
+    &.mat-active {
+      background: #eee!important;
     }
   }
 }
