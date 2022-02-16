@@ -2,7 +2,11 @@
   <div class="home-sidebar">
     <div class="home-sidebar__video">
       <ng-container *ngIf="likedVideos?.[0] as primaryVideo else primaryLoadingTemplate">
-        <yt-video-thumbnail [snippet]="primaryVideo.snippet" [direction]="'horizontal'"></yt-video-thumbnail>
+        <yt-video-thumbnail
+          (click)="onWatchVideo(primaryVideo.id?.videoId)"
+          [snippet]="primaryVideo.snippet"
+          [direction]="'horizontal'"
+        ></yt-video-thumbnail>
       </ng-container>
     </div>
 
