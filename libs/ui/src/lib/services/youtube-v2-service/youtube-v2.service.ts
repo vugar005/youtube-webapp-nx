@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IYoutubeSearchParams, IYoutubeService, IYoutubeSearchResult } from '@youtube/common-ui';
 import { Observable } from 'rxjs';
+import { IYoutubeSearchParams, IYoutubeSearchResult, IYoutubeService } from '../../models';
 
 @Injectable({ providedIn: 'root' })
 export class YoutubeServiceV2 implements IYoutubeService {
