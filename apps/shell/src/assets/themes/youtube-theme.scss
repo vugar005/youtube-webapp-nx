@@ -33,8 +33,7 @@ $youtube-light-theme: mat.define-light-theme(
 @include mat.all-component-themes($youtube-dark-theme);
 @include mat.core($youtube-typography);
 
-
 .light-theme {
   @include mat.core-color($youtube-light-theme);
-//  @include angular-material-color($youtube-light-theme);
- }
+  //  @include angular-material-color($youtube-light-theme);
+}

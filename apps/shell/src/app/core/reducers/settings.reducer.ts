@@ -16,8 +16,8 @@ export const reducer = createReducer(
   initialState,
   on(SettingsActions.setTheme, (state, payload) => ({
     ...state,
-    theme: payload.theme
-  })),
+    theme: payload.theme,
+  }))
 );
 
 export const selectSettingsTheme = (state: SettingsState) => state.theme;

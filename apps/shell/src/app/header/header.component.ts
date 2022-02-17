@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private router: Router,
     private settingsStore: SettingsStore,
     private themeService: ThemeService
-    ) {}
+  ) {}
 
   public ngOnInit(): void {
     this.listenToEvents();
@@ -45,19 +45,19 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   public onChangeTheme(): void {
-    this.settingsStore.selectTheme()
-    .pipe(
-      take(1)
-    ).subscribe((theme: AppTheme | null) => {
-      console.log(theme);
+    this.settingsStore
+      .selectTheme()
+      .pipe(take(1))
+      .subscribe((theme: AppTheme | null) => {
+        console.log(theme);
         if (theme === AppTheme.DARK) {
-          console.log('set light')
-          this.themeService.setTheme(AppTheme.LIGHT)
+          console.log('set light');
+          this.themeService.setTheme(AppTheme.LIGHT);
         } else {
-          console.log('set dark')
+          console.log('set dark');
           this.themeService.setTheme(AppTheme.DARK);
         }
-    });
+      });
   }
 
   private listenToEvents(): void {
