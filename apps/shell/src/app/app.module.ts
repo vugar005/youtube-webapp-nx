@@ -67,9 +67,9 @@ import { LikesAppWrapperComponent } from './likes-app-wrapper/likes-app-wrapper.
         strictActionTypeUniqueness: true,
       },
     }),
-    StoreDevtoolsModule.instrument({
+    !environment.production ? StoreDevtoolsModule.instrument({
       name: 'Youtube Shell Store',
-    }),
+    }): [],
   ],
   providers: [
     {
