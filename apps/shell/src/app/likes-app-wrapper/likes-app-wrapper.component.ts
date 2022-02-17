@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EventDispatcherService, LikedAppEvent } from '@youtube/common-ui';
 import { Observable, Subject, takeUntil } from 'rxjs';
@@ -11,7 +11,7 @@ import { registry } from '../registry';
   styleUrls: ['./likes-app-wrapper.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LikesAppWrapperComponent implements OnInit {
+export class LikesAppWrapperComponent implements OnInit, OnDestroy {
   public isElementLoaded?: boolean;
   public likedVideosList$!: Observable<string[]>;
 
