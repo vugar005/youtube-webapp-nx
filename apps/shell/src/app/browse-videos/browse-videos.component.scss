@@ -30,3 +30,9 @@
     height: 237px;
   }
 }
+
+.mini-sidebar-wrapper {
+  position: sticky;
+  top: var(--ytd-watch-flexy-masthead-height);
+  background: var(--yt-spec-background-solid);
+}

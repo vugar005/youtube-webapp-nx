@@ -12,6 +12,7 @@ import { VideoStoreService } from '../core/services/video-store/video-store.serv
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   @Output() readonly toggleMenu = new EventEmitter<void>();
+  @Output() readonly toggleAccountMenu = new EventEmitter<void>();
   public searchControl = new FormControl();
 
   private readonly onDestroy$ = new Subject<void>();
@@ -29,6 +30,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   public onToggleMenu(): void {
     this.toggleMenu.next();
+  }
+
+  public onToggleAccountMenu(): void {
+    this.toggleAccountMenu.next();
   }
 
   private listenToEvents(): void {

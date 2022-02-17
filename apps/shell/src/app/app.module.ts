@@ -32,6 +32,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MiniSidebarComponent } from './mini-sidebar/mini-sidebar.component';
 import { WatchAppWrapperComponent } from './watch-app-wrapper/watch-app-wrapper.component';
 import { LikesAppWrapperComponent } from './likes-app-wrapper/likes-app-wrapper.component';
+import { AccountSidebarComponent } from './account-sidebar/account-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { LikesAppWrapperComponent } from './likes-app-wrapper/likes-app-wrapper.
     MiniSidebarComponent,
     WatchAppWrapperComponent,
     LikesAppWrapperComponent,
+    AccountSidebarComponent,
   ],
   imports: [
     BrowserModule,
