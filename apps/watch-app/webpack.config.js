@@ -18,10 +18,11 @@ const tsConfigPath = process.env.NX_TSCONFIG_PATH ?? path.join(__dirname, '../..
 
 const workspaceRootPath = path.join(__dirname, '../../');
 const sharedMappings = new mf.SharedMappings();
+
 sharedMappings.register(
   tsConfigPath,
   [
-    /* mapped paths to share */
+    '@youtube/common-ui'
   ],
   workspaceRootPath
 );
@@ -50,7 +51,7 @@ module.exports = {
       exposes: {
         './web-components': 'apps/watch-app/src/bootstrap.ts', // bootstrap --> main --> AppModule --> WebComp
       },
-      shared: {
+      shared: share({
         // Angular
         '@angular/core': { requiredVersion: deps['@angular/core'] },
         '@angular/common': { requiredVersion: deps['@angular/common'] },
@@ -58,16 +59,19 @@ module.exports = {
         '@angular/router': { requiredVersion: deps['@angular/router'] },
         '@angular/platform-browser': { requiredVersion: deps['@angular/platform-browser'] },
         '@angular/platform-browser/animations': { requiredVersion: deps['@angular/platform-browser'] },
+        '@angular/animations': { requiredVersion: deps['@angular/animations'] },
         // RxJs
-        rxjs: { requiredVersion: deps['rxjs'] },
+        'rxjs': { requiredVersion: deps['rxjs'] },
         'rxjs/operators': { requiredVersion: deps['rxjs'] },
         // Material
         '@angular/cdk': { requiredVersion: deps['@angular/cdk'] },
+        '@angular/material/core': { requiredVersion: deps['@angular/material']},
         '@angular/material/sidenav': { requiredVersion: deps['@angular/material'] },
         '@angular/material/icon': { requiredVersion: deps['@angular/material'] },
         '@angular/material/button': { requiredVersion: deps['@angular/material'] },
         '@angular/material/divider': { requiredVersion: deps['@angular/material'] },
-      },
+        ...sharedMappings.getDescriptors()
+      }),
     }),
     sharedMappings.getPlugin(),
   ],
