@@ -1,64 +1,64 @@
 :host {
-    display: block;
-    width: 300px;
-    height: 100%;
-    background: var(--yt-spec-brand-background-primary);
+  display: block;
+  width: 300px;
+  height: 100%;
+  background: var(--yt-spec-brand-background-primary);
 }
 
 .sidebar {
 }
 
 .sidebar-top {
-    display: flex;
-    padding: 16px;
-    &__avatar {
-        width: 4rem;
-        height: 4rem;
-        margin-right: 2rem;
-        .mat-icon {
-            font-size: 4rem;
-        }
+  display: flex;
+  padding: 16px;
+  &__avatar {
+    width: 4rem;
+    height: 4rem;
+    margin-right: 2rem;
+    .mat-icon {
+      font-size: 4rem;
+    }
+  }
+
+  &__text {
+    h2 {
+      font-size: 1.6rem;
+      line-height: 2.2rem;
+      font-weight: 500;
     }
 
-    &__text {
-        h2 {
-            font-size: 1.6rem;
-            line-height: 2.2rem;
-            font-weight: 500;
-        }
-
-        h3 {
-            margin-top: 0.2rem;
-            font-size: 1rem;
-        }
+    h3 {
+      margin-top: 0.2rem;
+      font-size: 1rem;
     }
+  }
 }
 
 .sidebar-content {
-    padding: 16px 0;
-    .sidebar-content-item {
-        padding: 0 16px;
-        display: flex;
-        align-items: center;
-        color: var(--yt-spec-text-primary);
-        height: 4rem;
-        cursor: pointer;
-        &:hover {
-          background: var(--yt-spec-10-percent-layer);
-        }
-
-        &__icon {
-            width: 2.4rem;
-            height: 2.4rem;
-            margin-right: 1rem;
-            .mat-icon {
-                font-size: 2.4rem;
-            }
-        }
-        &__text {
-            font-size: 1.4rem;
-            line-height: 2rem;
-            font-weight: 400;
-        }
+  padding: 16px 0;
+  .sidebar-content-item {
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    color: var(--yt-spec-text-primary);
+    height: 4rem;
+    cursor: pointer;
+    &:hover {
+      background: var(--yt-spec-10-percent-layer);
     }
+
+    &__icon {
+      width: 2.4rem;
+      height: 2.4rem;
+      margin-right: 1rem;
+      .mat-icon {
+        font-size: 2.4rem;
+      }
+    }
+    &__text {
+      font-size: 1.4rem;
+      line-height: 2rem;
+      font-weight: 400;
+    }
+  }
 }

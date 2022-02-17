@@ -20,7 +20,7 @@ import {
   YoutubeServiceV2,
   YOUTUBE_API_KEY,
   YOUTUBE_SERVICE,
-  YTIconModule,
+  BrandIconModule,
 } from '@youtube/common-ui';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -55,7 +55,7 @@ import { AccountSidebarComponent } from './account-sidebar/account-sidebar.compo
     MatButtonModule,
     MatDividerModule,
     MatTooltipModule,
-    YTIconModule,
+    BrandIconModule,
     VideoPlayerModule,
     VideoThumbnailModule,
     SearchBoxModule,

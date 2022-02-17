@@ -5,14 +5,12 @@ import { Component, OnInit, ChangeDetectionStrategy, VERSION } from '@angular/co
   selector: 'yt-account-sidebar',
   templateUrl: './account-sidebar.component.html',
   styleUrls: ['./account-sidebar.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AccountSidebarComponent implements OnInit {
   public readonly version = VERSION.full;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
