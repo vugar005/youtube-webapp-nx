@@ -22,6 +22,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
 import { HomeComponent } from './home/home.component';
 import { ROOT_REDUCERS } from './reducers';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -41,9 +42,9 @@ import { ROOT_REDUCERS } from './reducers';
         strictActionTypeUniqueness: true,
       },
     }),
-    StoreDevtoolsModule.instrument({
-      name: 'Youtube Shell Store',
-    }),
+    !environment.production ? StoreDevtoolsModule.instrument({
+      name: 'Youtube Likes App Store',
+    }): [],
   ],
   providers: [
     {

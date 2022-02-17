@@ -57,6 +57,7 @@ module.exports = {
         '@angular/common': { requiredVersion: deps['@angular/common'] },
         '@angular/common/http': { requiredVersion: deps['@angular/common'] },
         '@angular/router': { requiredVersion: deps['@angular/router'] },
+        '@angular/forms': { requiredVersion: deps['@angular/forms'] },
         '@angular/platform-browser': { requiredVersion: deps['@angular/platform-browser'] },
         '@angular/platform-browser/animations': { requiredVersion: deps['@angular/platform-browser'] },
         '@angular/animations': { requiredVersion: deps['@angular/animations'] },
@@ -70,6 +71,11 @@ module.exports = {
         '@angular/material/icon': { requiredVersion: deps['@angular/material'] },
         '@angular/material/button': { requiredVersion: deps['@angular/material'] },
         '@angular/material/divider': { requiredVersion: deps['@angular/material'] },
+        '@angular/material/input': { requiredVersion: deps['@angular/material'] },
+        '@angular/material/form-field': { requiredVersion: deps['@angular/material'] },
+        '@angular/material/autocomplete': { requiredVersion: deps['@angular/material'] },
+        // Ngrx
+        '@ngrx/store': { requiredVersion: deps['@ngrx/store']},
         ...sharedMappings.getDescriptors()
       }),
     }),
