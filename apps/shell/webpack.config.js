@@ -17,13 +17,7 @@ const tsConfigPath = process.env.NX_TSCONFIG_PATH ?? path.join(__dirname, '../..
 const workspaceRootPath = path.join(__dirname, '../../');
 const sharedMappings = new mf.SharedMappings();
 
-sharedMappings.register(
-  tsConfigPath,
-  [
-    '@youtube/common-ui'
-  ],
-  workspaceRootPath
-);
+sharedMappings.register(tsConfigPath, ['@youtube/common-ui'], workspaceRootPath);
 
 module.exports = {
   output: {
@@ -60,11 +54,11 @@ module.exports = {
         '@angular/platform-browser/animations': { requiredVersion: deps['@angular/platform-browser'] },
         '@angular/animations': { requiredVersion: deps['@angular/animations'] },
         // RxJs
-        'rxjs': { requiredVersion: deps['rxjs'] },
+        rxjs: { requiredVersion: deps['rxjs'] },
         'rxjs/operators': { requiredVersion: deps['rxjs'] },
         // Material
         '@angular/cdk': { requiredVersion: deps['@angular/cdk'] },
-        '@angular/material/core': { requiredVersion: deps['@angular/material']},
+        '@angular/material/core': { requiredVersion: deps['@angular/material'] },
         '@angular/material/sidenav': { requiredVersion: deps['@angular/material'] },
         '@angular/material/icon': { requiredVersion: deps['@angular/material'] },
         '@angular/material/button': { requiredVersion: deps['@angular/material'] },
@@ -72,11 +66,9 @@ module.exports = {
         '@angular/material/input': { requiredVersion: deps['@angular/material'] },
         '@angular/material/form-field': { requiredVersion: deps['@angular/material'] },
         '@angular/material/autocomplete': { requiredVersion: deps['@angular/material'] },
-
-
         // Ngrx
-        '@ngrx/store': { requiredVersion: deps['@ngrx/store']},
-        ...sharedMappings.getDescriptors()
+        '@ngrx/store': { requiredVersion: deps['@ngrx/store'] },
+        ...sharedMappings.getDescriptors(),
       }),
     }),
     sharedMappings.getPlugin(),
