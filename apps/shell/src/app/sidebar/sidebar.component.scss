@@ -21,7 +21,7 @@
   align-items: center;
   min-height: var(--yt-sidebar-nav-min-height);
   padding: 0 24px;
-  color: var(--yt-text-primary);
+  color: var(--yt-spec-text-primary);
   cursor: pointer;
   outline: none;
 
@@ -48,6 +48,7 @@
     box-shadow: none;
     width: 40px;
     height: 40px;
+    color: var(--yt-spec-text-primary);
   }
 }
 

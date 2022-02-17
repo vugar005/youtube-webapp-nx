@@ -18,12 +18,12 @@
   background: #000000;
 }
 ::-webkit-scrollbar-track {
-  background: var(--yt-background-primary);
-  border: 0px none var(--yt-background-primary);
+  background: var(--yt-spec-background-primary);
+  border: 0px none var(--yt-spec-background-primary);
   border-radius: 50px;
 }
 ::-webkit-scrollbar-track:hover {
-  background: var(--yt-background-primary);
+  background: var(--yt-spec-background-primary);
 }
 ::-webkit-scrollbar-track:active {
   background: vg(--vg-primary);

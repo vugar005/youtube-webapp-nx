@@ -11,7 +11,7 @@
   width: 100%;
   height: 100%;
   background: var(--yt-searchbox-background);
-  border: 1px solid var(--ytd-searchbox-legacy-border-color);
+  border: 1px solid var(--yt-searchbox-legacy-border-color);
   &:focus {
     border: 1px solid #1c62b9;
   }
@@ -28,7 +28,7 @@
 
   &__option {
     background: #fff !important;
-    color: var(--yt-spec-background-solid) !important;
+    color: #2c2c54 !important;
     font-size: 1.6rem;
     height: 30px;
     &:hover {
@@ -46,7 +46,8 @@
   justify-content: center;
   width: 64px;
   height: 100%;
-  background: var(--yt-searchbox-legacy-button-hover-color);
+  color: var(--yt-searchbox-text-color);
+  background: var(--yt-searchbox-legacy-button-color);
   border-radius: 0 2px 2px 0;
   cursor: pointer;
 }
