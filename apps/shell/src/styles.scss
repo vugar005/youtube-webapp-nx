@@ -38,6 +38,7 @@ body {
   --yt-spec-text-secondary: #aaa;
   --yt-spec-badge-chip-background: rgba(255, 255, 255, 0.1);
   --yt-spec-general-background-a: #181818;
+  --yt-spec-brand-background-primary: rgba(33, 33, 33, 0.98);
   // --ytd-watch-flexy-min-player-height: 360px;
   // --ytd-watch-flexy-panel-max-height: 360px;
   --ytd-watch-flexy-player-width: calc(
@@ -54,6 +55,10 @@ body {
   --ytd-watch-flexy-height-ratio: 9;
   --ytd-margin-6x: 24px;
   --yt-related-thumbnail-width: 300px;
+  --yt-header-feature-icon-width: 4rem;
+  --yt-header-feature-icon-height: 4rem;
+  --yt-header-feature-icon-padding: 0.8rem;
+  --yt-spec-tooltip-background: hsla(0, 0%, 53.3%, 0.4);
 }
 
 a {
@@ -86,4 +91,11 @@ a {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.feature-tooltip {
+  font-size: 1rem;
+  padding: 0.75rem;
+  margin-top: 0.75rem !important;
+  background: var(--yt-spec-tooltip-background);
 }

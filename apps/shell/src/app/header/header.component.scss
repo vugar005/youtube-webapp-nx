@@ -2,6 +2,7 @@
   display: block;
   height: var(--ytd-watch-flexy-masthead-height);
   padding: 0 16px;
+  border-bottom: 1px solid var(--yt-spec-10-percent-layer);
 }
 
 .header {
@@ -17,6 +18,10 @@
 
   &__center {
     flex: 0 1 504px;
+  }
+
+  &__end {
+    display: flex;
   }
 }
 
@@ -35,4 +40,20 @@
     width: 97px;
     margin-left: 16px;
   }
+}
+
+.header-feature-icon {
+  color: var(--yt-spec-text-primary);
+  width: var(--yt-header-feature-icon-width);
+  height: var(--yt-header-feature-icon-height);
+  margin-left: 0.8rem;
+  font-size: 2.4rem;
+  button {
+    background: transparent;
+    box-shadow: none;
+  }
+}
+
+.feature-tooltip {
+  font-size: 0.7rem;
 }

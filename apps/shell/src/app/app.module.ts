@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
@@ -19,7 +20,7 @@ import {
   YoutubeServiceV2,
   YOUTUBE_API_KEY,
   YOUTUBE_SERVICE,
-  YTIconModule,
+  BrandIconModule,
 } from '@youtube/common-ui';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -31,6 +32,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MiniSidebarComponent } from './mini-sidebar/mini-sidebar.component';
 import { WatchAppWrapperComponent } from './watch-app-wrapper/watch-app-wrapper.component';
 import { LikesAppWrapperComponent } from './likes-app-wrapper/likes-app-wrapper.component';
+import { AccountSidebarComponent } from './account-sidebar/account-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import { LikesAppWrapperComponent } from './likes-app-wrapper/likes-app-wrapper.
     MiniSidebarComponent,
     WatchAppWrapperComponent,
     LikesAppWrapperComponent,
+    AccountSidebarComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,8 @@ import { LikesAppWrapperComponent } from './likes-app-wrapper/likes-app-wrapper.
     MatIconModule,
     MatButtonModule,
     MatDividerModule,
-    YTIconModule,
+    MatTooltipModule,
+    BrandIconModule,
     VideoPlayerModule,
     VideoThumbnailModule,
     SearchBoxModule,
