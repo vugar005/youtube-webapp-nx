@@ -6,6 +6,7 @@
 }
 
 .sidebar {
+  color: var(--yt-spec-text-primary);
 }
 
 .sidebar-top {
@@ -40,8 +41,8 @@
     padding: 0 16px;
     display: flex;
     align-items: center;
-    color: var(--yt-spec-text-primary);
     height: 4rem;
+    color: inherit;
     cursor: pointer;
     &:hover {
       background: var(--yt-spec-10-percent-layer);
