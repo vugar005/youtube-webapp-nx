@@ -32,6 +32,7 @@
     box-shadow: none;
     width: 40px;
     height: 40px;
+    color: var(--yt-spec-text-primary);
   }
 }
 
@@ -43,7 +44,6 @@
 }
 
 .header-feature-icon {
-  color: var(--yt-spec-text-primary);
   width: var(--yt-header-feature-icon-width);
   height: var(--yt-header-feature-icon-height);
   margin-left: 0.8rem;
@@ -51,6 +51,7 @@
   button {
     background: transparent;
     box-shadow: none;
+    color: var(--yt-spec-text-primary);
   }
 }
 

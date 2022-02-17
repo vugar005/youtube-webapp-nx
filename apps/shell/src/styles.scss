@@ -2,6 +2,7 @@
 @import '~bootstrap/scss/bootstrap-grid';
 @import 'apps/shell/src/assets/themes/youtube-theme';
 @import 'apps/shell/src/assets/styles/scrollbar';
+@import 'apps/shell/src/assets/styles/variables';
 
 * {
   margin: 0;
@@ -14,52 +15,9 @@ html {
 }
 
 body {
-  background: var(--yt-background-primary);
+  background: var(--yt-spec-background-primary);
 }
 
-:root {
-  --ytd-watch-flexy-masthead-height: 56px;
-  --ytd-watch-flexy-masthead-z-index: 1;
-  --yt-background-primary: rgba(33, 33, 33, 0.98);
-  --yt-background-solid: #212121;
-  --yt-sidebar-width: 240px;
-  --yt-sidebar-nav-min-height: 40px;
-  --yt-spec-10-percent-layer: rgba(255, 255, 255, 0.1);
-  --yt-spec-text-primary: #fff;
-  --yt-drawer-backdrop-background: rgba(0, 0, 0, 0.5);
-  --yt-spec-background-solid: #212121;
-  --yt-searchbox-background: hsl(0, 0%, 7%);
-  --ytd-searchbox-legacy-border-color: hsla(0, 0%, 53.3%, 0.4);
-  --yt-searchbox-text-color: hsla(0, 100%, 100%, 0.88);
-  --yt-searchbox-legacy-button-hover-color: hsla(0, 0%, 100%, 0.08);
-  --ytd-rich-grid-items-per-row: 3;
-  --ytd-rich-grid-item-margin: 16px;
-  --yt-endpoint-color: var(--yt-spec-text-secondary);
-  --yt-spec-text-secondary: #aaa;
-  --yt-spec-badge-chip-background: rgba(255, 255, 255, 0.1);
-  --yt-spec-general-background-a: #181818;
-  --yt-spec-brand-background-primary: rgba(33, 33, 33, 0.98);
-  // --ytd-watch-flexy-min-player-height: 360px;
-  // --ytd-watch-flexy-panel-max-height: 360px;
-  --ytd-watch-flexy-player-width: calc(
-    (
-        100vh -
-          (var(--ytd-watch-flexy-masthead-height) + var(--ytd-margin-6x) + var(--ytd-watch-flexy-space-below-player))
-      ) * (var(--ytd-watch-flexy-width-ratio) / var(--ytd-watch-flexy-height-ratio))
-  );
-  --ytd-watch-flexy-player-height: calc(
-    100vh - (var(--ytd-watch-flexy-masthead-height) + var(--ytd-margin-6x) + var(--ytd-watch-flexy-space-below-player))
-  );
-  --ytd-watch-flexy-space-below-player: 156px;
-  --ytd-watch-flexy-width-ratio: 16;
-  --ytd-watch-flexy-height-ratio: 9;
-  --ytd-margin-6x: 24px;
-  --yt-related-thumbnail-width: 300px;
-  --yt-header-feature-icon-width: 4rem;
-  --yt-header-feature-icon-height: 4rem;
-  --yt-header-feature-icon-padding: 0.8rem;
-  --yt-spec-tooltip-background: hsla(0, 0%, 53.3%, 0.4);
-}
 
 a {
   text-decoration: none;
