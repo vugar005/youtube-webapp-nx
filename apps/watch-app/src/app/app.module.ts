@@ -47,9 +47,11 @@ import { environment } from '../environments/environment';
         strictActionTypeUniqueness: true,
       },
     }),
-    !environment.production ? StoreDevtoolsModule.instrument({
-      name: 'Youtube Watch App Store',
-    }): [],
+    !environment.production
+      ? StoreDevtoolsModule.instrument({
+          name: 'Youtube Watch App Store',
+        })
+      : [],
   ],
   providers: [
     {
