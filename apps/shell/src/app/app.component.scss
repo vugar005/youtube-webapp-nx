@@ -1,10 +1,10 @@
 :host {
-    display: block;
+  display: block;
 }
 
 .header-wrapper {
-   position: sticky;
-   top: 0;
-   z-index: var(--ytd-watch-flexy-masthead-z-index);
-   background: var(--yt-spec-background-solid);
+  position: sticky;
+  top: 0;
+  z-index: var(--ytd-watch-flexy-masthead-z-index);
+  background: var(--yt-spec-background-solid);
 }

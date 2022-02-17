@@ -1,7 +1,7 @@
 <div class="header">
   <div class="header__start">
     <div class="header-nav-icon" (click)="onToggleMenu()">
-      <button mat-mini-fab aria-label="Example icon button with a menu icon">
+      <button mat-mini-fab>
         <mat-icon>menu</mat-icon>
       </button>
     </div>
@@ -12,5 +12,21 @@
   <div class="header__center">
     <yt-search-box [formControl]="searchControl"></yt-search-box>
   </div>
-  <div class="header__end"></div>
+  <div class="header__end">
+    <div class="header-feature-icon">
+      <button mat-mini-fab>
+        <mat-icon [matTooltip]="'Change Theme'" [matTooltipPosition]="'below'" [matTooltipClass]="'feature-tooltip'"
+          >lightbulb</mat-icon
+        >
+      </button>
+    </div>
+
+    <div class="header-feature-icon" (click)="onToggleAccountMenu()">
+      <button mat-mini-fab>
+        <mat-icon [matTooltip]="'Account'" [matTooltipPosition]="'below'" [matTooltipClass]="'feature-tooltip'"
+          >account_circle</mat-icon
+        >
+      </button>
+    </div>
+  </div>
 </div>
