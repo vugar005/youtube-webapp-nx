@@ -1,6 +1,9 @@
 import { DoBootstrap, Injector, NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { createCustomElement } from '@angular/elements';
+import { MatIconModule } from '@angular/material/icon';
+
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
@@ -17,13 +20,12 @@ import {
   YoutubeServiceV2,
   YOUTUBE_SERVICE,
 } from '@youtube/common-ui';
-import { MatIconModule } from '@angular/material/icon';
 import { RelatedVideosComponent } from './related-videos/related-videos.component';
 import { HttpClientModule } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
 import { APP_KEY } from './app.constants';
 
 import { ROOT_REDUCERS } from './reducers';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent, WatchVideoComponent, VideoCardComponent, RelatedVideosComponent],
@@ -45,9 +47,11 @@ import { ROOT_REDUCERS } from './reducers';
         strictActionTypeUniqueness: true,
       },
     }),
-    StoreDevtoolsModule.instrument({
-      name: 'Watch App Store',
-    }),
+    !environment.production
+      ? StoreDevtoolsModule.instrument({
+          name: 'Youtube Watch App Store',
+        })
+      : [],
   ],
   providers: [
     {
