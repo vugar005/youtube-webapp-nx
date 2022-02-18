@@ -30,13 +30,16 @@
 </div>
 
 <ng-template #loadingTemplate>
-  <div class="thumbnail-loader-template">
-    <yt-video-thumbnail-loader *ngFor="let item of mockItems"></yt-video-thumbnail-loader>
-  </div>
+  <yt-video-thumbnail-loader
+    class="thumbnail-loader-template-item"
+    [direction]="'vertical'"
+    *ngFor="let item of mockItems"
+  ></yt-video-thumbnail-loader>
 </ng-template>
 
 <ng-template #primaryLoadingTemplate>
-  <div class="thumbnail-primary-loader-template">
-    <yt-video-thumbnail-loader></yt-video-thumbnail-loader>
-  </div>
+  <yt-video-thumbnail-loader
+    class="thumbnail-primary-loader-template-item"
+    [direction]="'horizontal'"
+  ></yt-video-thumbnail-loader>
 </ng-template>

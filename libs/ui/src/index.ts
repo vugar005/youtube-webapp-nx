@@ -3,6 +3,7 @@ export * from './lib/services';
 export * from './lib/tokens';
 export * from './lib/mocks';
 export * from './lib/pipes';
+export * from './lib/directives';
 export * from './lib/ui.module';
 export * from './lib/brand-icon';
 export * from './lib/search-box';

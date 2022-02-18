@@ -14,6 +14,7 @@
 .video-card-wrapper {
   padding-right: var(--ytd-margin-6x);
   margin-left: var(--ytd-margin-6x);
+  flex: 1;
 }
 
 .related-videos-wrapper {
@@ -28,7 +29,7 @@
   }
 
   .related-videos-wrapper {
-    margin-left: 0;
+    margin-left: auto;
     margin-top: 0;
   }
 }

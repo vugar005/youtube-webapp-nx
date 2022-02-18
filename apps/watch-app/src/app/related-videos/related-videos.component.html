@@ -14,7 +14,9 @@
 </div>
 
 <ng-template #loadingTemplate>
-  <div class="thumbnail-loader-template">
-    <yt-video-thumbnail-loader *ngFor="let item of items"></yt-video-thumbnail-loader>
-  </div>
+  <yt-video-thumbnail-loader
+    class="thumbnail-loader-template"
+    [direction]="'vertical'"
+    *ngFor="let item of items"
+  ></yt-video-thumbnail-loader>
 </ng-template>
