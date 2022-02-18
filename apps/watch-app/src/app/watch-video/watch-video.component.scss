@@ -12,9 +12,8 @@
 }
 
 .video-card-wrapper {
-  padding-right: var(--ytd-margin-6x);
+  width: var(--ytd-watch-flexy-player-width);
   margin-left: var(--ytd-margin-6x);
-  flex: 1;
 }
 
 .related-videos-wrapper {
@@ -29,7 +28,6 @@
   }
 
   .related-videos-wrapper {
-    margin-left: auto;
     margin-top: 0;
   }
 }
