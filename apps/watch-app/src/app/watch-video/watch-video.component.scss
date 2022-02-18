@@ -14,12 +14,19 @@
 .video-card-wrapper {
   width: var(--ytd-watch-flexy-player-width);
   margin-left: var(--ytd-margin-6x);
+  margin-right: var(--ytd-margin-6x);
 }
 
 .related-videos-wrapper {
   min-width: 300px;
   margin-left: var(--ytd-margin-6x);
   margin-top: var(--ytd-margin-6x);
+}
+
+@media (min-width: 992px) {
+  .video-card-wrapper {
+    margin-right: 0;
+  }
 }
 
 @media (min-width: 992px) {
