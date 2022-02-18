@@ -5,13 +5,10 @@ import { AppTheme } from './theme.constants';
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
-  constructor(
-    private settingsStore: SettingsStore,
-    private webApi: WebApiService
-    ) {}
+  constructor(private settingsStore: SettingsStore, private webApi: WebApiService) {}
 
   public setTheme(theme: AppTheme): void {
-    let root = this.webApi.document.getElementsByTagName('html')[0];
+    const root = this.webApi.document.getElementsByTagName('html')[0];
     root.setAttribute('theme', theme);
     this.settingsStore.setTheme(theme);
   }

@@ -10,7 +10,7 @@
         [routerLink]="['/watch']"
         [queryParams]="{ v: video.id.videoId }"
       >
-        <yt-video-thumbnail [snippet]="video.snippet"></yt-video-thumbnail>
+        <yt-video-thumbnail [snippet]="video.snippet" [direction]="'horizontal'"></yt-video-thumbnail>
       </a>
     </ng-container>
   </div>
@@ -19,7 +19,7 @@
 <ng-template #loadingTemplate>
   <div class="loader-template">
     <ng-container *ngFor="let item of items">
-      <yt-video-thumbnail-loader class="loader-template__item"></yt-video-thumbnail-loader>
+      <yt-video-thumbnail-loader class="loader-template__item" [direction]="'horizontal'"></yt-video-thumbnail-loader>
     </ng-container>
   </div>
 </ng-template>

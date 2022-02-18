@@ -2,9 +2,10 @@
   class="thumbnail"
   [ngClass]="{ 'thumbnail--vertical': direction === 'vertical', 'thumbnail--horizontal': direction === 'horizontal' }"
 >
-  <div class="thumbnail__image">
+  <div class="thumbnail__image" [ytAspectRatio]="0.56">
     <img [src]="snippet?.thumbnails?.high?.url" />
   </div>
+
   <div class="thumbnail-details">
     <div class="thumbnail-details__icon"></div>
     <div class="thumbnail-details-content">

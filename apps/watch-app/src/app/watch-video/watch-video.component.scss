@@ -12,10 +12,9 @@
 }
 
 .video-card-wrapper {
-  padding-right: var(--ytd-margin-6x);
-  margin-left: var(--ytd-margin-6x);
   width: var(--ytd-watch-flexy-player-width);
-  min-height: var(--ytd-watch-flexy-player-height);
+  margin-left: var(--ytd-margin-6x);
+  margin-right: var(--ytd-margin-6x);
 }
 
 .related-videos-wrapper {
@@ -25,12 +24,17 @@
 }
 
 @media (min-width: 992px) {
+  .video-card-wrapper {
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 992px) {
   .watch-video {
     flex-direction: row;
   }
 
   .related-videos-wrapper {
-    margin-left: 0;
     margin-top: 0;
   }
 }
