@@ -1,17 +1,11 @@
 /* eslint-disable */
-import { enableProdMode, VERSION } from '@angular/core';
+import { VERSION } from '@angular/core';
 import { platformBrowser } from '@angular/platform-browser';
 import { AppModule } from './app/app.module';
-import { environment } from './environments/environment';
-
-if (!(window as any).shell && environment.production) {
-  enableProdMode();
-}
 
 // platformBrowser().bootstrapModule(AppModule)
 //   .catch(err => console.error(err));
 
-declare const require: any;
 const ngVersion = VERSION.full;
 (window as any).plattform = (window as any).plattform || {};
 let platform = (window as any).plattform[ngVersion];
