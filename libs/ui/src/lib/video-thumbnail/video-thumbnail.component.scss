@@ -20,6 +20,12 @@
     .thumbnail-details {
       margin-top: 12px;
     }
+    .thumbnail__image {
+      flex: unset;
+      img {
+        height: 100%;
+      }
+    }
   }
 
   &__image {

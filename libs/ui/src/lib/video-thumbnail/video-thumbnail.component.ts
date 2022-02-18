@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { VideoSnippet } from '../models/youtube-search-list.model';
 
 @Component({
@@ -7,11 +7,7 @@ import { VideoSnippet } from '../models/youtube-search-list.model';
   styleUrls: ['./video-thumbnail.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class VideoThumbnailComponent implements OnInit {
+export class VideoThumbnailComponent {
   @Input() snippet?: VideoSnippet;
   @Input() direction?: 'vertical' | 'horizontal' = 'horizontal';
-
-  constructor() {}
-
-  ngOnInit(): void {}
 }

@@ -38,12 +38,6 @@ a {
   width: 100%;
 }
 
-@media (min-width: 1130px) {
-  :root {
-    --ytd-rich-grid-items-per-row: 4;
-  }
-}
-
 .text-ellipsis {
   white-space: nowrap;
   overflow: hidden;

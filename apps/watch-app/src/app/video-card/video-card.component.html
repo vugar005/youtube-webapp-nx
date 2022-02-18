@@ -1,5 +1,7 @@
 <div class="video-card" *ngIf="videoResult?.title; else loadingTemplate">
-  <yt-video-player class="video-card__player" [videoId]="videoId"></yt-video-player>
+  <div class="video-card__player">
+    <yt-video-player [videoId]="videoId"></yt-video-player>
+  </div>
   <div class="video-details">
     <div class="video-details__title">{{ videoResult?.title }}</div>
     <div class="video-details__footer">

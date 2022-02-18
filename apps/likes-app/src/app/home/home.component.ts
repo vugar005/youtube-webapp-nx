@@ -1,5 +1,4 @@
 import { Component, OnInit, ChangeDetectionStrategy, OnDestroy, ChangeDetectorRef, Inject } from '@angular/core';
-import { Router } from '@angular/router';
 import {
   CustomEventConfig,
   EventDispatcherService,
@@ -20,7 +19,7 @@ import { UIStoreService } from '../core/services/ui-store/ui-store.service';
 })
 export class HomeComponent implements OnInit, OnDestroy {
   public likedVideos: IYoutubeSearchResult[] = [];
-  public mockItems = new Array(5);
+  public mockItems = new Array(3);
 
   private readonly onDestroy$ = new Subject<void>();
 
@@ -28,7 +27,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     private uiStore: UIStoreService,
     @Inject(YOUTUBE_SERVICE) private youtubeService: IYoutubeService,
     private eventDispatcher: EventDispatcherService,
-    private router: Router,
     private cdr: ChangeDetectorRef
   ) {}
 
