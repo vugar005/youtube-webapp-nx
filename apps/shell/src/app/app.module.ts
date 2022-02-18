@@ -21,6 +21,7 @@ import {
   YOUTUBE_API_KEY,
   YOUTUBE_SERVICE,
   BrandIconModule,
+  NotFoundPageModule,
 } from '@youtube/common-ui';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -58,6 +59,7 @@ import { AccountSidebarComponent } from './account-sidebar/account-sidebar.compo
     BrandIconModule,
     VideoPlayerModule,
     VideoThumbnailModule,
+    NotFoundPageModule,
     SearchBoxModule,
     AppRoutingModule,
     ReactiveFormsModule,
