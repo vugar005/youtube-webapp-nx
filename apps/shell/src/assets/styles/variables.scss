@@ -20,16 +20,9 @@
   --yt-spec-badge-chip-background: rgba(255, 255, 255, 0.1);
   --yt-spec-general-background-a: #181818;
   --yt-spec-brand-background-primary: rgba(33, 33, 33, 0.98);
-  // --ytd-watch-flexy-min-player-height: 360px;
-  // --ytd-watch-flexy-panel-max-height: 360px;
-  --ytd-watch-flexy-player-width: calc(
-    (
-        100vh -
-          (var(--ytd-watch-flexy-masthead-height) + var(--ytd-margin-6x) + var(--ytd-watch-flexy-space-below-player))
-      ) * (var(--ytd-watch-flexy-width-ratio) / var(--ytd-watch-flexy-height-ratio))
-  );
+  --ytd-watch-flexy-player-width: calc(100vw - 2 * var(--ytd-margin-6x));
   --ytd-watch-flexy-player-height: calc(
-    100vh - (var(--ytd-watch-flexy-masthead-height) + var(--ytd-margin-6x) + var(--ytd-watch-flexy-space-below-player))
+    var(--ytd-watch-flexy-player-width) * var(--ytd-watch-flexy-height-ratio) / var(--ytd-watch-flexy-width-ratio)
   );
   --ytd-watch-flexy-space-below-player: 156px;
   --ytd-watch-flexy-width-ratio: 16;
@@ -53,4 +46,40 @@ html[theme='light-theme'] {
   --yt-spec-brand-background-primary: rgba(255, 255, 255, 0.98);
   --yt-searchbox-legacy-button-color: #f5f5f5;
   --yt-searchbox-legacy-button-border-color: #ccc;
+}
+
+@media (min-width: 576px) {
+  :root {
+    --ytd-watch-flexy-player-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --ytd-watch-flexy-player-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  :root {
+    --ytd-watch-flexy-player-width: 640px;
+  }
+}
+
+@media (min-width: 1350px) {
+  :root {
+    --ytd-watch-flexy-player-width: 960px;
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --ytd-watch-flexy-player-width: 1280px;
+  }
+}
+
+@media (min-width: 2550px) {
+  :root {
+    --ytd-watch-flexy-player-width: 1440px;
+  }
 }
