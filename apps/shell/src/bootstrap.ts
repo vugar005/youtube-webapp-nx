@@ -11,7 +11,6 @@ if (!(window as any).shell && environment.production) {
 // platformBrowser().bootstrapModule(AppModule)
 //   .catch(err => console.error(err));
 
-declare const require: any;
 const ngVersion = VERSION.full;
 (window as any).plattform = (window as any).plattform || {};
 let platform = (window as any).plattform[ngVersion];
