@@ -10,7 +10,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "youtubeWebapp",
+            "prefix": "likes-app",
             "style": "camelCase"
           }
         ],
@@ -18,7 +18,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "youtube-webapp",
+            "prefix": "likes-app",
             "style": "kebab-case"
           }
         ]

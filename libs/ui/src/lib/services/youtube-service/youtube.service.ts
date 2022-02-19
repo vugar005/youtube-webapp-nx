@@ -15,6 +15,4 @@ export class YoutubeService implements IYoutubeService {
     const url = `${YT_BASE_URL}/search?part=snippet&maxResults=${maxResults}&q=${query}&safeSearch=${safeSearch}&key=${this.apiKey}`;
     return this.http.get<IYoutubeSearchResult[]>(url);
   }
-
-  public getVideoThumbnails() {}
 }

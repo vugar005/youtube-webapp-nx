@@ -1,10 +1,10 @@
-import { AfterViewInit, Directive, ElementRef, Input, Renderer2 } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, Input, OnDestroy, Renderer2 } from '@angular/core';
 import { debounceTime, fromEvent, Subject, takeUntil } from 'rxjs';
 
 @Directive({
   selector: '[ytAspectRatio]',
 })
-export class AspectRatioDirective implements AfterViewInit {
+export class AspectRatioDirective implements AfterViewInit, OnDestroy {
   @Input() ytAspectRatio?: number;
 
   private readonly onDestroy$ = new Subject<void>();
