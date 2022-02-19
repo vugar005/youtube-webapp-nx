@@ -1,5 +1,23 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input, OnDestroy, ChangeDetectorRef } from '@angular/core';
-import { CustomEventConfig, EventDispatcherService, IYoutubeSearchResult, WatchAPPEvents } from '@youtube/common-ui';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  Input,
+  OnDestroy,
+  ChangeDetectorRef,
+  ViewChild,
+} from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+
+import {
+  CustomEventConfig,
+  EventDispatcherService,
+  IYoutubeSearchResult,
+  ShareVideoDialogComponent,
+  VideoPlayerComponent,
+  WatchAPPEvents,
+  WebApiService,
+} from '@youtube/common-ui';
 import { Subject, takeUntil } from 'rxjs';
 import { UIStoreService } from '../core/services/ui-store/ui-store.service';
 
@@ -10,6 +28,7 @@ import { UIStoreService } from '../core/services/ui-store/ui-store.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class VideoCardComponent implements OnInit, OnDestroy {
+  @ViewChild(VideoPlayerComponent) videoPlayer?: VideoPlayerComponent;
   @Input() videoId!: string;
   @Input() videoResult?: IYoutubeSearchResult;
   public likedVideos: string[] = [];
@@ -20,11 +39,24 @@ export class VideoCardComponent implements OnInit, OnDestroy {
   constructor(
     private uiStore: UIStoreService,
     private eventDispatcher: EventDispatcherService,
+    private dialog: MatDialog,
+    private webApiService: WebApiService,
     private cdr: ChangeDetectorRef
   ) {}
 
   public ngOnInit(): void {
     this.initStoreData();
+  }
+
+  public ngOnDestroy(): void {
+    this.onDestroy$.next();
+    this.onDestroy$.complete();
+  }
+
+  public onShareVideo(): void {
+    const currenVideoTime = this.videoPlayer?.player?.getCurrentTime();
+    const videoUrl = this.webApiService.location.href;
+    this.dialog.open(ShareVideoDialogComponent, { data: { currenVideoTime, videoUrl }, autoFocus: false });
   }
 
   public get isLiked(): boolean {
@@ -33,11 +65,6 @@ export class VideoCardComponent implements OnInit, OnDestroy {
 
   public get isDisLiked(): boolean {
     return this.dislikedVideos?.includes(this.videoId);
-  }
-
-  public ngOnDestroy(): void {
-    this.onDestroy$.next();
-    this.onDestroy$.complete();
   }
 
   public onToggleLike(): void {
