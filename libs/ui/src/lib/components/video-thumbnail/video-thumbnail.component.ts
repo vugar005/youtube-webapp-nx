@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
-import { VideoSnippet } from '../models/youtube-search-list.model';
+import { VideoSnippet } from '../../models/youtube-search-list.model';
 
 @Component({
   selector: 'yt-video-thumbnail',
