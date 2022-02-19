@@ -1,6 +1,5 @@
 import {
   Component,
-  OnInit,
   ChangeDetectionStrategy,
   Input,
   Inject,
@@ -17,13 +16,11 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./related-videos.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RelatedVideosComponent implements OnInit, OnChanges {
+export class RelatedVideosComponent implements OnChanges {
   @Input() query!: string;
   @Input() relatedVideos?: IYoutubeSearchResult[];
   public items = new Array(5);
   constructor(@Inject(YOUTUBE_SERVICE) private youtubeService: IYoutubeService, private cdr: ChangeDetectorRef) {}
-
-  public ngOnInit(): void {}
 
   public ngOnChanges(changes: SimpleChanges): void {
     const queryChange = changes && changes['query'];

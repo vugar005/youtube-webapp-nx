@@ -2,7 +2,7 @@
   "projectType": "application",
   "root": "apps/likes-app",
   "sourceRoot": "apps/likes-app/src",
-  "prefix": "yt-likes-app",
+  "prefix": "likes-app",
   "targets": {
     "build": {
       "executor": "@nrwl/angular:webpack-browser",
