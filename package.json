@@ -9,7 +9,7 @@
     "postinstall": "ngcc --properties es2015 browser module main",
     "source-map-explorer": "source-map-explorer dist/**/**/*.js --no-border-checks",
     "build:all:development": "nx affected:build --all --configuration=development",
-    "lint:all": "nx run-many --target=lint --projects=shell,watch-app,likes-app,ui"
+    "lint:all": "nx run-many --target=lint --projects=shell,watch-app,likes-app,ui --fix"
   },
   "private": true,
   "dependencies": {
