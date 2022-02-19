@@ -26,6 +26,7 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit, OnDestroy {
     modestbranding: 0,
   };
   public isIframLoaded!: boolean;
+  public playerRef?: YT.Player;
 
   private readonly onDestroy$ = new Subject<void>();
 
@@ -46,7 +47,13 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   public onReady(event: YT.PlayerEvent): void {
+    console.log(event);
+    this.playerRef = event.target;
     event.target.playVideo();
+  }
+
+  public get player(): YT.Player | undefined {
+    return this.playerRef;
   }
 
   private loadIframScript(): void {
