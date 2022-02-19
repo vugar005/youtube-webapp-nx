@@ -5,7 +5,7 @@ import { Observable, Subject } from 'rxjs';
 import { switchMap, takeUntil, tap } from 'rxjs/operators';
 
 @Component({
-  selector: 'watch-app-webapp-watch-video',
+  selector: 'watch-app-watch-video',
   templateUrl: './watch-video.component.html',
   styleUrls: ['./watch-video.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

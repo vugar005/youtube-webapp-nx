@@ -37,6 +37,7 @@ export interface IYoutubeSearchResult {
   url: string;
   title: string;
   description: string;
+  // eslint-disable-next-line @typescript-eslint/naming-convention
   duration_raw: string;
   snippet: VideoSnippet;
   views: string;

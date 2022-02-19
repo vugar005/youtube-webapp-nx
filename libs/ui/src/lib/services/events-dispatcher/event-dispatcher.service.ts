@@ -1,13 +1,11 @@
-import { Inject, Injectable, Optional } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { fromEvent, Observable } from 'rxjs';
-import { APP_API_KEY } from '../../tokens';
 import { CustomEventConfig } from './event-dispatcher.constants';
 
 @Injectable({
   providedIn: 'root',
 })
 export class EventDispatcherService {
-  constructor() {}
 
   public dispatchEvent(eventName: string, config?: CustomEventConfig): void {
     const eventNameUnique = eventName.trim();

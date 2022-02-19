@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
 @Component({
   selector: 'yt-video-thumbnail-loader',
@@ -6,9 +6,6 @@ import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core
   styleUrls: ['./video-thumbnail-loader.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class VideoThumbnailLoaderComponent implements OnInit {
+export class VideoThumbnailLoaderComponent {
   @Input() direction?: 'vertical' | 'horizontal';
-  constructor() {}
-
-  ngOnInit(): void {}
 }
