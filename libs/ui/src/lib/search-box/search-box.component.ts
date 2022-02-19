@@ -46,12 +46,13 @@ export class SearchBoxComponent implements OnInit, OnDestroy, ControlValueAccess
     this.onDestroy$.complete();
   }
 
+ // eslint-disable-next-line
   public onChange(newVal: string): void {}
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
+  // eslint-disable-next-line
   public onTouched(_?: any): void {}
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // eslint-disable-next-line
   public onValidatorChange(_?: any): void {}
 
   public writeValue(value: string): void {

@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { UIStoreService } from './core/services/ui-store/ui-store.service';
 
 @Component({
-  selector: 'youtube-webapp-root',
+  selector: 'likes-app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })

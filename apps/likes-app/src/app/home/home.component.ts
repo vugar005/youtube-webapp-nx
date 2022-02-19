@@ -12,7 +12,7 @@ import { map, takeUntil } from 'rxjs/operators';
 import { UIStoreService } from '../core/services/ui-store/ui-store.service';
 
 @Component({
-  selector: 'yt-likes-app-home',
+  selector: 'likes-app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
