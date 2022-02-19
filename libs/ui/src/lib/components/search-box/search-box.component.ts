@@ -10,9 +10,9 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { debounceTime, Subject, switchMap, takeUntil } from 'rxjs';
-import { IYoutubeService } from '../models';
-import { IYoutubeSearchResult } from '../models/youtube-search-list.model';
-import { YOUTUBE_SERVICE } from '../tokens';
+import { IYoutubeService } from '../../models';
+import { IYoutubeSearchResult } from '../../models/youtube-search-list.model';
+import { YOUTUBE_SERVICE } from '../../tokens';
 
 @Component({
   selector: 'yt-search-box',
