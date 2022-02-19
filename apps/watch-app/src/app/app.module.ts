@@ -1,6 +1,7 @@
 import { DoBootstrap, Injector, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { createCustomElement } from '@angular/elements';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -19,6 +20,7 @@ import {
   VideoThumbnailModule,
   YoutubeServiceV2,
   YOUTUBE_SERVICE,
+  ShareVideoDialogModule,
 } from '@youtube/common-ui';
 import { RelatedVideosComponent } from './related-videos/related-videos.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -26,17 +28,21 @@ import { APP_KEY } from './app.constants';
 
 import { ROOT_REDUCERS } from './reducers';
 import { environment } from '../environments/environment';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [AppComponent, WatchVideoComponent, VideoCardComponent, RelatedVideosComponent],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     CommonModule,
     HttpClientModule,
     VideoPlayerModule,
     VideoThumbnailModule,
     VideoThumbnailLoaderModule,
     MatIconModule,
+    ShareVideoDialogModule,
+    MatDialogModule,
     AppRoutingModule,
     StoreModule.forRoot(ROOT_REDUCERS, {
       runtimeChecks: {

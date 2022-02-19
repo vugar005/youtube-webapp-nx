@@ -11,3 +11,4 @@ export * from './lib/video-player';
 export * from './lib/video-thumbnail';
 export * from './lib/video-thumbnail-loader';
 export * from './lib/not-found-page';
+export * from './lib/share-video-dialog';
