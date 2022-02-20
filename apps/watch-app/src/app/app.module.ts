@@ -21,6 +21,7 @@ import {
   YoutubeServiceV2,
   YOUTUBE_SERVICE,
   ShareVideoDialogModule,
+  APP_CONFIG,
 } from '@youtube/common-ui';
 import { RelatedVideosComponent } from './related-videos/related-videos.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -68,6 +69,7 @@ import { MatDialogModule } from '@angular/material/dialog';
       provide: APP_API_KEY,
       useValue: APP_KEY,
     },
+    { provide: APP_CONFIG, useValue: environment},
     EventDispatcherService,
   ],
   bootstrap: [],

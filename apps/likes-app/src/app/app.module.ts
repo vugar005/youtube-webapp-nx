@@ -12,6 +12,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import {
+  APP_CONFIG,
   VideoThumbnailLoaderModule,
   VideoThumbnailModule,
   YoutubeServiceV2,
@@ -53,6 +54,8 @@ import { environment } from '../environments/environment';
       provide: YOUTUBE_SERVICE,
       useClass: YoutubeServiceV2,
     },
+    { provide: APP_CONFIG, useValue: environment}
+
   ],
   bootstrap: [],
 })
