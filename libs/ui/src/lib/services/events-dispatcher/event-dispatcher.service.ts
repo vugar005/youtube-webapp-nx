@@ -6,7 +6,6 @@ import { CustomEventConfig } from './event-dispatcher.constants';
   providedIn: 'root',
 })
 export class EventDispatcherService {
-
   public dispatchEvent(eventName: string, config?: CustomEventConfig): void {
     const eventNameUnique = eventName.trim();
     console.log(eventNameUnique);

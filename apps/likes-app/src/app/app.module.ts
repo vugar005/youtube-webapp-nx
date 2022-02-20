@@ -54,8 +54,7 @@ import { environment } from '../environments/environment';
       provide: YOUTUBE_SERVICE,
       useClass: YoutubeServiceV2,
     },
-    { provide: APP_CONFIG, useValue: environment}
-
+    { provide: APP_CONFIG, useValue: environment },
   ],
   bootstrap: [],
 })
