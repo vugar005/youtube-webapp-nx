@@ -6,9 +6,7 @@ import { APP_CONFIG } from '../../tokens';
 
 @Injectable({ providedIn: 'root' })
 export class YoutubeServiceV2 implements IYoutubeService {
-  constructor(
-    @Inject(APP_CONFIG) private readonly appConfig: any,
-    private http: HttpClient) {}
+  constructor(@Inject(APP_CONFIG) private readonly appConfig: any, private http: HttpClient) {}
 
   public searchVideoResults(params: IYoutubeSearchParams): Observable<IYoutubeSearchResult[]> {
     const { query } = params;

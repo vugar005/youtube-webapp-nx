@@ -69,7 +69,7 @@ import { MatDialogModule } from '@angular/material/dialog';
       provide: APP_API_KEY,
       useValue: APP_KEY,
     },
-    { provide: APP_CONFIG, useValue: environment},
+    { provide: APP_CONFIG, useValue: environment },
     EventDispatcherService,
   ],
   bootstrap: [],
