@@ -5,6 +5,9 @@
 /tmp
 /out-tsc
 /appengines/backend/dist
+/apps/shell/dist
+/apps/watch-app/dist
+/apps/likes-app/dist
 
 # dependencies
 /node_modules
