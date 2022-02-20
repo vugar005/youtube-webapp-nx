@@ -22,6 +22,7 @@ import {
   YOUTUBE_SERVICE,
   BrandIconModule,
   NotFoundPageModule,
+  APP_CONFIG,
 } from '@youtube/common-ui';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -88,6 +89,7 @@ import { AccountSidebarComponent } from './account-sidebar/account-sidebar.compo
       provide: YOUTUBE_SERVICE,
       useClass: YoutubeServiceV2,
     },
+    { provide: APP_CONFIG, useValue: environment },
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA], // because we use dynamic angular elements
