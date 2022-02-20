@@ -6,6 +6,10 @@ export const environment = {
   production: false,
   youtubeApiKey: 'AIzaSyCXeDGTeWD9-gVZY6VWoRPLW0LOT0yn_Es',
   backendUrl: 'http://localhost:3333',
+  remotesUrl: {
+    watchApp: 'http://localhost:4201',
+    likesApp: 'http://localhost:4202'
+  }
 };
 
 /*
