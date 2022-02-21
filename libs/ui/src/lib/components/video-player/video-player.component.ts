@@ -53,21 +53,31 @@ export class VideoPlayerComponent implements OnInit, OnChanges, AfterViewInit, O
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
-      const videoIdChange = changes['videoId'];
-      console.log(videoIdChange)
-      if (videoIdChange && !videoIdChange.isFirstChange) {
-         this.player?.loadVideoById(videoIdChange.currentValue, 0);
-      }
+    const videoIdChange = changes['videoId'];
+    const startSecondsChange = changes['startSeconds'];
+    if (videoIdChange && !videoIdChange.isFirstChange) {
+      this.player?.loadVideoById(videoIdChange.currentValue, 1);
+    }
+    if (startSecondsChange && startSecondsChange.currentValue) {
+      this.player?.seekTo(startSecondsChange.currentValue || 1, true);
+      console.log('startSecondsChange', startSecondsChange);
+    }
   }
 
   public onReady(event: YT.PlayerEvent): void {
-    console.log(event);
     this.playerRef = event.target;
     this.stateChange.next(this.playerRef.getPlayerState());
-  //  event.target.playVideo();
+    event.target.playVideo();
+    console.log('onReady');
   }
 
   public onStateChange(event: YT.OnStateChangeEvent): void {
+    console.log('onStateChange', event.data);
+    if (event.data === YT.PlayerState.CUED) {
+      console.log('CUE');
+      this.playerRef?.playVideo();
+      this.playerRef?.seekTo(this.startSeconds || 1, true);
+    }
     this.stateChange.next(event.data);
   }
 

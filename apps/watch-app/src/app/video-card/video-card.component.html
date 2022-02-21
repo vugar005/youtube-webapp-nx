@@ -1,6 +1,6 @@
 <div class="video-card" *ngIf="videoResult?.title; else loadingTemplate">
   <div class="video-card__player">
-    <yt-video-player [videoId]="videoId"></yt-video-player>
+    <yt-video-player [videoId]="videoId" [startSeconds]="startSeconds"></yt-video-player>
   </div>
   <div class="video-details">
     <div class="video-details__title mat-h1">{{ videoResult?.title }}</div>
@@ -31,9 +31,9 @@
           <p class="video-details-actions__item__text mat-h3">Share</p>
         </div>
 
-        <div class="video-details-actions__item">
-          <mat-icon class="video-details-actions__item__icon">download</mat-icon>
-          <p class="video-details-actions__item__text mat-h3">Download</p>
+        <div class="video-details-actions__item" (click)="onMiniPlayerMode()">
+          <mat-icon class="video-details-actions__item__icon">minimize</mat-icon>
+          <p class="video-details-actions__item__text mat-h3">Mini Player</p>
         </div>
 
         <div class="video-details-actions__item">
