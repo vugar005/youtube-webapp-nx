@@ -1,3 +1,5 @@
+@import 'apps/shell/src/assets/styles/_palette';
+
 :host {
   display: block;
   width: 300px;
@@ -23,14 +25,12 @@
 
   &__text {
     h2 {
-      font-size: 1.6rem;
-      line-height: 2.2rem;
-      font-weight: 500;
+      margin: 0;
     }
 
     h3 {
-      margin-top: 0.2rem;
-      font-size: 1rem;
+      margin: 0;
+      color: map-get($youtube-primary, 50);
     }
   }
 }
@@ -57,9 +57,7 @@
       }
     }
     &__text {
-      font-size: 1.4rem;
-      line-height: 2rem;
-      font-weight: 400;
+      margin: 0;
     }
   }
 }

@@ -3,9 +3,9 @@
     <yt-video-player [videoId]="videoId"></yt-video-player>
   </div>
   <div class="video-details">
-    <div class="video-details__title">{{ videoResult?.title }}</div>
+    <div class="video-details__title mat-h1">{{ videoResult?.title }}</div>
     <div class="video-details__footer">
-      <div class="video-details__footer__views">{{ videoResult?.views | number: '1.0-0' }} views</div>
+      <div class="video-details__footer__views mat-h3">{{ videoResult?.views | number: '1.0-0' }} views</div>
       <div class="video-details-actions">
         <div class="video-details-actions__item" (click)="onToggleLike()">
           <mat-icon class="video-details-actions__item__icon">
@@ -14,7 +14,7 @@
             <ng-container *ngIf="!isLiked"> thumb_up_off_alt </ng-container>
           </mat-icon>
 
-          <p class="video-details-actions__item__text">Like</p>
+          <p class="video-details-actions__item__text mat-h3">Like</p>
         </div>
 
         <div class="video-details-actions__item" (click)="onToggleDisLike()">
@@ -23,22 +23,22 @@
 
             <ng-container *ngIf="!isDisLiked"> thumb_down_off_alt </ng-container>
           </mat-icon>
-          <p class="video-details-actions__item__text">Dislike</p>
+          <p class="video-details-actions__item__text mat-h3">Dislike</p>
         </div>
 
         <div class="video-details-actions__item" (click)="onShareVideo()">
           <mat-icon class="video-details-actions__item__icon">share</mat-icon>
-          <p class="video-details-actions__item__text">Share</p>
+          <p class="video-details-actions__item__text mat-h3">Share</p>
         </div>
 
         <div class="video-details-actions__item">
           <mat-icon class="video-details-actions__item__icon">download</mat-icon>
-          <p class="video-details-actions__item__text">Download</p>
+          <p class="video-details-actions__item__text mat-h3">Download</p>
         </div>
 
         <div class="video-details-actions__item">
           <mat-icon class="video-details-actions__item__icon">playlist_add</mat-icon>
-          <p class="video-details-actions__item__text">Save</p>
+          <p class="video-details-actions__item__text mat-h3">Save</p>
         </div>
       </div>
     </div>
