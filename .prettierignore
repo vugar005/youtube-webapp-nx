@@ -2,3 +2,9 @@
 
 /dist
 /coverage
+/.angular
+/appengines/backend/dist
+/apps/shell/dist
+/apps/likes-app/dist
+/apps/watch-app/dist
+/apps/history-app/dist
