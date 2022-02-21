@@ -30,6 +30,7 @@ import { UIStoreService } from '../core/services/ui-store/ui-store.service';
 export class VideoCardComponent implements OnInit, OnDestroy {
   @ViewChild(VideoPlayerComponent) videoPlayer?: VideoPlayerComponent;
   @Input() videoId!: string;
+  @Input() startSeconds: number | undefined;
   @Input() videoResult?: IYoutubeSearchResult;
   public likedVideos: string[] = [];
   public dislikedVideos: string[] = [];
@@ -85,6 +86,17 @@ export class VideoCardComponent implements OnInit, OnDestroy {
     };
 
     this.eventDispatcher.dispatchEvent(WatchAPPEvents.TOGGLE_DISLIKE_VIDEO, config);
+  }
+
+  public onMiniPlayerMode(): void {
+    const config: CustomEventConfig = {
+      detail: {
+        videoId: this.videoId,
+        startSeconds: this.videoPlayer?.player?.getCurrentTime(),
+      },
+    };
+
+    this.eventDispatcher.dispatchEvent(WatchAPPEvents.ENABLE_MINIPLAYER, config);
   }
 
   private initStoreData(): void {

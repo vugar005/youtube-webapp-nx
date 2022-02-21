@@ -43,7 +43,6 @@ export class LikesAppWrapperComponent implements OnInit, OnDestroy {
     const importFn = registry[importName];
     importFn()
       .then(() => {
-        console.log(`element ${elementName} loaded!`);
         this.isElementLoaded = true;
         this.cdr.detectChanges();
       })

@@ -1,8 +1,9 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EventDispatcherService, WatchAPPEvents } from '@youtube/common-ui';
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { AccountStoreService } from '../core/services/account-store/account-store.service';
+import { VideoStoreService } from '../core/services/video-store/video-store.service';
 import { registry } from '../registry';
 
 @Component({
@@ -20,8 +21,10 @@ export class WatchAppWrapperComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private eventDispatcher: EventDispatcherService,
     private accountStore: AccountStoreService,
+    private videoStore: VideoStoreService,
     private cdr: ChangeDetectorRef
   ) {}
 
@@ -43,7 +46,6 @@ export class WatchAppWrapperComponent implements OnInit, OnDestroy {
     const importFn = registry[importName];
     importFn()
       .then(() => {
-        console.log(`element ${elementName} loaded!`);
         this.isElementLoaded = true;
         this.cdr.detectChanges();
       })
@@ -65,6 +67,17 @@ export class WatchAppWrapperComponent implements OnInit, OnDestroy {
       .subscribe((event: Partial<CustomEvent>) => {
         const videoId = event.detail.videoId;
         this.accountStore.toggleDislikeVideo({ videoId });
+      });
+
+    this.eventDispatcher
+      .on(WatchAPPEvents.ENABLE_MINIPLAYER)
+      .pipe(takeUntil(this.onDestroy$))
+      .subscribe((event: Partial<CustomEvent>) => {
+        const videoId = event.detail.videoId;
+        const startSeconds = event.detail.startSeconds;
+        this.videoStore.setIsMiniPlayerMode(true);
+        this.videoStore.setMiniPlayerVideo({ videoId: videoId, startSeconds: startSeconds });
+        this.router.navigateByUrl('/');
       });
   }
 
