@@ -6,12 +6,14 @@
     </div>
   </div>
   <div class="dialog-input">
-    <input [formControl]="videoUrlControl" class="dialog-input__field" />
+    <input matInput [formControl]="videoUrlControl" class="dialog-input__field" />
 
     <button mat-button class="dialog-input__suffix" color="primary" (click)="onCopyUrl()">COPY</button>
   </div>
 
   <mat-divider></mat-divider>
 
-  <mat-checkbox [formControl]="startTimeControl">Start at {{ currenVideoTime | secondsToTime }}</mat-checkbox>
+  <mat-checkbox color="primary" [formControl]="startTimeControl"
+    >Start at {{ currenVideoTime | secondsToTime }}</mat-checkbox
+  >
 </div>

@@ -4,6 +4,6 @@ export const environment = {
   backendUrl: 'https://youtube-webapp-341311.uc.r.appspot.com',
   remotesUrl: {
     watchApp: 'https://watch-app-b4d5f.web.app',
-    likesApp: 'https://likes-app-e1fe3.web.app'
-  }
+    likesApp: 'https://likes-app-e1fe3.web.app',
+  },
 };
