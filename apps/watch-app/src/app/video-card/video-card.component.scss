@@ -26,8 +26,8 @@
 
   &__footer {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
     color: var(--yt-spec-text-secondary);
     padding: 1rem 0;
     &__views {
@@ -38,14 +38,16 @@
 
 .video-details-actions {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  align-self: flex-end;
   &__item {
     display: flex;
     align-items: center;
     color: var(--yt-spec-text-primary);
     margin-right: 2.5rem;
+    margin-top: 1.5rem;
     cursor: pointer;
+
     &__icon {
       font-size: 2rem;
       height: 2rem;
@@ -59,4 +61,19 @@
 
 .video-card-loader {
   width: 100%;
+}
+
+@media (min-width: 768px) {
+  .video-details {
+    &__footer {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  .video-details-actions {
+    &__item {
+      margin-top: 0;
+    }
+  }
 }
