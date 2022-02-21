@@ -89,4 +89,4 @@ html[theme='light-theme'] {
   @include mat.all-component-colors($youtube-light-theme);
   @include custom-components-theme($youtube-light-theme);
 }
- @include mat.core($youtube-typography);
+@include mat.core($youtube-typography);
