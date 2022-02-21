@@ -18,12 +18,10 @@
 
 .dialog-input {
   display: flex;
-  background: var(--yt-spec-general-background-a);
   border: 1px solid var(--yt-spec-10-percent-layer);
   margin-top: var(--ytd-margin-6x);
   margin-bottom: var(--ytd-margin-6x);
   &__field {
-    background: inherit;
     flex: 1;
     color: var(--yt-spec-text-primary);
     border: 0;

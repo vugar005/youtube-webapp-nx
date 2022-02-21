@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/scss/bootstrap-grid';
 @import 'apps/shell/src/assets/themes/youtube-theme';
-@import 'apps/shell/src/assets/styles/scrollbar';
-@import 'apps/shell/src/assets/styles/variables';
+@import 'apps/shell/src/assets/styles/_scrollbar';
+@import 'apps/shell/src/assets/styles/_variables';
 
 * {
   margin: 0;
@@ -20,15 +20,6 @@ body {
 
 a {
   text-decoration: none;
-}
-
-.mat-drawer,
-.mat-drawer-container {
-  background: var(--yt-spec-background-solid);
-}
-
-.mat-drawer-backdrop.mat-drawer-shown {
-  background-color: var(--yt-drawer-backdrop-background);
 }
 
 .p-0 {

@@ -1,5 +1,5 @@
 @use '@angular/material' as mat;
-@import './colors';
+@import './_palette';
 
 $youtube-typography: mat.define-typography-config(
   $font-family: 'Roboto, sans-serif',
