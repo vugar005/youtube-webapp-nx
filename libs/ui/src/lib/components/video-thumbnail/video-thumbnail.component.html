@@ -10,9 +10,9 @@
     <div class="thumbnail-details__icon"></div>
     <div class="thumbnail-details-content">
       <div class="thumbnail-details-content">
-        <h3 class="thumbnail-details-content__title" [innerHtml]="snippet?.title"></h3>
+        <h3 class="thumbnail-details-content__title mat-h3" [innerHtml]="snippet?.title"></h3>
         <!-- <div class="thumbnail-details-content__channelTitle" [innerHtml]="snippet?.channelTitle"></div> -->
-        <p class="thumbnail-details-content__footer">
+        <p class="thumbnail-details-content__footer mat-h4">
           <span *ngIf="snippet?.views">{{ snippet?.views | number: '1.0-0' }} views •</span>
           {{ snippet?.publishedAt | timeAgo }}
         </p>
