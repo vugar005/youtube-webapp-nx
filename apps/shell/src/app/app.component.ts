@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { MiniVideoPayload } from '@youtube/common-ui';
 import { Observable } from 'rxjs';
 import { VideoStoreService } from './core/services/video-store/video-store.service';
