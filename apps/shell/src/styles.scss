@@ -41,3 +41,15 @@ a {
   margin-top: 0.75rem !important;
   background: var(--yt-spec-tooltip-background);
 }
+
+@media (min-width: 1900px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 2550px) {
+  html {
+    font-size: 14px;
+  }
+}

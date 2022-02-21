@@ -16,14 +16,12 @@
   padding: 20px 0 8px 0;
   &__title {
     display: block;
-    font-size: 1.5rem;
-    line-height: 2.6rem;
-    font-weight: 400;
     max-height: 5.2rem;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
     color: var(--yt-spec-text-primary);
+    margin: 0;
   }
 
   &__footer {
@@ -31,6 +29,10 @@
     align-items: center;
     justify-content: space-between;
     color: var(--yt-spec-text-secondary);
+    padding: 1rem 0;
+    &__views {
+      margin: 0;
+    }
   }
 }
 
@@ -50,7 +52,7 @@
       margin-right: 0.5rem;
     }
     &__text {
-      font-size: 1rem;
+     margin: 0;
     }
   }
 }
