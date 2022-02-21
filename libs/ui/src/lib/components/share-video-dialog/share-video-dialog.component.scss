@@ -1,6 +1,6 @@
 :host {
   display: block;
-  width: 500px;
+  width: auto;
 }
 
 .share-dialog-header {
@@ -29,5 +29,11 @@
   }
   &__suffix {
     background: inherit;
+  }
+}
+
+@media (min-width: 768px) {
+  :host {
+     width: 500px;
   }
 }

@@ -43,10 +43,10 @@ $opacity-transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
 }
 
 .miniplayer-header {
-  position: relative;
+  position: absolute;
   width: 100%;
   padding: 8px 4px;
-  background: #000;
+  background: transparent;
   z-index: 11;
   top: 0;
   left: 0;
@@ -105,9 +105,7 @@ $opacity-transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
 }
 
 @media (min-width: 768px) {
-  .miniplayer-header {
-    position: absolute;
-    opacity: 0;
-    background: transparent;
+ .miniplayer-header {
+     opacity: 0;
   }
 }
