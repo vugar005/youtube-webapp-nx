@@ -115,7 +115,7 @@ $dark-theme-background-palette: (
   disabled-button-toggle: black,
   unselected-chip: map.get($grey-palette, 700),
   disabled-list-option: rgba(#fff, 0.12),
-  tooltip: map.get($grey-palette, 700),
+  tooltip: var(--yt-spec-10-percent-layer),
 );
 
 $dark-theme-foreground-palette: (

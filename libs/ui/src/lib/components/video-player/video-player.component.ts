@@ -7,6 +7,10 @@ import {
   AfterViewInit,
   ElementRef,
   OnDestroy,
+  Output,
+  EventEmitter,
+  OnChanges,
+  SimpleChanges,
 } from '@angular/core';
 import { debounceTime, fromEvent, Subject, takeUntil } from 'rxjs';
 
@@ -16,7 +20,8 @@ import { debounceTime, fromEvent, Subject, takeUntil } from 'rxjs';
   styleUrls: ['./video-player.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class VideoPlayerComponent implements OnInit, AfterViewInit, OnDestroy {
+export class VideoPlayerComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy {
+  @Output() readonly stateChange = new EventEmitter<YT.PlayerState>();
   @Input() videoId?: string;
   @Input() startSeconds? = 1;
   @Input() width?: number;
@@ -26,7 +31,8 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit, OnDestroy {
     modestbranding: 0,
   };
   public isIframLoaded!: boolean;
-  public playerRef?: YT.Player;
+
+  private playerRef?: YT.Player;
 
   private readonly onDestroy$ = new Subject<void>();
 
@@ -46,10 +52,23 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit, OnDestroy {
     this.setVideoDimensions();
   }
 
+  public ngOnChanges(changes: SimpleChanges): void {
+      const videoIdChange = changes['videoId'];
+      console.log(videoIdChange)
+      if (videoIdChange && !videoIdChange.isFirstChange) {
+         this.player?.loadVideoById(videoIdChange.currentValue, 0);
+      }
+  }
+
   public onReady(event: YT.PlayerEvent): void {
     console.log(event);
     this.playerRef = event.target;
-    event.target.playVideo();
+    this.stateChange.next(this.playerRef.getPlayerState());
+  //  event.target.playVideo();
+  }
+
+  public onStateChange(event: YT.OnStateChangeEvent): void {
+    this.stateChange.next(event.data);
   }
 
   public get player(): YT.Player | undefined {
