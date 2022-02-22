@@ -8,6 +8,13 @@
 /apps/shell/dist
 /apps/watch-app/dist
 /apps/likes-app/dist
+/apps/history-app/dist
+
+# firebase cache
+/apps/shell/.firebase/
+/apps/watch-app/.firebase/
+/apps/likes-app/.firebase/
+/apps/history-app/.firebase/
 
 # dependencies
 /node_modules

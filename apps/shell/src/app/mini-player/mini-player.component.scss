@@ -2,7 +2,7 @@
   display: block;
   position: fixed;
   right: 12px;
-  bottom: 1px;
+  bottom: 0px;
   z-index: var(--ytd-miniplayer-z-index);
   box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 3px 6px 0 rgb(0 0 0 / 20%);
 }
@@ -47,6 +47,7 @@ $opacity-transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
   width: 100%;
   padding: 8px 4px;
   background: transparent;
+  color: #fff;
   z-index: 11;
   top: 0;
   left: 0;

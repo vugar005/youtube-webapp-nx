@@ -9,10 +9,12 @@
     "postinstall": "ngcc --properties es2015 browser module main",
     "source-map-explorer": "source-map-explorer dist/**/**/*.js --no-border-checks",
     "build:all:development": "nx affected:build --all --configuration=development",
-    "lint:all": "nx run-many --target=lint --projects=shell,watch-app,likes-app,ui, history-app --fix",
+    "lint:all": "nx run-many --target=lint --projects=shell,watch-app,likes-app,ui,history-app --fix",
     "deploy:shell": "nx build ui && nx build shell && node ./scripts/app-deploy.js --app=shell",
     "deploy:watch-app": "nx build ui && nx build watch-app && node ./scripts/app-deploy.js --app=watch-app",
-    "deploy:likes-app": "nx build ui && nx build likes-app && node ./scripts/app-deploy.js --app=likes-app"
+    "deploy:likes-app": "nx build ui && nx build likes-app && node ./scripts/app-deploy.js --app=likes-app",
+    "deploy:history-app": "nx build ui && nx build history-app && node ./scripts/app-deploy.js --app=history-app",
+    "deploy:all": "npm run deploy:shell && npm run deploy:likes-app && npm run deploy:history-app"
   },
   "private": true,
   "dependencies": {

@@ -2,9 +2,9 @@ import { Component, OnInit, ChangeDetectionStrategy, OnDestroy, ChangeDetectorRe
 import {
   CustomEventConfig,
   EventDispatcherService,
+  GlobalCustomEvent,
   IYoutubeSearchResult,
   IYoutubeService,
-  LikedAppEvent,
   YOUTUBE_SERVICE,
 } from '@youtube/common-ui';
 import { forkJoin, Observable, Subject } from 'rxjs';
@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       return;
     }
     const config: CustomEventConfig = { detail: { videoId: videoId } };
-    this.eventDispatcher.dispatchEvent(LikedAppEvent.WATCH_VIDEO, config);
+    this.eventDispatcher.dispatchEvent(GlobalCustomEvent.WATCH_VIDEO, config);
   }
 
   private initStoreData(): void {

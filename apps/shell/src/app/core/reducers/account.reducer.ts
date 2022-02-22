@@ -4,15 +4,19 @@ import { AccountActions } from '../actions';
 export const featureKey = 'account';
 
 export interface AccountState {
+  isAuthenticated: boolean;
   likedVideoList: string[];
   dislikedVideoList: string[];
-  isAuthenticated: boolean;
+  watchedVideos: string[];
+  isWatchHistoryEnabled: boolean;
 }
 
 const initialState: AccountState = {
   likedVideoList: ['EbEswsDYFyM', 'hArGbyby5'],
   dislikedVideoList: [],
   isAuthenticated: false,
+  watchedVideos: [],
+  isWatchHistoryEnabled: true,
 };
 
 export const reducer = createReducer(
@@ -52,8 +56,32 @@ export const reducer = createReducer(
       ...state,
       dislikedVideoList: disikedList,
     };
+  }),
+  on(AccountActions.addVideoToHistoryList, (state, payload) => {
+    const videoId = payload.videoId;
+    const watchedList = [...state.watchedVideos];
+    watchedList.push(videoId);
+
+    return {
+      ...state,
+      watchedVideos: watchedList,
+    };
+  }),
+  on(AccountActions.clearWatchHistory, (state) => {
+    return {
+      ...state,
+      watchedVideos: [],
+    };
+  }),
+  on(AccountActions.toggleIsWatchHistoryEnabled, (state, payload) => {
+    return {
+      ...state,
+      isWatchHistoryEnabled: payload.isActive,
+    };
   })
 );
 
 export const selectLikedVideos = (state: AccountState) => state.likedVideoList;
 export const selectDislikedVideos = (state: AccountState) => state.dislikedVideoList;
+export const selectedWatchedVideos = (state: AccountState) => state.watchedVideos;
+export const selectIsWatchHistoryEnabled = (state: AccountState) => state.isWatchHistoryEnabled;

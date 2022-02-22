@@ -1,7 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { EventDispatcherService, LikedAppEvent } from '@youtube/common-ui';
-import { Observable, Subject, takeUntil } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { Observable, Subject } from 'rxjs';
 import { AccountStoreService } from '../core/services/account-store/account-store.service';
 import { registry } from '../registry';
 
@@ -19,8 +18,6 @@ export class LikesAppWrapperComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
-    private eventDispatcher: EventDispatcherService,
     private accountStore: AccountStoreService,
     private cdr: ChangeDetectorRef
   ) {}
@@ -28,7 +25,6 @@ export class LikesAppWrapperComponent implements OnInit, OnDestroy {
   public ngOnInit(): void {
     this.loadElement();
     this.initStoreData();
-    this.initWatchAppListeners();
   }
 
   public ngOnDestroy(): void {
@@ -47,16 +43,6 @@ export class LikesAppWrapperComponent implements OnInit, OnDestroy {
         this.cdr.detectChanges();
       })
       .catch((err: Error) => console.error(`error loading ${elementName}:`, err));
-  }
-
-  private initWatchAppListeners(): void {
-    this.eventDispatcher
-      .on(LikedAppEvent.WATCH_VIDEO)
-      .pipe(takeUntil(this.onDestroy$))
-      .subscribe((event: Partial<CustomEvent>) => {
-        const videoId = event.detail.videoId;
-        this.router.navigate(['/watch'], { queryParams: { v: videoId } });
-      });
   }
 
   private initStoreData(): void {
