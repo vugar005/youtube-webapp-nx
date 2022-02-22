@@ -14,12 +14,6 @@ export const SIDEBAR_NAV_ENDPOINTS: NavLink[] = [
     type: 'bottom',
   },
   {
-    text: 'Watch later',
-    url: 'watchLater',
-    icon: 'schedule',
-    type: 'bottom',
-  },
-  {
     text: 'Liked videos',
     url: 'liked',
     icon: 'thumb_up_off_alt',
