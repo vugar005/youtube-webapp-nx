@@ -1,6 +1,13 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy, Inject } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { IYoutubeSearchResult, IYoutubeService, YOUTUBE_SERVICE } from '@youtube/common-ui';
+import {
+  CustomEventConfig,
+  EventDispatcherService,
+  GlobalCustomEvent,
+  IYoutubeSearchResult,
+  IYoutubeService,
+  YOUTUBE_SERVICE,
+} from '@youtube/common-ui';
 import { Observable, Subject } from 'rxjs';
 import { switchMap, takeUntil, tap } from 'rxjs/operators';
 
@@ -19,6 +26,7 @@ export class WatchVideoComponent implements OnInit, OnDestroy {
   constructor(
     @Inject(YOUTUBE_SERVICE) private youtubeService: IYoutubeService,
     private route: ActivatedRoute,
+    private eventDispatcher: EventDispatcherService,
     private cdr: ChangeDetectorRef
   ) {}
 
@@ -44,6 +52,14 @@ export class WatchVideoComponent implements OnInit, OnDestroy {
       )
       .subscribe((results: IYoutubeSearchResult[]) => {
         this.videoInfo = results && results?.find((result) => result.id?.videoId === this.videoId);
+
+        const config: CustomEventConfig = {
+          detail: {
+            videoId: this.videoId,
+          },
+        };
+
+        this.eventDispatcher.dispatchEvent(GlobalCustomEvent.ADD_VIDEO_TO_WATCH_HISTORY, config);
         this.cdr.detectChanges();
       });
   }

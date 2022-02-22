@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { EventDispatcherService, WatchAPPEvents } from '@youtube/common-ui';
-import { Observable, Subject, takeUntil } from 'rxjs';
+import { EventDispatcherService, GlobalCustomEvent, WatchAPPEvents } from '@youtube/common-ui';
+import { Observable, Subject, takeUntil, withLatestFrom } from 'rxjs';
 import { AccountStoreService } from '../core/services/account-store/account-store.service';
 import { VideoStoreService } from '../core/services/video-store/video-store.service';
 import { registry } from '../registry';
@@ -78,6 +78,16 @@ export class WatchAppWrapperComponent implements OnInit, OnDestroy {
         this.videoStore.setIsMiniPlayerMode(true);
         this.videoStore.setMiniPlayerVideo({ videoId: videoId, startSeconds: startSeconds });
         this.router.navigateByUrl('/');
+      });
+
+    this.eventDispatcher
+      .on(GlobalCustomEvent.ADD_VIDEO_TO_WATCH_HISTORY)
+      .pipe(withLatestFrom(this.accountStore.selectIsWatchHistoryEnabled()), takeUntil(this.onDestroy$))
+      .subscribe(([event, isEnabled]) => {
+        const videoId = event.detail.videoId;
+        if (isEnabled) {
+          this.accountStore.addVideoToHistoryList({ videoId });
+        }
       });
   }
 
