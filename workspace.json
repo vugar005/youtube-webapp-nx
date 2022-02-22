@@ -2,6 +2,7 @@
   "version": 2,
   "projects": {
     "backend": "apps/backend",
+    "history-app": "apps/history-app",
     "likes-app": "apps/likes-app",
     "shell": "apps/shell",
     "ui": "libs/ui",
