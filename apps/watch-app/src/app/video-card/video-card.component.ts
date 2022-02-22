@@ -56,7 +56,7 @@ export class VideoCardComponent implements OnInit, OnDestroy {
 
   public onShareVideo(): void {
     const currenVideoTime = this.videoPlayer?.player?.getCurrentTime();
-    const videoUrl = this.webApiService.location.href;
+    const videoUrl = `${this.webApiService.location.host}/watch?v=${this.videoId}`;
     this.dialog.open(ShareVideoDialogComponent, { data: { currenVideoTime, videoUrl }, autoFocus: false });
   }
 
