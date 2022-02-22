@@ -9,6 +9,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatMenuModule } from '@angular/material/menu';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app.routing';
@@ -66,6 +67,7 @@ import { HistoryAppWrapperComponent } from './history-app-wrapper/history-app-wr
     VideoThumbnailModule,
     NotFoundPageModule,
     SearchBoxModule,
+    MatMenuModule,
     AppRoutingModule,
     ReactiveFormsModule,
     VideoThumbnailLoaderModule,

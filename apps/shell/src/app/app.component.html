@@ -1,9 +1,9 @@
 <mat-drawer-container [hasBackdrop]="true">
-  <mat-drawer #sideNavDrawer [mode]="'over'" [position]="'start'">
+  <mat-drawer #sideNavDrawer [mode]="'over'" [position]="'start'" [autoFocus]="false">
     <yt-sidebar (toggleMenu)="sideNavDrawer.toggle()"> </yt-sidebar>
   </mat-drawer>
 
-  <mat-drawer #accountDrawer [mode]="'over'" [position]="'end'">
+  <mat-drawer #accountDrawer [mode]="'over'" [position]="'end'" [autoFocus]="false">
     <yt-account-sidebar (toggleMenu)="accountDrawer.toggle()"> </yt-account-sidebar>
   </mat-drawer>
 
