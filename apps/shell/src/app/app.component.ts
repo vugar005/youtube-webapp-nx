@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 import { EventDispatcherService, GlobalCustomEvent, MiniVideoPayload } from '@youtube/common-ui';
 import { Observable, Subject, takeUntil } from 'rxjs';
@@ -21,12 +22,14 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(
     private videoStore: VideoStoreService,
     private router: Router,
-    private eventDispatcher: EventDispatcherService
+    private eventDispatcher: EventDispatcherService,
+    private title: Title
   ) {}
 
   public ngOnInit(): void {
     this.selectStoreData();
     this.initGlobalEventListeners();
+    this.setMetaTags();
   }
 
   public ngOnDestroy(): void {
@@ -60,5 +63,9 @@ export class AppComponent implements OnInit, OnDestroy {
         this.videoStore.setMiniPlayerVideo({ videoId: null, startSeconds: 0 });
         this.router.navigate(['/watch'], { queryParams: { v: videoId } });
       });
+  }
+
+  private setMetaTags(): void {
+    this.title.setTitle(`Youtube Angular Clone`);
   }
 }

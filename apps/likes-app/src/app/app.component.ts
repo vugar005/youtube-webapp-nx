@@ -1,4 +1,5 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { UIStoreService } from './core/services/ui-store/ui-store.service';
 
@@ -10,10 +11,11 @@ import { UIStoreService } from './core/services/ui-store/ui-store.service';
 export class AppComponent {
   @Input() likedVideoList?: string[];
 
-  constructor(private router: Router, private uiStore: UIStoreService) {}
+  constructor(private router: Router, private uiStore: UIStoreService, private title: Title) {}
 
   public ngOnInit(): void {
     this.connectRouter();
+    this.setMetaTags();
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
@@ -32,5 +34,9 @@ export class AppComponent {
     window.addEventListener('popstate', () => {
       this.router.navigateByUrl(url);
     });
+  }
+
+  private setMetaTags(): void {
+    this.title.setTitle(`Liked Videos`);
   }
 }

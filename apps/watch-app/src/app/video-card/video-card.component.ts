@@ -8,6 +8,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Title } from '@angular/platform-browser';
 
 import {
   CustomEventConfig,
@@ -42,6 +43,7 @@ export class VideoCardComponent implements OnInit, OnDestroy {
     private eventDispatcher: EventDispatcherService,
     private dialog: MatDialog,
     private webApiService: WebApiService,
+    private title: Title,
     private cdr: ChangeDetectorRef
   ) {}
 
@@ -99,6 +101,10 @@ export class VideoCardComponent implements OnInit, OnDestroy {
     this.eventDispatcher.dispatchEvent(WatchAPPEvents.ENABLE_MINIPLAYER, config);
   }
 
+  public onVideoReady(player: YT.Player): void {
+    this.setMetaTags(player);
+  }
+
   private initStoreData(): void {
     this.uiStore
       .selectLikedVideos()
@@ -115,5 +121,10 @@ export class VideoCardComponent implements OnInit, OnDestroy {
         this.dislikedVideos = data;
         this.cdr.detectChanges();
       });
+  }
+
+  private setMetaTags(player: YT.Player): void {
+    const videoData = (player as any).getVideoData();
+    this.title.setTitle(videoData?.title);
   }
 }
