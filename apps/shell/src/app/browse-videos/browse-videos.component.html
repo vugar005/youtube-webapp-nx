@@ -4,9 +4,9 @@
   </div>
   <div class="browse-videos-list">
     <ng-container *ngIf="videoLinks?.length; else loadingTemplate">
-      <a class="video-player" *ngFor="let video of videoLinks" (click)="onSelectVideo(video.id.videoId)">
+      <div class="video-player" *ngFor="let video of videoLinks" (click)="onSelectVideo(video.id.videoId)">
         <yt-video-thumbnail [snippet]="video.snippet" [direction]="'horizontal'"></yt-video-thumbnail>
-      </a>
+      </div>
     </ng-container>
   </div>
 </div>
