@@ -52,7 +52,8 @@ export class WatchVideoComponent implements OnInit, OnDestroy {
       )
       .subscribe((results: IYoutubeSearchResult[]) => {
         this.videoInfo = results && results?.find((result) => result.id?.videoId === this.videoId);
-
+        console.log(results);
+        console.log(this.videoInfo);
         const config: CustomEventConfig = {
           detail: {
             videoId: this.videoId,

@@ -1,5 +1,6 @@
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { UIStoreService } from './core/services/ui-store/ui-store.service';
 
@@ -12,10 +13,11 @@ export class AppComponent implements OnInit, OnChanges {
   @Input() watchedVideoList?: string[];
   @Input() isWatchHistoryEnabled?: boolean;
 
-  constructor(private router: Router, private uiStore: UIStoreService) {}
+  constructor(private router: Router, private uiStore: UIStoreService, private title: Title) {}
 
   public ngOnInit(): void {
     this.connectRouter();
+    this.setMetaTags();
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
@@ -40,5 +42,9 @@ export class AppComponent implements OnInit, OnChanges {
     window.addEventListener('popstate', () => {
       this.router.navigateByUrl(url);
     });
+  }
+
+  private setMetaTags(): void {
+    this.title.setTitle(`Watched Videos`);
   }
 }

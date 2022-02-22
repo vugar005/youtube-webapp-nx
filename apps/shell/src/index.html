@@ -2,17 +2,41 @@
 <html lang="en" theme="dark-theme">
   <head>
     <meta charset="utf-8" />
-    <title>Shell</title>
+    <title>Youtube Angular Clone</title>
+    <meta name="title" content="Youtube Angular" />
+    <meta name="description" content="Youtube Angular Microfrontend" />
+    <meta name="keywords" content="angular opensource project, angular microfrontend, angular nx sample project, youtube angular clone" />
+
+    <meta property="og:site_name" content="Youtube Angular Clone" />
+    <meta property="og:title" content="Youtube Angular Clone" />
+    <meta property="og:description" content="Youtube Angular Clone" />
+    <meta property="og:image" content="https://www.youtube.com/img/desktop/yt_1200.png" />
+
+    <meta name="twitter:card" content="app">
+    <meta name="twitter:site" content="@vugar005" />
+    <meta name="twitter:url" content="https://youtube.vugar.app" />
+    <meta name="twitter:title" content="Youtube Angular Clone" />
+    <meta name="twitter:text:title" content="Youtube Angular Clone" />
+    <meta name="twitter:description" content="Youtube Angular Microfrontend using Module Federation" />
+    <meta name="twitter:image" content="https://www.youtube.com/img/desktop/yt_1200.png" />
+
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=1" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=YouTube+Sans:wght@300..900&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
-    <yt-root></yt-root>
+    <yt-root>
+      <div class="app-loader">
+        <div class="app-loader__icon">
+          <img src="assets/icons/brand.svg" />
+        </div>
+        <div class="app-loader__text">Powered By Angular</div>
+      </div>
+    </yt-root>
   </body>
 </html>
