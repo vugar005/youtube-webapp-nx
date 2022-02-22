@@ -2,7 +2,7 @@
   "projectType": "application",
   "root": "apps/history-app",
   "sourceRoot": "apps/history-app/src",
-  "prefix": "youtube-webapp",
+  "prefix": "history-app",
   "targets": {
     "build": {
       "executor": "@nrwl/angular:webpack-browser",

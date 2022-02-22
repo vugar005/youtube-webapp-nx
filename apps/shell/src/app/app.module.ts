@@ -36,6 +36,7 @@ import { WatchAppWrapperComponent } from './watch-app-wrapper/watch-app-wrapper.
 import { LikesAppWrapperComponent } from './likes-app-wrapper/likes-app-wrapper.component';
 import { AccountSidebarComponent } from './account-sidebar/account-sidebar.component';
 import { MiniPlayerComponent } from './mini-player/mini-player.component';
+import { HistoryAppWrapperComponent } from './history-app-wrapper/history-app-wrapper.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { MiniPlayerComponent } from './mini-player/mini-player.component';
     LikesAppWrapperComponent,
     AccountSidebarComponent,
     MiniPlayerComponent,
+    HistoryAppWrapperComponent,
   ],
   imports: [
     BrowserModule,

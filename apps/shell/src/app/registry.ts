@@ -16,4 +16,10 @@ export const registry: any = {
       remoteEntry: `${environment.remotesUrl.likesApp}/remoteEntry.js?v=${APP_VERSION}`,
       exposedModule: './web-components',
     }),
+  historyApp: (): Promise<any> =>
+    loadRemoteModule({
+      type: 'module',
+      remoteEntry: `${environment.remotesUrl.historyApp}/remoteEntry.js?v=${APP_VERSION}`,
+      exposedModule: './web-components',
+    }),
 };

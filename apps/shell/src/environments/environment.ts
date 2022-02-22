@@ -9,6 +9,7 @@ export const environment = {
   remotesUrl: {
     watchApp: 'http://localhost:4201',
     likesApp: 'http://localhost:4202',
+    historyApp: 'http://localhost:4203',
   },
 };
 

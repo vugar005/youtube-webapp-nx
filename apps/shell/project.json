@@ -97,7 +97,7 @@
     "serve-mfe": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
-        "commands": ["nx serve shell", "nx serve watch-app", "nx serve likes-app"]
+        "commands": ["nx serve shell", "nx serve watch-app", "nx serve likes-app", "nx serve history-app"]
       }
     },
     "serve-mfe-prod": {
@@ -106,7 +106,8 @@
         "commands": [
           "nx serve shell --configuration=production",
           "nx serve watch-app --configuration=production",
-          "nx serve likes-app --configuration=production"
+          "nx serve likes-app --configuration=production",
+          "nx serve history-app --configuration=production"
         ]
       }
     }
