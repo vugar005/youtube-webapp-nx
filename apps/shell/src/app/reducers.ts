@@ -8,6 +8,7 @@ export interface AppState {
   [fromVideo.featureKey]: fromVideo.VideoState;
   [fromAccount.featureKey]: fromAccount.AccountState;
   [fromSettings.featureKey]: fromSettings.SettingsState;
+  [fromSettings.featureKey]: fromSettings.SettingsState;
 }
 
 export const ROOT_REDUCERS = new InjectionToken<ActionReducerMap<AppState, Action>>('Root reducers token', {
@@ -28,6 +29,8 @@ export const selectMiniPlayerVideo = createSelector(selectVideoState, fromVideo.
 export const selectAccountState = createFeatureSelector<fromAccount.AccountState>(fromAccount.featureKey);
 export const selectLikedVideos = createSelector(selectAccountState, fromAccount.selectLikedVideos);
 export const selectDislikedVideos = createSelector(selectAccountState, fromAccount.selectDislikedVideos);
+export const selectedWatchedVideos = createSelector(selectAccountState, fromAccount.selectedWatchedVideos);
+export const selectIsWatchHistoryEnabled = createSelector(selectAccountState, fromAccount.selectIsWatchHistoryEnabled);
 
 // Settings state selectors
 export const selectSettingsState = createFeatureSelector<fromSettings.SettingsState>(fromSettings.featureKey);

@@ -1,8 +1,9 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { MiniVideoPayload } from '@youtube/common-ui';
-import { Observable } from 'rxjs';
+import { EventDispatcherService, GlobalCustomEvent, MiniVideoPayload } from '@youtube/common-ui';
+import { Observable, Subject, takeUntil } from 'rxjs';
+
 import { VideoStoreService } from './core/services/video-store/video-store.service';
 
 @Component({
@@ -11,14 +12,26 @@ import { VideoStoreService } from './core/services/video-store/video-store.servi
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   public miniVideo$?: Observable<MiniVideoPayload>;
   public isMiniPlayerMode$?: Observable<boolean>;
 
-  constructor(private videoStore: VideoStoreService, private router: Router) {}
+  private readonly onDestroy$ = new Subject<void>();
+
+  constructor(
+    private videoStore: VideoStoreService,
+    private router: Router,
+    private eventDispatcher: EventDispatcherService
+  ) {}
 
   public ngOnInit(): void {
     this.selectStoreData();
+    this.initGlobalEventListeners();
+  }
+
+  public ngOnDestroy(): void {
+    this.onDestroy$.next();
+    this.onDestroy$.complete();
   }
 
   public onCloseVideo(): void {
@@ -35,5 +48,17 @@ export class AppComponent implements OnInit {
   private selectStoreData(): void {
     this.miniVideo$ = this.videoStore.selectMiniPlayerVideo();
     this.isMiniPlayerMode$ = this.videoStore.selectIsMiniPlayerMode();
+  }
+
+  private initGlobalEventListeners(): void {
+    this.eventDispatcher
+      .on(GlobalCustomEvent.WATCH_VIDEO)
+      .pipe(takeUntil(this.onDestroy$))
+      .subscribe((event: Partial<CustomEvent>) => {
+        const videoId = event.detail.videoId;
+        this.videoStore.setIsMiniPlayerMode(false);
+        this.videoStore.setMiniPlayerVideo({ videoId: null, startSeconds: 0 });
+        this.router.navigate(['/watch'], { queryParams: { v: videoId } });
+      });
   }
 }
