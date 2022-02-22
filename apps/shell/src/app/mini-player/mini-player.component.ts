@@ -17,6 +17,7 @@ import { MiniVideoPayload, VideoPlayerComponent } from '@youtube/common-ui';
 export class MiniPlayerComponent {
   @Output() closeVideo = new EventEmitter<void>();
   @Output() expandVideo = new EventEmitter<MiniVideoPayload>();
+
   @ViewChild(VideoPlayerComponent) videoPlayerRef?: VideoPlayerComponent;
 
   @Input() startSeconds: number | undefined;
@@ -26,9 +27,9 @@ export class MiniPlayerComponent {
     modestbranding: 0,
     controls: 0,
   };
-
   public isPointEventsEnabled?: boolean;
   public playerState?: YT.PlayerState;
+  public videoTitle?: string;
 
   constructor(private cdr: ChangeDetectorRef) {}
 
@@ -60,5 +61,10 @@ export class MiniPlayerComponent {
     const videoId = (player as any).videoId;
     const currentTime = player?.getCurrentTime() || 0;
     this.expandVideo.next({ videoId, startSeconds: currentTime });
+  }
+
+  public onVideoLoaded(player: YT.Player): void {
+    const videoData = (player as any).getVideoData();
+    this.videoTitle = videoData?.title;
   }
 }
