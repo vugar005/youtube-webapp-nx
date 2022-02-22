@@ -11,10 +11,10 @@
 /apps/history-app/dist
 
 # firebase cache
-/apps/shell/.firebase
-/apps/watch-app/.firebase
-/apps/likes-app/.firebase
-/apps/history-app/.firebase
+/apps/shell/.firebase/
+/apps/watch-app/.firebase/
+/apps/likes-app/.firebase/
+/apps/history-app/.firebase/
 
 # dependencies
 /node_modules
