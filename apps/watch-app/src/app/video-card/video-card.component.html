@@ -1,6 +1,10 @@
 <div class="video-card" *ngIf="videoResult?.title; else loadingTemplate">
   <div class="video-card__player">
-    <yt-video-player [videoId]="videoId" [startSeconds]="startSeconds"></yt-video-player>
+    <yt-video-player
+      [videoId]="videoId"
+      (videoLoaded)="onVideoReady($event)"
+      [startSeconds]="startSeconds"
+    ></yt-video-player>
   </div>
   <div class="video-details">
     <div class="video-details__title mat-h1">{{ videoResult?.title }}</div>

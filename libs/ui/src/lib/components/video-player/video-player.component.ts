@@ -22,6 +22,7 @@ import { debounceTime, fromEvent, Subject, takeUntil } from 'rxjs';
 })
 export class VideoPlayerComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy {
   @Output() readonly stateChange = new EventEmitter<YT.PlayerState>();
+  @Output() readonly videoLoaded = new EventEmitter<YT.Player>();
   @Input() videoId?: string;
   @Input() startSeconds? = 1;
   @Input() width?: number;
@@ -67,6 +68,7 @@ export class VideoPlayerComponent implements OnInit, OnChanges, AfterViewInit, O
   public onReady(event: YT.PlayerEvent): void {
     this.playerRef = event.target;
     this.stateChange.next(this.playerRef.getPlayerState());
+    this.videoLoaded.next(this.playerRef);
     event.target.playVideo();
     console.log('onReady');
   }
@@ -76,6 +78,7 @@ export class VideoPlayerComponent implements OnInit, OnChanges, AfterViewInit, O
       console.log('CUE');
       this.playerRef?.playVideo();
       this.playerRef?.seekTo(this.startSeconds || 1, true);
+      this.videoLoaded.next(this.playerRef!);
     }
     this.stateChange.next(event.data);
   }
