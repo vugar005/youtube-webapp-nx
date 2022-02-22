@@ -23,6 +23,7 @@
       [videoId]="videoId"
       [startSeconds]="startSeconds"
       [playerVars]="playerVars"
+      (videoLoaded)="onVideoLoaded($event)"
       (stateChange)="onPlayerStateChange($event)"
     ></yt-video-player>
 
@@ -39,7 +40,7 @@
   </div>
   <div class="miniplayer-footer">
     <div class="miniplayer-footer__title mat-h3 text-ellipsis">
-      Sonia " Oriental Reggaeton Type Beat (Instrumental) Prod. by Ultra Beats
+      {{ videoTitle }}
     </div>
   </div>
 </div>
