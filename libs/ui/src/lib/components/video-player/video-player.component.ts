@@ -72,7 +72,6 @@ export class VideoPlayerComponent implements OnInit, OnChanges, AfterViewInit, O
   }
 
   public onStateChange(event: YT.OnStateChangeEvent): void {
-    console.log('onStateChange', event.data);
     if (event.data === YT.PlayerState.CUED) {
       console.log('CUE');
       this.playerRef?.playVideo();

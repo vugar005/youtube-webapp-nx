@@ -15,6 +15,7 @@
   width: 300px;
   padding: 15px 24px;
   border-bottom: 1px solid var(--yt-spec-10-percent-layer);
+
   &__title {
     display: block;
     color: var(--yt-spec-text-primary);
@@ -28,7 +29,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  background: var(--yt-spec-general-background-a);
+  background: var(--yt-spec-general-background-b);
   margin-right: 24px;
 }
 

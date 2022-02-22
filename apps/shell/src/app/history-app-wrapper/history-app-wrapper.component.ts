@@ -1,6 +1,8 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subject } from 'rxjs';
+import { EventDispatcherService, HistoryAppEvent } from '@youtube/common-ui';
+import { Observable, Subject, takeUntil } from 'rxjs';
+import { AccountStoreService } from '../core/services/account-store/account-store.service';
 import { registry } from '../registry';
 
 @Component({
@@ -11,13 +13,22 @@ import { registry } from '../registry';
 })
 export class HistoryAppWrapperComponent implements OnInit, OnDestroy {
   public isElementLoaded?: boolean;
+  public watchedVideos$?: Observable<string[]>;
+  public isWatchHistoryEnabled$?: Observable<boolean>;
 
   private readonly onDestroy$ = new Subject<void>();
 
-  constructor(private route: ActivatedRoute, private cdr: ChangeDetectorRef) {}
+  constructor(
+    private route: ActivatedRoute,
+    private accountStore: AccountStoreService,
+    private eventDispatcher: EventDispatcherService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   public ngOnInit(): void {
     this.loadElement();
+    this.initStoreData();
+    this.initHistoryhAppListeners();
   }
 
   public ngOnDestroy(): void {
@@ -36,5 +47,27 @@ export class HistoryAppWrapperComponent implements OnInit, OnDestroy {
         this.cdr.detectChanges();
       })
       .catch((err: Error) => console.error(`error loading ${elementName}:`, err));
+  }
+
+  private initStoreData(): void {
+    this.watchedVideos$ = this.accountStore.selectWatchedVideos();
+    this.isWatchHistoryEnabled$ = this.accountStore.selectIsWatchHistoryEnabled();
+  }
+
+  private initHistoryhAppListeners(): void {
+    this.eventDispatcher
+      .on(HistoryAppEvent.CLEAR_WATCH_HISTORY)
+      .pipe(takeUntil(this.onDestroy$))
+      .subscribe(() => {
+        this.accountStore.clearWatchHistory();
+      });
+
+    this.eventDispatcher
+      .on(HistoryAppEvent.TOGGLE_IS_WATCH_HISTORY_ENABLED)
+      .pipe(takeUntil(this.onDestroy$))
+      .subscribe((event: Partial<CustomEvent>) => {
+        const isActive = event.detail.isActive;
+        this.accountStore.toggleIsWatchHistoryEnabled({ isActive });
+      });
   }
 }
