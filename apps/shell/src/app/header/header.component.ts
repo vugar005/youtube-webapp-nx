@@ -51,10 +51,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
       .subscribe((theme: AppTheme | null) => {
         console.log(theme);
         if (theme === AppTheme.DARK) {
-          console.log('set light');
           this.themeService.setTheme(AppTheme.LIGHT);
         } else {
-          console.log('set dark');
           this.themeService.setTheme(AppTheme.DARK);
         }
       });
