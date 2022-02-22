@@ -37,3 +37,23 @@
   top: var(--ytd-watch-flexy-masthead-height);
   background: var(--yt-spec-background-primary);
 }
+
+.emptyTemplate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
+  width: 100%;
+  .emptyTemplate-icon {
+    width: 10rem;
+    height: 10rem;
+    font-size: 10rem;
+    color: #3ea5ff;
+  }
+  &__text {
+    text-align: center;
+    h1 {
+      margin-bottom: 5px;
+    }
+  }
+}
