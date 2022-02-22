@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, OnDestroy, ChangeDetectorRef, Inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { IYoutubeService, IYoutubeSearchResult, YOUTUBE_SERVICE } from '@youtube/common-ui';
-import { Subject, switchMap, takeUntil } from 'rxjs';
+import { Subject, switchMap, take, takeUntil } from 'rxjs';
 import { VideoStoreService } from '../core/services/video-store/video-store.service';
 
 @Component({
@@ -19,6 +20,7 @@ export class BrowseVideosComponent implements OnInit, OnDestroy {
   constructor(
     private videoStore: VideoStoreService,
     @Inject(YOUTUBE_SERVICE) private youtubeService: IYoutubeService,
+    private router: Router,
     private cdr: ChangeDetectorRef
   ) {}
 
@@ -29,6 +31,22 @@ export class BrowseVideosComponent implements OnInit, OnDestroy {
   public ngOnDestroy(): void {
     this.onDestroy$.next();
     this.onDestroy$.complete();
+  }
+
+  public onSelectVideo(videoId?: string): void {
+    if (!videoId) {
+      return;
+    }
+    this.videoStore
+      .selectIsMiniPlayerMode()
+      .pipe(take(1))
+      .subscribe((isMiniMode: boolean) => {
+        if (isMiniMode) {
+          this.videoStore.setMiniPlayerVideo({ videoId, startSeconds: 1 });
+        } else {
+          this.router.navigate(['/watch'], { queryParams: { v: videoId, t: 1 } });
+        }
+      });
   }
 
   private listenToEvents(): void {
