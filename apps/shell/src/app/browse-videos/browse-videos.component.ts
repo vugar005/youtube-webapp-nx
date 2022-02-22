@@ -64,7 +64,7 @@ export class BrowseVideosComponent implements OnInit, OnDestroy {
       .pipe(
         tap(() => this.setLoading(true)),
         switchMap((query: string) => this.youtubeService.searchVideoResults({ query })),
-        takeUntil(this.onDestroy$),
+        takeUntil(this.onDestroy$)
       )
       .subscribe((items: IYoutubeSearchResult[]) => {
         this.videoLinks = items;
