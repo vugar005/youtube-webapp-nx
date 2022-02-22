@@ -1,7 +1,7 @@
 <div class="header">
   <div class="header__start">
     <div class="header-nav-icon" (click)="onToggleMenu()">
-      <button color="" mat-mini-fab>
+      <button color="" mat-mini-fab [attr.aria-label]="'Sidenav Menu'">
         <mat-icon>menu</mat-icon>
       </button>
     </div>
@@ -14,7 +14,7 @@
   </div>
   <div class="header__end">
     <div class="header-feature header-feature--community">
-      <button mat-mini-fab [matMenuTriggerFor]="appsMenu">
+      <button mat-mini-fab [matMenuTriggerFor]="appsMenu" [attr.aria-label]="'Apps Menu'">
         <mat-icon [matTooltip]="'Community Apps'" [matTooltipPosition]="'below'">apps</mat-icon>
       </button>
 
@@ -29,7 +29,7 @@
               [matTooltip]="'Spotify clone by Trung Vo and Chau'"
             >
               <div class="app-item__image">
-                <img src="assets/icons/spotify.svg" />
+                <img src="assets/icons/spotify.svg" alt="Spotify icon" />
               </div>
               <div class="app-item__text mat-caption">
                 Spotify Clone by <br />
@@ -44,7 +44,7 @@
               [matTooltip]="'Jira clone by Trung Vo and Chau'"
             >
               <div class="app-item__image">
-                <img src="assets/icons/jira.svg" />
+                <img src="assets/icons/jira.svg" alt="Jira icon" />
               </div>
               <div class="app-item__text mat-caption">
                 Jira Clone by <br />
@@ -57,13 +57,13 @@
     </div>
 
     <div class="header-feature" (click)="onChangeTheme()">
-      <button mat-mini-fab>
+      <button mat-mini-fab [attr.aria-label]="'Change Theme'">
         <mat-icon [matTooltip]="'Change Theme'" [matTooltipPosition]="'below'">lightbulb</mat-icon>
       </button>
     </div>
 
     <div class="header-feature" (click)="onToggleAccountMenu()">
-      <button mat-mini-fab>
+      <button mat-mini-fab [attr.aria-label]="'Account Menu'">
         <mat-icon [matTooltip]="'Account'" [matTooltipPosition]="'below'">account_circle</mat-icon>
       </button>
     </div>
