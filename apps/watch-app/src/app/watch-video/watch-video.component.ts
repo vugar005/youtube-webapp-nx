@@ -12,6 +12,7 @@ import { switchMap, takeUntil, tap } from 'rxjs/operators';
 })
 export class WatchVideoComponent implements OnInit, OnDestroy {
   public videoId!: string;
+  public startSeconds?: number;
   public videoInfo?: IYoutubeSearchResult;
   private readonly onDestroy$ = new Subject<void>();
 
@@ -26,7 +27,6 @@ export class WatchVideoComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
-    console.log('onDes');
     this.onDestroy$.next();
     this.onDestroy$.complete();
   }
@@ -37,7 +37,7 @@ export class WatchVideoComponent implements OnInit, OnDestroy {
         takeUntil(this.onDestroy$),
         tap((params: Params) => {
           this.videoId = params['v'];
-          console.log(params);
+          this.startSeconds = params['t'] || 1;
           this.cdr.detectChanges();
         }),
         switchMap(() => this.getVideoInfo())

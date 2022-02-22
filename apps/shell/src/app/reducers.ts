@@ -21,6 +21,8 @@ export const ROOT_REDUCERS = new InjectionToken<ActionReducerMap<AppState, Actio
 // Video state selectors
 export const selectVideoState = createFeatureSelector<fromVideo.VideoState>(fromVideo.featureKey);
 export const selectVideoSearchQuery = createSelector(selectVideoState, fromVideo.selectSearchQuery);
+export const selectIsMiniPlayerMode = createSelector(selectVideoState, fromVideo.selectVideoIsMiniPlayerMode);
+export const selectMiniPlayerVideo = createSelector(selectVideoState, fromVideo.selectVideoMiniPlayerVideo);
 
 // Account state selectors
 export const selectAccountState = createFeatureSelector<fromAccount.AccountState>(fromAccount.featureKey);
