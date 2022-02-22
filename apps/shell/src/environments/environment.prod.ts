@@ -5,5 +5,6 @@ export const environment = {
   remotesUrl: {
     watchApp: 'https://watch-app-b4d5f.web.app',
     likesApp: 'https://likes-app-e1fe3.web.app',
+    historyApp: 'https://history-app-d3a30.web.app',
   },
 };
