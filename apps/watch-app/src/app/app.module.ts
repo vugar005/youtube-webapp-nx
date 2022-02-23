@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { createCustomElement } from '@angular/elements';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -22,6 +23,7 @@ import {
   YOUTUBE_SERVICE,
   ShareVideoDialogModule,
   APP_CONFIG,
+  ToastModule,
 } from '@youtube/common-ui';
 import { RelatedVideosComponent } from './related-videos/related-videos.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -41,8 +43,10 @@ import { MatDialogModule } from '@angular/material/dialog';
     VideoPlayerModule,
     VideoThumbnailModule,
     VideoThumbnailLoaderModule,
-    MatIconModule,
     ShareVideoDialogModule,
+    ToastModule,
+    MatIconModule,
+    MatSnackBarModule,
     MatDialogModule,
     AppRoutingModule,
     StoreModule.forRoot(ROOT_REDUCERS, {

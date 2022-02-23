@@ -8,6 +8,7 @@ export interface CustomEventConfig {
 export enum GlobalCustomEvent {
   ADD_VIDEO_TO_WATCH_HISTORY = `GLOBAL: Add video to watch history`,
   WATCH_VIDEO = `GLOBAL: Watch Video`,
+  NAVIGATE = 'GLOBAL: Navigate',
 }
 export enum WatchAPPEvents {
   TOGGLE_LIKE_VIDEO = `WATCH_APP: Toggle Like Video`,

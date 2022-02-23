@@ -15,8 +15,8 @@ import { MiniVideoPayload, VideoPlayerComponent } from '@youtube/common-ui';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MiniPlayerComponent {
-  @Output() closeVideo = new EventEmitter<void>();
-  @Output() expandVideo = new EventEmitter<MiniVideoPayload>();
+  @Output() readonly closeVideo = new EventEmitter<void>();
+  @Output() readonly expandVideo = new EventEmitter<MiniVideoPayload>();
 
   @ViewChild(VideoPlayerComponent) videoPlayerRef?: VideoPlayerComponent;
 
