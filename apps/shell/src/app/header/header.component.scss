@@ -37,9 +37,19 @@
 }
 
 .header-brand-icon {
+  position: relative;
+  margin-right: 10px;
+
   yt-brand-icon {
     width: 97px;
     margin-left: 16px;
+  }
+  &__country-code {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    font-size: 0.8rem;
+    color: var(--yt-spec-text-secondary);
   }
 }
 
