@@ -24,6 +24,7 @@ import {
   BrandIconModule,
   NotFoundPageModule,
   APP_CONFIG,
+  SearchBoxMobileModule,
 } from '@youtube/common-ui';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -71,6 +72,7 @@ import { HistoryAppWrapperComponent } from './history-app-wrapper/history-app-wr
     AppRoutingModule,
     ReactiveFormsModule,
     VideoThumbnailLoaderModule,
+    SearchBoxMobileModule,
     StoreModule.forRoot(ROOT_REDUCERS, {
       runtimeChecks: {
         // strictStateImmutability and strictActionImmutability are enabled by default
