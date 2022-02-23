@@ -1,6 +1,16 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CountryCodeDTO } from '@youtube/common-ui';
 import { Subject, take, takeUntil } from 'rxjs';
 import { SettingsStore } from '../core/services/settings-store/settings-store.service';
 import { AppTheme } from '../core/services/theme-service/theme.constants';
@@ -17,6 +27,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   @Output() readonly toggleMenu = new EventEmitter<void>();
   @Output() readonly toggleAccountMenu = new EventEmitter<void>();
   public searchControl = new FormControl();
+  public countryCode?: string;
 
   private readonly onDestroy$ = new Subject<void>();
 
@@ -24,11 +35,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private videoStore: VideoStoreService,
     private router: Router,
     private settingsStore: SettingsStore,
-    private themeService: ThemeService
+    private http: HttpClient,
+    private themeService: ThemeService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   public ngOnInit(): void {
     this.listenToEvents();
+    this.getCountryCode();
   }
 
   public ngOnDestroy(): void {
@@ -67,6 +81,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
       console.log(value);
       this.videoStore.setSearchQuery(value);
       this.router.navigate(['']);
+    });
+  }
+
+  private getCountryCode(): void {
+    this.http.get<CountryCodeDTO>('http://ip-api.com/json/?fields=countryCode').subscribe((res: CountryCodeDTO) => {
+      this.countryCode = res.countryCode;
+      this.cdr.detectChanges();
     });
   }
 }
