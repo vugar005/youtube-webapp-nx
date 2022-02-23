@@ -63,6 +63,14 @@ export class AppComponent implements OnInit, OnDestroy {
         this.videoStore.setMiniPlayerVideo({ videoId: null, startSeconds: 0 });
         this.router.navigate(['/watch'], { queryParams: { v: videoId } });
       });
+
+    this.eventDispatcher
+      .on(GlobalCustomEvent.NAVIGATE)
+      .pipe(takeUntil(this.onDestroy$))
+      .subscribe((event: Partial<CustomEvent>) => {
+        const url = event.detail.url;
+        this.router.navigate([url]);
+      });
   }
 
   private setMetaTags(): void {

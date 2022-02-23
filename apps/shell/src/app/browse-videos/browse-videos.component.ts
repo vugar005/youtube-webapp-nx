@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, OnDestroy, ChangeDetectorRef, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { IYoutubeService, IYoutubeSearchResult, YOUTUBE_SERVICE } from '@youtube/common-ui';
-import { Subject, switchMap, take, takeUntil, tap, withLatestFrom } from 'rxjs';
+import { catchError, EMPTY, Observable, Subject, switchMap, take, takeUntil, tap, withLatestFrom } from 'rxjs';
 import { AccountStoreService } from '../core/services/account-store/account-store.service';
 import { VideoStoreService } from '../core/services/video-store/video-store.service';
 
@@ -63,7 +63,7 @@ export class BrowseVideosComponent implements OnInit, OnDestroy {
       .selectSearchQuery()
       .pipe(
         tap(() => this.setLoading(true)),
-        switchMap((query: string) => this.youtubeService.searchVideoResults({ query })),
+        switchMap((query: string) => this.getSearchRequest(query)),
         takeUntil(this.onDestroy$)
       )
       .subscribe((items: IYoutubeSearchResult[]) => {
@@ -76,5 +76,8 @@ export class BrowseVideosComponent implements OnInit, OnDestroy {
   private setLoading(isLoading: boolean): void {
     this.isLoading = isLoading;
     this.cdr.detectChanges();
+  }
+  private getSearchRequest(query: string): Observable<IYoutubeSearchResult[]> {
+    return this.youtubeService.searchVideoResults({ query }).pipe(catchError(() => EMPTY));
   }
 }
