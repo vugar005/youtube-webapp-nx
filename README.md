@@ -9,6 +9,13 @@
 
 ---
 
+## Features:   
+☑ Multiple Angular applications on different domains   
+☑ Shared UI components and utils  
+☑ NgRx Store state management on each application   
+☑ Communication between angular applications   
+☑ Routing between applications     
+ 
 
 There is 1 host (shell) and 3 remote apps (watch-app, likes-app, history-app).     
 
