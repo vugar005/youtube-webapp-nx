@@ -24,9 +24,9 @@ There are 3 versions of source codes available:
 
 ---
 
-## Demo:
+## Demo: ▶
 http://youtube.vugar.app
-## Getting Started
+## Getting Started 🚀
 
 1- Install nx globally:   
 ```bash 
