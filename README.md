@@ -28,21 +28,22 @@ There are 3 versions of source codes available:
 http://youtube.vugar.app
 ## Getting Started
 
-1- Install nx globally:
+1- Install nx globally:   
 ```bash 
 npm install nx@13.8.1 -g
+```
 
-1- On project root to install root dependencies   
+2- On project root to install root dependencies   
 ```bash 
 npm ci
 ```  
 
-2- Start project and navigate to localhost:4200:  
+3- Start project and navigate to localhost:4200:  
 ```bash
 nx serve shell:serve-mfe
 ```
 
-3- To lint all apps: 
+4- To lint all apps: 
 ```bash
 npm run lint:all
 ```
