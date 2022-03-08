@@ -1,4 +1,4 @@
-# Youtube clone with Lerna 
+# Youtube clone with Nx 
 
 <img src="https://github.com/vugar005/vg-common/blob/main/images/Youtube-logo.webp" alt="Youtube Angular brand" width="100%"  height="400px">
 
