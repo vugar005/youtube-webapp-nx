@@ -33,6 +33,14 @@ There are 3 versions of source codes available:
 
 ## Demo: ▶
 http://youtube.vugar.app
+
+---
+**NOTE**:
+
+*Hosted application is using Turborepo edition repo*
+
+---
+
 ## Getting Started 🚀
 
 1- Install nx globally:   
@@ -76,15 +84,23 @@ Below are just my experiences working in those tools. They can be inaccurate.
 ❌ No dependency graph   
 
 ### Nx
-❌ Supports both same and different versions of libraries (such as Angular, RxJs). Only Monorepo.   
+❌ Not supports  both same and different versions of libraries (such as Angular, RxJs). Only Monorepo.   
 ❌ Not native. Needs to change configuration of applications (such as angular.json).   
   Uses custom plugins instead of native angular/cli. Problems with adding new packages (such as ssr)   
 ✅ Very fast development efficiency   
 ✅ Poweful dependency graph   
 
 ### Turborepo
-❌ Supports both same and different versions of libraries (such as Angular, RxJs). Only Monorepo.   
+❌ Not supports both same and different versions of libraries (such as Angular, RxJs). Only Monorepo.   
 ✅ Native. No need to change configuration of applications (such as angular.json).   
 ✅ Fast development efficiency   
 ✅ Dependency graph  
 
+## What is next?
+Currently, the unit tests were not aded since the project was focused on main features such as module federation, managing state, intercommucation and so on. It can be started soon.
+
+## Contribution guide 🌴
+Want to contribute to improve community app? Looking forward for pull requests. Let's get started :)
+
+## About me 🌴🏌️
+Xtreme Junior Front end developer focused on nice architecture and long term webapps.
